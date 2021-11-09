@@ -9,7 +9,7 @@
     "moduleResolution": "node",
     "noEmit": true,
     "strict": true,
-    "target": "esnext",
+    "target": "esnext"
     // "baseUrl": ".",
     // "paths": {
     //   "*": ["src/*"],
@@ -17,7 +17,7 @@
     //   "@components/*": ["src/components/*"],
     //   },
   },
-  
+
   "exclude": [
     "node_modules",
     "babel.config.js",
