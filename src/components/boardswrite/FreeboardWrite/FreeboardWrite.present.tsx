@@ -1,10 +1,28 @@
 import React from 'react';
-import { Wrapper, MainText } from './FreeboardWrite.styles';
+import {
+  Wrapper,
+  MainTitle,
+  Submit,
+  SubmitText,
+  Line,
+  Contents,
+  TextSubmitBox,
+} from './FreeboardWrite.styles';
 
-const FreeBoardWriteUI = () => {
+const FreeBoardWriteUI = (props: any) => {
   return (
     <Wrapper>
-      <MainText>여기는 커뮤니티 게시판 등록페이지입니다</MainText>
+      <TextSubmitBox>
+        <MainTitle>커뮤니티</MainTitle>
+        <Line></Line>
+        <Contents
+          placeholder="내용을 입력하세요"
+          onChangeText={props.setCountents}
+        />
+      </TextSubmitBox>
+      <Submit onPress={props.onClickFreeBoardSubmit}>
+        <SubmitText>등록하기</SubmitText>
+      </Submit>
     </Wrapper>
   );
 };
