@@ -1,69 +1,73 @@
 import React from 'react';
 import {
+  ScrollView,
   Wrapper,
-  // Button1,
   ProfileDefault,
-  NickNameView,
   NickName,
-  Logout,
-  LogoutText,
-  ProfileUpdateView,
+  ButtonView,
+  MyBoards,
+  MyBoardsText,
+  MyLike,
+  MyLikeText,
+  ProfileUpdate,
   ProfileUpdateText,
-  Line,
-  MyLikeView,
-  MyLikeImage,
-  MyLikeTitle,
-  MyBoardsView,
-  MyBoardsImage,
-  MyBoardsTitle,
-  MyMoneyView,
-  MyMoneyImage,
-  MyMoneyTitle,
+  ButtonImage,
+  BoardContainer,
+  BoardTitle,
+  Box,
+  Tilte,
+  Contents,
+  BottomView,
+  Date,
+  NickName2,
 } from './MypageMain.styles';
 import { useNavigation } from '@react-navigation/native';
 
 const MyPageMainUI = ({ navigate }: any) => {
   const navigation = useNavigation();
   return (
-    <Wrapper>
-      <ProfileDefault
-        source={require('../../../public/images/defaultprofile.png')}
-      />
-      <NickNameView>
-        <NickName>심심해해해햏해해</NickName>
-        <Logout>
-          <LogoutText>로그아웃</LogoutText>
-        </Logout>
-      </NickNameView>
-      <ProfileUpdateView onPress={() => navigation.navigate('프로필수정')}>
-        <ProfileUpdateText>프로필수정하기</ProfileUpdateText>
-      </ProfileUpdateView>
-      <Line></Line>
-      <MyLikeView>
-        <MyLikeImage
-          source={require('../../../public/images/mylikeimage.png')}
+    <ScrollView>
+      <Wrapper>
+        <ProfileDefault
+          source={require('../../../public/images/defaultprofile.png')}
         />
-        <MyLikeTitle onPress={() => navigation.navigate('내가누른좋아요')}>
-          내가 누른 좋아요!
-        </MyLikeTitle>
-      </MyLikeView>
-      <MyBoardsView>
-        <MyBoardsImage
-          source={require('../../../public/images/myboardsimage.png')}
-        />
-        <MyBoardsTitle onPress={() => navigation.navigate('내가쓴글보기')}>
-          내가 쓴 글 보기!
-        </MyBoardsTitle>
-      </MyBoardsView>
-      <MyMoneyView>
-        <MyMoneyImage
-          source={require('../../../public/images/mymoneyimage.png')}
-        />
-        <MyMoneyTitle onPress={() => navigation.navigate('동창회비내역')}>
-          동창회비 내역
-        </MyMoneyTitle>
-      </MyMoneyView>
-    </Wrapper>
+        <NickName>코딩싫어</NickName>
+        <ButtonView>
+          <MyBoards>
+            <ButtonImage></ButtonImage>
+            <MyBoardsText>내가쓴글</MyBoardsText>
+          </MyBoards>
+          <MyLike>
+            <ButtonImage></ButtonImage>
+            <MyLikeText>좋아요!</MyLikeText>
+          </MyLike>
+          <ProfileUpdate>
+            <ButtonImage></ButtonImage>
+            <ProfileUpdateText>프로필수정</ProfileUpdateText>
+          </ProfileUpdate>
+        </ButtonView>
+        <BoardContainer>
+          <BoardTitle>정보공유</BoardTitle>
+          <Box>
+            <Tilte>ReactNative</Tilte>
+            <Contents>내용입니다</Contents>
+            <BottomView>
+              <Date>2021.11.11</Date>
+              <NickName2>코딩싫어</NickName2>
+            </BottomView>
+          </Box>
+          <BoardTitle>만남</BoardTitle>
+          <Box>
+            <Tilte>ReactNative</Tilte>
+            <Contents>내용입니다</Contents>
+            <BottomView>
+              <Date>2021.11.11</Date>
+              <NickName2>코딩싫어</NickName2>
+            </BottomView>
+          </Box>
+        </BoardContainer>
+      </Wrapper>
+    </ScrollView>
   );
 };
 
