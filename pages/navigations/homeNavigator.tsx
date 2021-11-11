@@ -18,7 +18,7 @@ const HomeNavigator = () => {
   const Stack = createNativeStackNavigator();
 
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="메인" component={HomeScreen} />
       <Stack.Screen name="정보공유게시판" component={SharinginfoScreen} />
       <Stack.Screen name="만남게시판" component={MeetingScreen} />

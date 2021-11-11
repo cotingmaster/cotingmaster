@@ -2,7 +2,7 @@ import styled from '@emotion/native';
 
 export const Wrapper = styled.View`
   height: 100%;
-  background-color: white;
+  /* background-color: white; */
 `;
 
 export const ProfileView = styled.View`
@@ -64,6 +64,7 @@ export const Contents = styled.Text`
   color: black;
   margin-left: 10px;
   margin-bottom: 15px;
+  background-color: white;
 `;
 
 export const Image = styled.View`
