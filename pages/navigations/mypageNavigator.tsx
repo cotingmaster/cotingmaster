@@ -10,7 +10,7 @@ const MyPageNavigator = () => {
   const Stack = createNativeStackNavigator();
 
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="메인" component={MyPageMainScreen} />
       <Stack.Screen name="프로필수정" component={ProfileUpdateScreen} />
       <Stack.Screen name="내가누른좋아요" component={MyLikeScreen} />
