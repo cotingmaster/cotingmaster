@@ -18,6 +18,7 @@ const FreeBoardWriteUI = (props: any) => {
         <Contents
           placeholder="내용을 입력하세요"
           onChangeText={props.setCountents}
+          multiline={true}
         />
       </TextSubmitBox>
       <Submit onPress={props.onClickFreeBoardSubmit}>

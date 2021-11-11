@@ -3,6 +3,8 @@ import styled from '@emotion/native';
 export const Wrapper = styled.View`
   height: 100%;
   background-color: white;
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const MainTitle = styled.Text`
