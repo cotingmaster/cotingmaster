@@ -17,7 +17,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import AuthNavigator from './pages/navigations/loginAuth';
 
 //  const Tab = createBottomTabNavigator();
-export const GlobalContext = createContext(null);
+export const GlobalContext = React.createContext(null);
 
 const App: () => Node = () => {
   const Stack = createNativeStackNavigator();

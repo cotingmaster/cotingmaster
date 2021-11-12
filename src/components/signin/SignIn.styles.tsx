@@ -23,6 +23,7 @@ export const S = {
     font-size: 18px;
   `,
   SubmitButton: styled.Button`
+    margin: 10px;
     flex: 1;
     height: 30px;
     font-size: 20px;
