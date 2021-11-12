@@ -3,9 +3,9 @@ import { useMutation } from '@apollo/client';
 import { useState } from 'react';
 import { S } from './SignUp.styles';
 import { CREATE_USER } from './SignUp.queries';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Alert } from 'react-native';
-import { GlobalContext } from '../../../../App';
+
+import { useNavigation } from '@react-navigation/native';
 
 export default function SignUpUI() {
   const [signup, setSignup] = useState(false);
@@ -14,16 +14,15 @@ export default function SignUpUI() {
   const [name, setName] = useState('');
 
   const [createUser] = useMutation(CREATE_USER);
-  const { setAccessToken } = React.useContext(GlobalContext);
+  const navigation = useNavigation();
 
-  const changeEmail = e => {
+  const changeEmail = (e: any) => {
     setEmail(e);
-    console.log(e);
   };
-  const changePassword = e => {
+  const changePassword = (e: any) => {
     setPassword(e);
   };
-  const changeName = e => {
+  const changeName = (e: any) => {
     setName(e);
   };
   const onPressSubmit = async () => {
@@ -38,7 +37,10 @@ export default function SignUpUI() {
     try {
       const { data } = await createUser({ variables });
       console.log(data?.createUser._id);
-      Alert.alert(`가입성공! ${data?.createUser.name}님 환영합니다`);
+      Alert.alert(
+        `${data?.createUser.name}님 가입성공! 가입하신 정보로 로그인을 해주세요`,
+      );
+      navigation.navigate('로그인페이지');
     } catch (error: any) {
       Alert.alert(error.message);
     }
