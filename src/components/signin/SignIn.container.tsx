@@ -32,7 +32,6 @@ const SignInContainer = () => {
       const { data } = await loginUser({ variables });
       AsyncStorage.setItem('user', data.loginUser.accessToken);
       setAccessToken(data.loginUser.accessToken);
-      // navigation.navigate('마이페이지');
     } catch (error: any) {
       Alert.alert(error.message);
     }
