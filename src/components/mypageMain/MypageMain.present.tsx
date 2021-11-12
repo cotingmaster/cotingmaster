@@ -3,6 +3,10 @@ import {
   ScrollView,
   Wrapper,
   ProfileDefault,
+  NameView,
+  LogOutView,
+  LogOutText,
+  NickNameView,
   NickName,
   ButtonView,
   MyBoards,
@@ -31,7 +35,14 @@ const MyPageMainUI = ({ navigate }: any) => {
         <ProfileDefault
           source={require('../../../public/images/defaultprofile.png')}
         />
-        <NickName>코딩싫어</NickName>
+        <NameView>
+          <NickNameView>
+            <NickName>이상혁 3기</NickName>
+          </NickNameView>
+          <LogOutView>
+            <LogOutText>로그아웃</LogOutText>
+          </LogOutView>
+        </NameView>
         <ButtonView>
           <MyBoards>
             <ButtonImage></ButtonImage>
@@ -48,15 +59,6 @@ const MyPageMainUI = ({ navigate }: any) => {
         </ButtonView>
         <BoardContainer>
           <BoardTitle>정보공유</BoardTitle>
-          <Box>
-            <Tilte>ReactNative</Tilte>
-            <Contents>내용입니다</Contents>
-            <BottomView>
-              <Date>2021.11.11</Date>
-              <NickName2>코딩싫어</NickName2>
-            </BottomView>
-          </Box>
-          <BoardTitle>만남</BoardTitle>
           <Box>
             <Tilte>ReactNative</Tilte>
             <Contents>내용입니다</Contents>

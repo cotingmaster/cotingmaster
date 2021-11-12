@@ -9,6 +9,7 @@ export const Wrapper = styled.View`
   padding-right: 10px;
   padding-left: 10px;
   background-color: white;
+  /* height: 100%; */
 `;
 
 // export const Button1 = styled.Button``;
@@ -20,10 +21,40 @@ export const ProfileDefault = styled.Image`
   margin-top: 30px;
 `;
 
+export const NameView = styled.View`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 40px;
+  margin-left: 95px;
+`;
+
+export const NickNameView = styled.View`
+  display: flex;
+  align-items: center;
+  width: 120px;
+  /* border: solid 1px black; */
+  margin-right: 10px;
+`;
+
 export const NickName = styled.Text`
   font-size: 18px;
   color: black;
-  margin-bottom: 40px;
+`;
+
+export const LogOutView = styled.TouchableOpacity`
+  background-color: #ffd600;
+  width: 80px;
+  height: 30px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const LogOutText = styled.Text`
+  font-size: 15px;
+  color: black;
 `;
 
 export const ButtonView = styled.View`
@@ -43,6 +74,7 @@ export const MyBoards = styled.TouchableOpacity`
   display: flex;
   justify-content: center;
   align-items: center;
+  elevation: 10;
 `;
 
 export const ButtonImage = styled.View`
@@ -64,6 +96,7 @@ export const MyLike = styled.TouchableOpacity`
   display: flex;
   justify-content: center;
   align-items: center;
+  elevation: 10;
 `;
 
 export const MyLikeText = styled.Text`
@@ -78,6 +111,7 @@ export const ProfileUpdate = styled.TouchableOpacity`
   display: flex;
   justify-content: center;
   align-items: center;
+  elevation: 10;
 `;
 
 export const ProfileUpdateText = styled.Text`
@@ -85,7 +119,11 @@ export const ProfileUpdateText = styled.Text`
 `;
 
 export const BoardContainer = styled.View`
-  /* width: 340px; */
+  /* width: 340px;
+  background-color: #e5e5e5;
+  display: flex;
+  align-items: center;
+  border-radius: 5px; */
 `;
 
 export const BoardTitle = styled.Text`
@@ -95,7 +133,7 @@ export const BoardTitle = styled.Text`
 `;
 
 export const Box = styled.TouchableOpacity`
-  width: 340px;
+  width: 320px;
   height: 137px;
   background-color: pink;
   border-radius: 10px;
