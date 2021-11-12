@@ -16,8 +16,12 @@ const FreeBoardWriteUI = (props: any) => {
         <MainTitle>커뮤니티</MainTitle>
         <Line></Line>
         <Contents
+          placeholder="제목을 입력하세요"
+          onChangeText={props.setTitle}
+        />
+        <Contents
           placeholder="내용을 입력하세요"
-          onChangeText={props.setCountents}
+          onChangeText={props.setContents}
           multiline={true}
         />
       </TextSubmitBox>
