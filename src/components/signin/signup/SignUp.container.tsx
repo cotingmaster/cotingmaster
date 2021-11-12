@@ -28,11 +28,14 @@ export default function SingUp() {
   };
 
   const onPressSubmit = async () => {
+    if (!email || !password || !name) {
+      return Alert.alert('가입정보를 모두 입력해주세요');
+    }
     const variables = {
       createUserInput: {
         email,
         password,
-        name,
+        name: name,
       },
     };
     try {
