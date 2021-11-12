@@ -1,9 +1,67 @@
 import * as React from 'react';
-import { S } from './SignUp.styles';
+import {
+  Wrapper,
+  TitleImage,
+  ClassView,
+  ClassInput,
+  ClassError,
+  EmailView,
+  EmailInput,
+  EmailError,
+  NameView,
+  NameInput,
+  NameError,
+  PassView,
+  PassInput,
+  PassError,
+  Pass2View,
+  Pass2Input,
+  Pass2Error,
+  LoginView,
+  LoginText,
+} from './SignUp.styles';
 
 export default function SignUpUI(props: any) {
   return (
-    <S.Container>
+    <Wrapper>
+      <TitleImage source={require('../../../../public/images/logionlog.png')} />
+      <ClassView>
+        <ClassInput placeholder="기수를 입력해주세요. ex) 3기"></ClassInput>
+        {/* <ClassError>기수를 확인해주세요.</ClassError> */}
+      </ClassView>
+      <EmailView>
+        <EmailInput
+          placeholder="이메일을 입력해주세요."
+          onChangeText={props.changeEmail}></EmailInput>
+        {/* <EmailError>이메일을 확인해주세요.</EmailError> */}
+      </EmailView>
+      <NameView>
+        <NameInput
+          placeholder="이름을 입력해주세요."
+          onChangeText={props.changeName}></NameInput>
+        {/* <NameError>이름을 확인해주세요.</NameError> */}
+      </NameView>
+      <PassView>
+        <PassInput
+          placeholder="비밀번호를 입력해주세요."
+          onChangeText={props.changePassword}></PassInput>
+        {/* <PassError>비밀번호를 확인해주세요.</PassError> */}
+      </PassView>
+      <Pass2View>
+        <Pass2Input
+          placeholder="비밀번호확인"
+          onChangeText={props.changePassword}></Pass2Input>
+        {/* <Pass2Error>비밀번호를 확인해주세요.</Pass2Error> */}
+      </Pass2View>
+      <LoginView onPress={props.onPressSubmit}>
+        <LoginText>회원가입</LoginText>
+      </LoginView>
+    </Wrapper>
+  );
+}
+
+{
+  /* <S.Container>
       <S.LineBox>
         <S.ShowText>이메일</S.ShowText>
         <S.InputLine testID="email" onChangeText={props.changeEmail} />
@@ -17,6 +75,5 @@ export default function SignUpUI(props: any) {
         <S.InputLine testID="name" onChangeText={props.changeName} />
       </S.LineBox>
       <S.SubmitButton onPress={props.onPressSubmit} title="회원 가입" />
-    </S.Container>
-  );
+    </S.Container> */
 }

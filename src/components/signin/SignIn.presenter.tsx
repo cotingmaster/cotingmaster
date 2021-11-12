@@ -1,30 +1,45 @@
 import React from 'react';
-import { S } from './SignIn.styles';
+import {
+  Wrapper,
+  TitleImage,
+  EmailView,
+  EmailInput,
+  EmailError,
+  PassView,
+  PassInput,
+  PassError,
+  LoginView,
+  LoginText,
+  SignUpView,
+  SignUpText,
+} from './SignIn.styles';
 import { useNavigation } from '@react-navigation/native';
 
 const SignInUI = (props: any) => {
   const navigation = useNavigation();
 
   return (
-    <S.Container>
-      <S.LogoBackground>
-        <S.Logo source={require('../../../public/images/coting.png')} />
-      </S.LogoBackground>
-      <S.InputLine
-        placeholder={'코드캠프 수강시 등록했던 이메일을 입력해주세요'}
-        onChangeText={props.changeEmail}
-      />
-      <S.InputLine
-        placeholder={'비밀번호를 입력해주세요'}
-        onChangeText={props.changePassword}
-      />
-      <S.PressSubmit onPress={props.onPressLogin}>
-        <S.ShowText>로그인</S.ShowText>
-      </S.PressSubmit>
-      <S.PressSubmit onPress={() => navigation.navigate('회원가입페이지')}>
-        <S.ShowText>회원 가입</S.ShowText>
-      </S.PressSubmit>
-    </S.Container>
+    <Wrapper>
+      <TitleImage source={require('../../../public/images/logionlog.png')} />
+      <EmailView>
+        <EmailInput
+          placeholder="이메일을 입력해주세요."
+          onChangeText={props.changeEmail}></EmailInput>
+        <EmailError>{props.emailError}</EmailError>
+      </EmailView>
+      <PassView>
+        <PassInput
+          placeholder="비밀번호를 입력해주세요."
+          onChangeText={props.changePassword}></PassInput>
+        <PassError>{props.passError}</PassError>
+      </PassView>
+      <LoginView>
+        <LoginText onPress={props.onPressLogin}>로그인</LoginText>
+      </LoginView>
+      <SignUpView onPress={() => navigation.navigate('회원가입페이지')}>
+        <SignUpText>회원가입</SignUpText>
+      </SignUpView>
+    </Wrapper>
   );
 };
 

@@ -11,6 +11,8 @@ const SignInContainer = () => {
   const { setAccessToken } = useContext(GlobalContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passError, setPassError] = useState('');
   const navigation = useNavigation();
   const [loginUser] = useMutation(LOGIN_USER);
 
@@ -23,6 +25,16 @@ const SignInContainer = () => {
   };
 
   const onPressLogin = async () => {
+    if (email === '') {
+      setEmailError('이메일을 확인해주세요');
+      return;
+    }
+
+    if (password === '') {
+      setPassError('비밀번호를 확인해주세요');
+      return;
+    }
+
     try {
       const variables = {
         email,
@@ -42,6 +54,8 @@ const SignInContainer = () => {
       changeEmail={changeEmail}
       changePassword={changePassword}
       onPressLogin={onPressLogin}
+      emailError={emailError}
+      passError={passError}
     />
   );
 };

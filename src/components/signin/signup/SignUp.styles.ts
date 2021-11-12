@@ -1,32 +1,133 @@
-import styled from '@emotion/native'
+import styled from '@emotion/native';
 
-export const S = {
-  Container: styled.View`
-    flex: 1;
-    padding: 10px;
-  `,
-  LineBox: styled.View`
-    flex: 1;
-    display: flex;
-    flex-direction: row;
-    margin-top: 10px;
-  `,
-  InputLine: styled.TextInput`
-    height: 50px;
-    width: 400px;
-    margin-right: 10px;
-    border-bottom-color: gray;
-    border-bottom-width: 1px;
-  `,
-  ShowText: styled.Text`
-    /* height: 30px; */
-    font-size: 18px;
-  `,
-  SubmitButton: styled.Button`
-    flex: 1;
-    height: 30px;
-    font-size: 20px;
-    color: aliceblue; 
+export const Wrapper = styled.View`
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+`;
 
-  `,
-}
+export const TitleImage = styled.Image`
+  margin-top: 30px;
+  margin-bottom: 50px;
+`;
+
+export const ClassView = styled.View`
+  /* border: solid 1px black; */
+  height: 65px;
+  margin-bottom: 10px;
+`;
+
+export const ClassInput = styled.TextInput`
+  border: solid 1px gray;
+  padding-left: 10px;
+  border-radius: 10px;
+  width: 259px;
+  height: 40px;
+  font-size: 13px;
+  margin-bottom: 5px;
+`;
+
+export const ClassError = styled.Text`
+  font-size: 13px;
+  color: red;
+`;
+
+export const EmailView = styled.View`
+  /* border: solid 1px black; */
+  height: 65px;
+  margin-bottom: 10px;
+`;
+
+export const EmailInput = styled.TextInput`
+  border: solid 1px gray;
+  padding-left: 10px;
+  border-radius: 10px;
+  width: 259px;
+  height: 40px;
+  font-size: 13px;
+  margin-bottom: 5px;
+`;
+
+export const EmailError = styled.Text`
+  font-size: 13px;
+  color: red;
+`;
+
+export const NameView = styled.View`
+  /* border: solid 1px black; */
+  height: 65px;
+  margin-bottom: 10px;
+`;
+
+export const NameInput = styled.TextInput`
+  border: solid 1px gray;
+  padding-left: 10px;
+  border-radius: 10px;
+  width: 259px;
+  height: 40px;
+  font-size: 13px;
+  margin-bottom: 5px;
+`;
+
+export const NameError = styled.Text`
+  font-size: 13px;
+  color: red;
+`;
+
+export const PassView = styled.View`
+  /* border: solid 1px black; */
+  margin-bottom: 10px;
+  height: 65px;
+`;
+
+export const PassInput = styled.TextInput`
+  border: solid 1px gray;
+  padding-left: 10px;
+  border-radius: 10px;
+  width: 259px;
+  height: 40px;
+  font-size: 13px;
+  margin-bottom: 5px;
+`;
+
+export const PassError = styled.Text`
+  font-size: 13px;
+  color: red;
+`;
+
+export const Pass2View = styled.View`
+  /* border: solid 1px black; */
+  margin-bottom: 10px;
+  height: 65px;
+`;
+
+export const Pass2Input = styled.TextInput`
+  border: solid 1px gray;
+  padding-left: 10px;
+  border-radius: 10px;
+  width: 259px;
+  height: 40px;
+  font-size: 13px;
+  margin-bottom: 5px;
+`;
+
+export const Pass2Error = styled.Text`
+  font-size: 13px;
+  color: red;
+`;
+export const LoginView = styled.TouchableOpacity`
+  background-color: #ffd600;
+  width: 259px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+`;
+
+export const LoginText = styled.Text`
+  font-size: 16px;
+  color: black;
+`;
