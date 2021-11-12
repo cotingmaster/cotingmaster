@@ -8,6 +8,7 @@ import {
   BottomView,
   Date,
   NickName,
+  Button1,
 } from './meeting.styles';
 import { useNavigation } from '@react-navigation/native';
 
@@ -32,19 +33,16 @@ const MeetingUI = ({ navigate }: any) => {
           <NickName>코딩싫어</NickName>
         </BottomView>
       </Box>
-    </Wrapper>
-  );
-};
-
-export default MeetingUI;
-
-{
-  /* <Button1
+      <Button1
         title="만남디테일페이지가기"
         onPress={() => navigation.navigate('만남게시판디테일')}
       />
       <Button1
         title="만남등록페이지가기"
         onPress={() => navigation.navigate('만남게시판등록')}
-      /> */
-}
+      />
+    </Wrapper>
+  );
+};
+
+export default MeetingUI;
