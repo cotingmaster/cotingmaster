@@ -14,7 +14,7 @@ import { useState, createContext, useEffect } from 'react';
 import { getAccessToken } from './src/commons/libraries/getAccessToken';
 import { onError } from '@apollo/client/link/error';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import loginAuth from './pages/navigations/loginAuth';
+import AuthNavigator from './pages/navigations/loginAuth';
 
 //  const Tab = createBottomTabNavigator();
 export const GlobalContext = createContext(null);
@@ -75,7 +75,7 @@ const App: () => Node = () => {
             {accessToken ? (
               <Stack.Screen name="tabNavigator" component={TabNavigator} />
             ) : (
-              <Stack.Screen name="Login" component={loginAuth} />
+              <Stack.Screen name="Login" component={AuthNavigator} />
             )}
           </Stack.Navigator>
         </NavigationContainer>
