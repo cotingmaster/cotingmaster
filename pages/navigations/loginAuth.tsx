@@ -1,11 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import SignUp from '../../src/components/signin/signup/SignUp.container';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import SignInScreen from '../screens/auth/signin';
+import SignUpScreen from '../screens/auth/signup';
 
-const loginAuth = () => {
-  return <SignUp />;
+const AuthNavigator = () => {
+  const Stack = createNativeStackNavigator();
+
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="로그인페이지" component={SignInScreen} />
+      <Stack.Screen name="회원가입페이지" component={SignUpScreen} />
+    </Stack.Navigator>
+  );
 };
 
-export default loginAuth;
-
-const styles = StyleSheet.create({});
+export default AuthNavigator;
