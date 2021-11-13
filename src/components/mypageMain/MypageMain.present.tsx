@@ -27,7 +27,7 @@ import {
 } from './MypageMain.styles';
 import { useNavigation } from '@react-navigation/native';
 
-const MyPageMainUI = ({ navigate }: any) => {
+const MyPageMainUI = ({ navigate }: any, props: any) => {
   const navigation = useNavigation();
   return (
     <ScrollView>
@@ -35,9 +35,11 @@ const MyPageMainUI = ({ navigate }: any) => {
         <ProfileDefault
           source={require('../../../public/images/defaultprofile.png')}
         />
+
         <NameView>
+          {/* {props.data?.fetchUserLoggedIn.name} */}
           <NickNameView>
-            <NickName>이상혁 3기</NickName>
+            <NickName>이상혁</NickName>
           </NickNameView>
           <LogOutView>
             <LogOutText>로그아웃</LogOutText>

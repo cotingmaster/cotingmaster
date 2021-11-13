@@ -35,7 +35,7 @@ const SharingInfodDetailUI = () => {
       <Line></Line>
       <Title>제목</Title>
       <Contents>
-        내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+        내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
       </Contents>
       <Image></Image>
     </Wrapper>
