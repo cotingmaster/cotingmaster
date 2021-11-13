@@ -27,7 +27,7 @@ import {
 } from './MypageMain.styles';
 import { useNavigation } from '@react-navigation/native';
 
-const MyPageMainUI = ({ navigate }: any, props: any) => {
+const MyPageMainUI = ({ navigate, data, onPressLogout }: any) => {
   const navigation = useNavigation();
   return (
     <ScrollView>
@@ -37,11 +37,10 @@ const MyPageMainUI = ({ navigate }: any, props: any) => {
         />
 
         <NameView>
-          {/* {props.data?.fetchUserLoggedIn.name} */}
           <NickNameView>
-            <NickName>이상혁</NickName>
+            <NickName>{data?.fetchUserLoggedIn.name}</NickName>
           </NickNameView>
-          <LogOutView>
+          <LogOutView onPress={onPressLogout}>
             <LogOutText>로그아웃</LogOutText>
           </LogOutView>
         </NameView>
