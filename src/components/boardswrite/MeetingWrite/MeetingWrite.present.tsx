@@ -15,7 +15,7 @@ import {
   SubmitText,
 } from './MeetingWrite.styles';
 
-const MeetingWriteUI = () => {
+const MeetingWriteUI = (props: any) => {
   return (
     <ScrollView>
       <Wrapper>
@@ -26,21 +26,25 @@ const MeetingWriteUI = () => {
             <MapImage source={require('../../../../public/images/map.png')} />
           </MapView>
           <Date
+            onChangeText={props.setMeetingDate}
             placeholder="모임날짜를 입력해주세요. ex) 2021.11.02"
             placeholderTextColor="black"></Date>
           <Location
+            onChangeText={props.setMeetingAddress}
             placeholder="모임장소를 입력해주세요."
             placeholderTextColor="black"></Location>
           <Title
+            onChangeText={props.setTitle}
             placeholder="제목을 입력해주세요."
             placeholderTextColor="black"></Title>
           <Contents
+            onChangeText={props.setContents}
             placeholder="내용을 입력해주세요."
             placeholderTextColor="black"
             multiline={true}></Contents>
         </TopView>
         <Submit>
-          <SubmitText>등록하기</SubmitText>
+          <SubmitText onPress={props.onPressMeetingSubmit}>등록하기</SubmitText>
         </Submit>
       </Wrapper>
     </ScrollView>
