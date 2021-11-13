@@ -22,17 +22,19 @@ const SharingInfoWriteUI = (props: any) => {
         </MainView>
         <Line></Line>
         <Title
+          onChangeText={props.setTitle}
           placeholder="제목을 입력해주세요."
           placeholderTextColor="black"></Title>
         <LineView>
           <Line2></Line2>
         </LineView>
         <Contents
+          onChangeText={props.setContents}
           placeholder="내용을 입력해주세요."
           placeholderTextColor="black"
           multiline={true}></Contents>
       </TopView>
-      <Submit onPress={props.onClickSubmit}>
+      <Submit onPress={props.onPressSharingSubmit}>
         <SubmitText>등록하기</SubmitText>
       </Submit>
     </Wrapper>

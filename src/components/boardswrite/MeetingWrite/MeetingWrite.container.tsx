@@ -19,7 +19,7 @@ const MeetingWriteContainer = () => {
     console.log(data?.fetchUserLoggedIn._id);
 
     firestore()
-      .collection('User')
+      .collection('Users')
       .doc(data?.fetchUserLoggedIn._id)
       .collection('MeetingBoard')
       .doc()
@@ -42,7 +42,6 @@ const MeetingWriteContainer = () => {
       setMeetingAddress={setMeetingAddress}
       setTitle={setTitle}
       setContents={setContents}
-      d
     />
   );
 };

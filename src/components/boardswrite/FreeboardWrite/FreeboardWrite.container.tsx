@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import FreeBoardWriteUI from './FreeboardWrite.present';
 import firestore from '@react-native-firebase/firestore';
 import { useQuery } from '@apollo/client';
@@ -14,16 +13,20 @@ const FreeBoardWriteContainer = () => {
   const [images, setImage] = useState([]);
 
   const onClickFreeBoardSubmit = () => {
-    const user = data?.fetchUserLoggedIn;
+    const user_id = data?.fetchUserLoggedIn._id;
+    console.log(data?.fetchUserLoggedIn._id);
 
-    firestore().collection('FreeBoard').add({
-      title,
-      contents,
-      images,
-      user,
-      createdAt: new Date(),
-      tag: 'FreeBoard',
-    });
+    firestore()
+      .collection('Users')
+      .doc(data?.fetchUserLoggedIn._id)
+      .collection('FreeBoard')
+      .doc()
+      .set({
+        title,
+        contents,
+        createdAt: new Date(),
+        tag: 'FreeBoard',
+      });
     navigation.navigate('커뮤니티게시판디테일');
   };
 
