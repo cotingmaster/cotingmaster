@@ -16,7 +16,7 @@ const MeetingUI = ({ navigate }: any) => {
   const navigation = useNavigation();
   return (
     <Wrapper>
-      <MainTitle>만남</MainTitle>
+      <MainTitle></MainTitle>
       <Box>
         <Tilte>술한잔하자</Tilte>
         <Place>패스트파이브앞호식이두마리치킨</Place>

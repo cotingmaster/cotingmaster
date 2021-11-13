@@ -16,7 +16,7 @@ import {
 } from './meetingdetail.styles';
 import { useNavigation } from '@react-navigation/native';
 
-const MeetingDetailUI = () => {
+const MeetingDetailUI = (props: any) => {
   const navigation = useNavigation();
   return (
     <ScrollView>
@@ -25,18 +25,16 @@ const MeetingDetailUI = () => {
         <DtailBox>
           <UserBox>
             <UserInfo>
-              <UserName>그나천사</UserName>
+              <UserName>{props.data?.fetchUserLoggedIn.name}</UserName>
               <ClassNumberDate>
                 <ClassNumber>3기</ClassNumber>
-                <Date>2021.11.11</Date>
+                <Date>{props.userData?.createAt}</Date>
               </ClassNumberDate>
             </UserInfo>
             <Like>♥</Like>
           </UserBox>
-          <Title>만날래?말래?</Title>
-          <Contents>
-            내가 내일 시간이 많아서 만나고싶은데 시간되는 사람 모여!!!
-          </Contents>
+          <Title>{props.userData?.title}</Title>
+          <Contents>{props.userData?.contents}</Contents>
         </DtailBox>
       </Wrapper>
     </ScrollView>
