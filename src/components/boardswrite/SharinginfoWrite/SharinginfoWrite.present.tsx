@@ -13,7 +13,7 @@ import {
   SubmitText,
 } from './SharinginfoWrite.styles';
 
-const SharingInfoWriteUI = () => {
+const SharingInfoWriteUI = (props: any) => {
   return (
     <Wrapper>
       <TopView>
@@ -32,7 +32,7 @@ const SharingInfoWriteUI = () => {
           placeholderTextColor="black"
           multiline={true}></Contents>
       </TopView>
-      <Submit>
+      <Submit onPress={props.onClickSubmit}>
         <SubmitText>등록하기</SubmitText>
       </Submit>
     </Wrapper>

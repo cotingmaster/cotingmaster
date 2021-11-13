@@ -4,8 +4,10 @@ import FreeBoardWriteUI from './FreeboardWrite.present';
 import firestore from '@react-native-firebase/firestore';
 import { useQuery } from '@apollo/client';
 import { FETCH_USER_LOGGEDIN } from '../../signin/SignIn.queries';
+import { useNavigation } from '@react-navigation/native';
 
 const FreeBoardWriteContainer = () => {
+  const navigation = useNavigation();
   const { data } = useQuery(FETCH_USER_LOGGEDIN);
   const [title, setTitle] = useState('');
   const [contents, setContents] = useState('');
@@ -22,6 +24,7 @@ const FreeBoardWriteContainer = () => {
       createdAt: new Date(),
       tag: 'FreeBoard',
     });
+    navigation.navigate('커뮤니티게시판디테일');
   };
 
   return (
