@@ -1,14 +1,18 @@
 import styled from '@emotion/native';
 
+export const ScrollView = styled.ScrollView``;
+
 export const Wrapper = styled.View`
   display: flex;
   align-items: center;
+  z-index: 0;
 `;
 
 export const MainTitle = styled.Text`
   font-size: 30px;
   color: black;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  margin-top: 20px;
 `;
 
 export const Box = styled.TouchableOpacity`
@@ -50,4 +54,15 @@ export const NickName = styled.Text`
   color: black;
 `;
 
-export const Button1 = styled.Button``;
+export const RegisterView = styled.TouchableOpacity`
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 300px;
+  bottom: 10px;
+  z-index: 1;
+`;
+
+export const ButtonImage = styled.Image``;
+
+// export const Button1 = styled.Button``;

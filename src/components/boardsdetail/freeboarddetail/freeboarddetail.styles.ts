@@ -1,54 +1,67 @@
 import styled from '@emotion/native';
 
+export const ScrollView = styled.ScrollView``;
+
 export const Wrapper = styled.View`
-  margin-top: 10px;
   height: 100%;
   background-color: white;
 `;
 
-export const UserInfoBox = styled.View`
-  display: flex;
-  flex-direction: row;
-`;
-export const UserInfo = styled.View``;
-export const UserImage = styled.View`
-  width: 38px;
-  height: 38px;
-  background-color: yellow;
-`;
-export const UserNickname = styled.Text`
-  font-size: 20px;
-  color: black;
-`;
-export const ClassNumberDate = styled.View`
-  display: flex;
-  flex-direction: row;
-`;
-export const UserClassNumber = styled.Text`
-  margin-right: 10px;
-  font-size: 12px;
-  color: black;
-`;
-export const RegistrationDate = styled.Text`
-  font-size: 12px;
-`;
-export const Contents = styled.Text`
-  width: 350px;
-  height: 100px;
-`;
-
-export const Line = styled.View`
+export const MeetingMap = styled.View`
   width: 100%;
-  border-bottom-width: 1px;
-  border-bottom-color: #d0cfcf;
+  height: 250px;
+  background-color: pink;
 `;
 
-export const ContentsImage = styled.View`
-  width: 350px;
-  height: 157px;
-  background-color: gray;
-  border-radius: 10px;
-  margin-left: 12.5px;
+export const DtailBox = styled.View`
+  /* margin-top: 20px; */
+  margin-left: 15px;
+  margin-right: 15px;
+  /* margin-bottom: 20px; */
 `;
 
-export const Button1 = styled.Button``;
+export const UserBox = styled.View`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 30px;
+`;
+
+export const UserInfo = styled.View``;
+
+export const UserName = styled.Text`
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  margin-top: 20px;
+  margin-bottom: 10px;
+`;
+
+export const ClassNumberDate = styled.Text``;
+
+export const ClassNumber = styled.Text`
+  font-size: 12px;
+`;
+
+export const Date = styled.Text`
+  font-size: 12px;
+`;
+
+export const Like = styled.Text`
+  font-size: 30px;
+  margin-top: 20px;
+  margin-right: 30px;
+`;
+
+export const Title = styled.Text`
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 10px;
+`;
+
+export const Contents = styled.Text`
+  font-size: 13px;
+  color: black;
+  margin-bottom: 20px;
+`;
