@@ -1,44 +1,43 @@
 import React from 'react';
 import {
+  ScrollView,
   Wrapper,
-  Button1,
-  ProfileView,
-  ProfileImage,
-  ProfileRightView,
-  NickName,
-  DateView,
-  Class,
+  MeetingMap,
+  DtailBox,
+  UserBox,
+  UserInfo,
+  UserName,
+  ClassNumberDate,
+  ClassNumber,
   Date,
-  Line,
+  Like,
   Title,
   Contents,
-  Image,
 } from './sharinginfodetail.styles';
 import { useNavigation } from '@react-navigation/native';
 
 const SharingInfodDetailUI = () => {
   const navigation = useNavigation();
   return (
-    <Wrapper>
-      <ProfileView>
-        <ProfileImage
-          source={require('../../../../public/images/defaultprofile2.png')}
-        />
-        <ProfileRightView>
-          <NickName>닉네임</NickName>
-          <DateView>
-            <Class>3기</Class>
-            <Date>2021.11.10</Date>
-          </DateView>
-        </ProfileRightView>
-      </ProfileView>
-      <Line></Line>
-      <Title>제목</Title>
-      <Contents>
-        내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
-      </Contents>
-      <Image></Image>
-    </Wrapper>
+    <ScrollView>
+      <Wrapper>
+        <MeetingMap></MeetingMap>
+        <DtailBox>
+          <UserBox>
+            <UserInfo>
+              <UserName>닉네임</UserName>
+              <ClassNumberDate>
+                <ClassNumber>3기</ClassNumber>
+                <Date>2021.11.12</Date>
+              </ClassNumberDate>
+            </UserInfo>
+            <Like>♥</Like>
+          </UserBox>
+          <Title>제목입니다</Title>
+          <Contents>내용입니다</Contents>
+        </DtailBox>
+      </Wrapper>
+    </ScrollView>
   );
 };
 

@@ -13,7 +13,8 @@ export const Wrapper = styled.View`
 export const MainTitle = styled.Text`
   font-size: 30px;
   color: black;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  margin-top: 20px;
 `;
 
 export const Box = styled.TouchableOpacity`

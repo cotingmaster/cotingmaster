@@ -6,7 +6,7 @@ const SearchNavigator = () => {
   const Stack = createNativeStackNavigator();
 
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="검색" component={SearchScreen} />
     </Stack.Navigator>
   );

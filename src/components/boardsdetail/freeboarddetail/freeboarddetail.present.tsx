@@ -1,39 +1,47 @@
 import React from 'react';
 import {
+  ScrollView,
   Wrapper,
-  Button1,
-  UserInfoBox,
+  MeetingMap,
+  DtailBox,
+  UserBox,
   UserInfo,
-  UserImage,
-  UserNickname,
+  UserName,
   ClassNumberDate,
-  UserClassNumber,
-  RegistrationDate,
+  ClassNumber,
+  Date,
+  Like,
+  Title,
   Contents,
-  Line,
-  ContentsImage,
 } from './freeboarddetail.styles';
 import { useNavigation } from '@react-navigation/native';
 
 const FreeBoardDetailUI = () => {
   const navigation = useNavigation();
   return (
-    <Wrapper>
-      {/* <MainText>여기는 커뮤니티디테일페이지입니다</MainText> */}
-      <UserInfoBox>
-        <UserImage></UserImage>
-        <UserInfo>
-          <UserNickname>닉네임</UserNickname>
-          <ClassNumberDate>
-            <UserClassNumber>3기</UserClassNumber>
-            <RegistrationDate>2021.11.11</RegistrationDate>
-          </ClassNumberDate>
-        </UserInfo>
-      </UserInfoBox>
-      <Line />
-      <Contents></Contents>
-      <ContentsImage></ContentsImage>
-    </Wrapper>
+    <ScrollView>
+      <Wrapper>
+        <MeetingMap></MeetingMap>
+        <DtailBox>
+          <UserBox>
+            <UserInfo>
+              <UserName>닉네임</UserName>
+              <ClassNumberDate>
+                <ClassNumber>3기</ClassNumber>
+                <Date>2021.11.12</Date>
+              </ClassNumberDate>
+            </UserInfo>
+            <Like>♥</Like>
+          </UserBox>
+          <Title>제목입니다</Title>
+          <Contents>
+            내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다
+            내용입니다내용입니다내용입니다내용입니다
+            내용입니다내용입니다내용입니다
+          </Contents>
+        </DtailBox>
+      </Wrapper>
+    </ScrollView>
   );
 };
 
