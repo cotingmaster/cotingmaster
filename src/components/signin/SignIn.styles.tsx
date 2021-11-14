@@ -77,10 +77,23 @@ export const SignUpView = styled.TouchableOpacity`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: skyblue;
+  background-color: black;
 `;
 
 export const SignUpText = styled.Text`
   font-size: 16px;
-  color: black;
+  color: #ffd600;
+`;
+
+export const SafeAreaViewStyle = styled.SafeAreaView`
+  flex: 1;
+  background-color: white;
+`;
+
+export const ScrollViewStyle = styled.ScrollView`
+  margin-bottom: 20px;
+`;
+
+export const KeyboardAvoidingViewStyle = styled.KeyboardAvoidingView`
+  flex: 1;
 `;

@@ -9,6 +9,7 @@ import { GlobalContext } from '../../../App';
 const MyPageMainContainer = () => {
   const { data } = useQuery(FETCH_USER_LOGGEDIN);
   const { setUserInfo, setAccessToken } = useContext(GlobalContext);
+
   // const [logoutUser] = useMutation(LOGOUT_USER);
 
   const onPressLogout = () => {

@@ -131,3 +131,16 @@ export const LoginText = styled.Text`
   font-size: 16px;
   color: black;
 `;
+
+export const SafeAreaViewStyle = styled.SafeAreaView`
+  flex: 1;
+  background-color: white;
+`;
+
+export const ScrollViewStyle = styled.ScrollView`
+  margin-bottom: 20px;
+`;
+
+export const KeyboardAvoidingViewStyle = styled.KeyboardAvoidingView`
+  flex: 1;
+`;

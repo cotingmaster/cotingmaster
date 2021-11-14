@@ -8,34 +8,30 @@ import { useNavigation } from '@react-navigation/native';
 
 export default function SingUp() {
   // const [signup, setSignup] = useState(false);
+  const [classNumber, setClassNumber] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [password2, setPassword2] = useState('');
   const [name, setName] = useState('');
 
   const [createUser] = useMutation(CREATE_USER);
   const navigation = useNavigation();
 
-  const changeEmail = (e: any) => {
-    setEmail(e);
-  };
-
-  const changePassword = (e: any) => {
-    setPassword(e);
-  };
-
-  const changeName = (e: any) => {
-    setName(e);
-  };
-
   const onPressSubmit = async () => {
-    if (!email || !password || !name) {
+    if (!email || !password || !name || !classNumber) {
       return Alert.alert('가입정보를 모두 입력해주세요');
+    }
+    if (password !== password2) {
+      return Alert.alert('비밀번호가 일치하지 않습니다');
+    }
+    if (!/[^-0-9]/.classNumber) {
+      return Alert.alert('기수는 숫자로만 입력하세요');
     }
     const variables = {
       createUserInput: {
         email,
         password,
-        name: name,
+        name: `${name} ${classNumber}기`,
       },
     };
     try {
@@ -52,9 +48,11 @@ export default function SingUp() {
 
   return (
     <SignUpUI
-      changeEmail={changeEmail}
-      changePassword={changePassword}
-      changeName={changeName}
+      setClassNumber={setClassNumber}
+      setEmail={setEmail}
+      setName={setName}
+      setPassword={setPassword}
+      setPassword2={setPassword2}
       onPressSubmit={onPressSubmit}
     />
   );

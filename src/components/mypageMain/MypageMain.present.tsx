@@ -27,7 +27,7 @@ import {
 } from './MypageMain.styles';
 import { useNavigation } from '@react-navigation/native';
 
-const MyPageMainUI = ({ navigate, data, onPressLogout }: any) => {
+const MyPageMainUI = ({ data, onPressLogout, MovetoProfieUpdate }: any) => {
   const navigation = useNavigation();
   return (
     <ScrollView>
@@ -45,15 +45,15 @@ const MyPageMainUI = ({ navigate, data, onPressLogout }: any) => {
           </LogOutView>
         </NameView>
         <ButtonView>
-          <MyBoards>
+          <MyBoards onPress={() => navigation.navigate('내가쓴글보기')}>
             <ButtonImage></ButtonImage>
             <MyBoardsText>내가쓴글</MyBoardsText>
           </MyBoards>
-          <MyLike>
+          <MyLike onPress={() => navigation.navigate('내가누른좋아요')}>
             <ButtonImage></ButtonImage>
             <MyLikeText>좋아요!</MyLikeText>
           </MyLike>
-          <ProfileUpdate>
+          <ProfileUpdate onPress={() => navigation.navigate('프로필수정')}>
             <ButtonImage></ButtonImage>
             <ProfileUpdateText>프로필수정</ProfileUpdateText>
           </ProfileUpdate>
