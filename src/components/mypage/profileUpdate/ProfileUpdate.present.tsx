@@ -10,7 +10,7 @@ import {
   SubmitText,
 } from './ProfileUpdate.styles';
 
-const ProfilUpdateUI = () => {
+const ProfilUpdateUI = (props: any) => {
   return (
     <Wrapper>
       <TopView>
@@ -18,10 +18,13 @@ const ProfilUpdateUI = () => {
         <Profile
           source={require('../../../../public/images/defaultprofile.png')}
         />
-        <NickName>코딩싫어</NickName>
-        <UpdateNickName placeholder="변경할 닉네임을 입력 하세요."></UpdateNickName>
+        <NickName>{props.data?.fetchUserLoggedIn.name}</NickName>
+        <UpdateNickName
+          onChangeText={props.setNick}
+          placeholder="변경할 닉네임을 입력 하세요."
+        />
       </TopView>
-      <Submit>
+      <Submit onPress={props.onSubmit}>
         <SubmitText>등록하기</SubmitText>
       </Submit>
     </Wrapper>

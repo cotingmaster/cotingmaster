@@ -16,14 +16,6 @@ const SignInContainer = () => {
   const navigation = useNavigation();
   const [loginUser] = useMutation(LOGIN_USER);
 
-  const changeEmail = (e: any) => {
-    setEmail(e);
-  };
-
-  const changePassword = (e: any) => {
-    setPassword(e);
-  };
-
   const onPressLogin = async () => {
     if (email === '') {
       setEmailError('이메일을 확인해주세요');
@@ -52,8 +44,8 @@ const SignInContainer = () => {
 
   return (
     <SignInUI
-      changeEmail={changeEmail}
-      changePassword={changePassword}
+      setEmail={setEmail}
+      setPassword={setPassword}
       onPressLogin={onPressLogin}
       emailError={emailError}
       passError={passError}
