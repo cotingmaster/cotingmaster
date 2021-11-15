@@ -1,14 +1,36 @@
 import { useMutation, useQuery } from '@apollo/client';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Alert } from 'react-native';
 import MyPageMainUI from './MypageMain.present';
-import { FETCH_USER_LOGGEDIN } from './MypageMain.queries';
+import {
+  FETCH_USER_LOGGEDIN,
+  FETCH_USEDITEM_ISOLD,
+  FETCH_USEDITEM_IPICKED,
+} from './MypageMain.queries';
 import { GlobalContext } from '../../../App';
 
 const MyPageMainContainer = () => {
   const { data } = useQuery(FETCH_USER_LOGGEDIN);
+
+  const { data: data2 } = useQuery(FETCH_USEDITEM_ISOLD, {
+    variables: { page: 1 },
+  });
+
+  const { data: data3 } = useQuery(FETCH_USEDITEM_IPICKED, {
+    variables: { search: '' },
+  });
+
   const { setUserInfo, setAccessToken } = useContext(GlobalContext);
+  const [isBoards, setIsBoards] = useState(true);
+
+  function onPressMyBoards() {
+    setIsBoards(true);
+  }
+
+  function onPressMyLike() {
+    setIsBoards(false);
+  }
 
   // const [logoutUser] = useMutation(LOGOUT_USER);
 
@@ -28,7 +50,17 @@ const MyPageMainContainer = () => {
     }
   };
 
-  return <MyPageMainUI data={data} onPressLogout={onPressLogout} />;
+  return (
+    <MyPageMainUI
+      data={data}
+      data2={data2}
+      data3={data3}
+      onPressLogout={onPressLogout}
+      isBoards={isBoards}
+      onPressMyBoards={onPressMyBoards}
+      onPressMyLike={onPressMyLike}
+    />
+  );
 };
 
 export default MyPageMainContainer;
