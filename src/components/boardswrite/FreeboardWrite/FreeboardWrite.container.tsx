@@ -4,39 +4,41 @@ import firestore from '@react-native-firebase/firestore';
 import { useQuery } from '@apollo/client';
 import { FETCH_USER_LOGGEDIN } from '../../signin/SignIn.queries';
 import { useNavigation } from '@react-navigation/native';
+import WriteContainer from '../commonWrite/Write.container';
 
 const FreeBoardWriteContainer = () => {
-  const navigation = useNavigation();
-  const { data } = useQuery(FETCH_USER_LOGGEDIN);
-  const [title, setTitle] = useState('');
-  const [contents, setContents] = useState('');
-  const [images, setImage] = useState([]);
+  // const navigation = useNavigation();
+  // const { data } = useQuery(FETCH_USER_LOGGEDIN);
+  // const [title, setTitle] = useState('');
+  // const [contents, setContents] = useState('');
+  // const [images, setImage] = useState([]);
 
-  const onClickFreeBoardSubmit = () => {
-    const user_id = data?.fetchUserLoggedIn._id;
-    console.log(data?.fetchUserLoggedIn._id);
+  // const onClickFreeBoardSubmit = () => {
+  //   const user_id = data?.fetchUserLoggedIn._id;
+  //   console.log(data?.fetchUserLoggedIn._id);
 
-    firestore()
-      .collection('Users')
-      .doc(data?.fetchUserLoggedIn._id)
-      .collection('FreeBoard')
-      .doc()
-      .set({
-        title,
-        contents,
-        createdAt: new Date(),
-        tag: 'FreeBoard',
-      });
-    navigation.navigate('커뮤니티게시판디테일');
-  };
+  //   firestore()
+  //     .collection('Users')
+  //     .doc(data?.fetchUserLoggedIn._id)
+  //     .collection('FreeBoard')
+  //     .doc()
+  //     .set({
+  //       title,
+  //       contents,
+  //       createdAt: new Date(),
+  //       tag: 'FreeBoard',
+  //     });
+  //   navigation.navigate('커뮤니티게시판디테일');
+  // };
 
   return (
-    <FreeBoardWriteUI
-      onClickFreeBoardSubmit={onClickFreeBoardSubmit}
-      setTitle={setTitle}
-      setContents={setContents}
-      setImage={setImage}
-    />
+    // <FreeBoardWriteUI
+    //   onClickFreeBoardSubmit={onClickFreeBoardSubmit}
+    //   setTitle={setTitle}
+    //   setContents={setContents}
+    //   setImage={setImage}
+    // />
+    <WriteContainer board={'Freeboard'} />
   );
 };
 

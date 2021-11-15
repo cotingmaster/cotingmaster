@@ -1,11 +1,17 @@
 import React from 'react';
+import { useQuery } from '@apollo/client';
 import FreeBoardDetailUI from './freeboarddetail.present';
-import firestore from '@react-native-firebase/firestore';
+import { FETCH_USEDITEM } from './freeboarddetail.query';
+import { useNavigation } from '@react-navigation/native';
 
-const FreeBoardDetailContainer = () => {
-  firestore().collection('Boards').get();
+const FreeBoardDetailContainer = ({ route }: any) => {
+  const { data } = useQuery(FETCH_USEDITEM, {
+    variables: {
+      useditemId: String(route.params.id),
+    },
+  });
 
-  return <FreeBoardDetailUI />;
+  return <FreeBoardDetailUI data={data} />;
 };
 
 export default FreeBoardDetailContainer;

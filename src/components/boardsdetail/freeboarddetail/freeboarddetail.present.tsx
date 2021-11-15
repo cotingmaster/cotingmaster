@@ -16,7 +16,7 @@ import {
 } from './freeboarddetail.styles';
 import { useNavigation } from '@react-navigation/native';
 
-const FreeBoardDetailUI = () => {
+const FreeBoardDetailUI = ({ data }: any) => {
   const navigation = useNavigation();
   return (
     <ScrollView>
@@ -25,20 +25,17 @@ const FreeBoardDetailUI = () => {
         <DtailBox>
           <UserBox>
             <UserInfo>
-              <UserName>닉네임</UserName>
+              <UserName>커뮤니티 게시판</UserName>
+              <UserName>{data?.fetchUseditem.seller.name}</UserName>
               <ClassNumberDate>
                 <ClassNumber>3기</ClassNumber>
-                <Date>2021.11.12</Date>
+                <Date>{data?.fetchUseditem.createdAt.slice(0, 10)}</Date>
               </ClassNumberDate>
             </UserInfo>
             <Like>♥</Like>
           </UserBox>
-          <Title>제목입니다</Title>
-          <Contents>
-            내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다
-            내용입니다내용입니다내용입니다내용입니다
-            내용입니다내용입니다내용입니다
-          </Contents>
+          <Title>{data?.fetchUseditem.name}</Title>
+          <Contents>{data?.fetchUseditem.contents}</Contents>
         </DtailBox>
       </Wrapper>
     </ScrollView>

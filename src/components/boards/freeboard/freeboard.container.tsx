@@ -1,3 +1,4 @@
+import { useQuery } from '@apollo/client';
 import React from 'react';
 import FreeBoardUI from './freeboard.present';
 

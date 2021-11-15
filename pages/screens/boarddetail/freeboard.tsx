@@ -1,8 +1,8 @@
 import React from 'react';
 import FreeBoardDetailContainer from '../../../src/components/boardsdetail/freeboarddetail/freeboarddetail.container';
 
-const FreeBoardDetailScreen = () => {
-  return <FreeBoardDetailContainer />;
+const FreeBoardDetailScreen = ({ route }: any) => {
+  return <FreeBoardDetailContainer route={route} />;
 };
 
 export default FreeBoardDetailScreen;

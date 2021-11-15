@@ -42,7 +42,7 @@ export default function SignUpUI(props: any) {
               <ClassView>
                 <ClassInput
                   placeholder="기수를 숫자만 입력해주세요. ex) 3"
-                  onChangeText={props.setClassNumber}
+                  onChangeText={props.onChangeClassNumber}
                   keyboardType="numeric"
                 />
                 {/* <ClassError>기수를 확인해주세요.</ClassError> */}
@@ -51,7 +51,7 @@ export default function SignUpUI(props: any) {
                 <EmailInput
                   placeholder="이메일을 입력해주세요."
                   onChangeText={props.setEmail}
-                  autoCompleteType="email"
+                  autoComplete="email"
                   keyboardType="email-address"
                 />
                 {/* <EmailError>이메일을 확인해주세요.</EmailError> */}
