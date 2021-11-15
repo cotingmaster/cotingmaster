@@ -31,9 +31,9 @@ export default function BoardPicker({ selectedValue, onValueChange }: any) {
           // dropdownIconColor='blue'
           mode="dialog"
           style={{ borderStyle: 'dashed' }}>
-          <Picker.Item label=":집: 자유게시판" value="Freeboard" />
-          <Picker.Item label=":사무실: 정보공유" value="SharingInfo" />
-          <Picker.Item label=":학교: 만남" value="Meeting" />
+          <Picker.Item label="자유게시판" value="Freeboard" />
+          <Picker.Item label="정보공유" value="SharingInfo" />
+          <Picker.Item label="만남" value="Meeting" />
         </Picker>
       </Container>
     </Wrapper>

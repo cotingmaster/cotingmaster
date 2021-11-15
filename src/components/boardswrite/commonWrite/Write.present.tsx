@@ -13,12 +13,12 @@ import BoardPicker from '../../../commons/picker';
 const WriteUI = (props: any) => {
   return (
     <Wrapper>
-      <BoardPicker
-        selectedValue={props.boards}
-        onValueChange={props.setBoards}
-      />
       <TextSubmitBox>
         <MainTitle>{props.boards}</MainTitle>
+        <BoardPicker
+          selectedValue={props.boards}
+          onValueChange={props.setBoards}
+        />
         <Line></Line>
         <Contents
           placeholder="제목을 입력하세요"

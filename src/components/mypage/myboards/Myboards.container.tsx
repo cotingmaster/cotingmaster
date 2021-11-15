@@ -1,14 +1,77 @@
-// import { useQuery } from '@apollo/client';
 import React from 'react';
-import MyBoardsUI from './Myboards.present';
-// import { FETCH_USEDITEM_ISOLD } from './Myboards.queries';
+import styled from '@emotion/native';
 
-const MyBoardsContainer = () => {
-  // const { data } = useQuery(FETCH_USEDITEM_ISOLD, {
-  //   variables: { page: 1 },
-  // });
+const BoardContainer = styled.View`
+  /* width: 340px;
+  background-color: #e5e5e5;
+  display: flex;
+  align-items: center;
+  border-radius: 5px; */
+`;
 
-  return <MyBoardsUI />;
+const BoardTitle = styled.Text`
+  color: black;
+  font-size: 20px;
+  margin-bottom: 10px;
+`;
+
+const Box = styled.TouchableOpacity`
+  width: 320px;
+  height: 137px;
+  background-color: pink;
+  border-radius: 10px;
+  elevation: 10;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  margin-bottom: 15px;
+`;
+
+const Tilte = styled.Text`
+  font-size: 20px;
+  color: black;
+  margin-bottom: 10px;
+`;
+
+const Contents = styled.Text`
+  height: 50px;
+  color: black;
+  /* border: solid 1px black; */
+  margin-bottom: 10px;
+`;
+
+const BottomView = styled.View`
+  display: flex;
+  flex-direction: row;
+`;
+
+const Date = styled.Text`
+  color: black;
+  margin-right: 10px;
+`;
+
+const NickName2 = styled.Text`
+  color: black;
+`;
+
+const MyBoardsContainer = (props: any) => {
+  return (
+    <>
+      {props.data2?.fetchUseditemsISold.map((el: any, index: any) => (
+        <BoardContainer key={el._id}>
+          <BoardTitle>{el.remarks}</BoardTitle>
+          <Box>
+            <Tilte>{el.name}</Tilte>
+            <Contents>{el.contents}</Contents>
+            <BottomView>
+              <Date>{el.createdAt.slice(0, 10)}</Date>
+              <NickName2>{el.seller.name}</NickName2>
+            </BottomView>
+          </Box>
+        </BoardContainer>
+      ))}
+    </>
+  );
 };
 
 export default MyBoardsContainer;
