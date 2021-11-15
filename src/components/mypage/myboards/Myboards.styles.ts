@@ -8,7 +8,8 @@ export const Wrapper = styled.View`
 export const MainView = styled.View`
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
+  margin-top: 20px;
 `;
 
 export const MainTitle = styled.Text`
@@ -20,9 +21,10 @@ export const BoardTitleView = styled.View`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #ffd600;
   width: 100px;
   height: 29px;
-  border: solid 1px black;
+  /* border: solid 1px black; */
   border-radius: 5px;
   margin-left: 10px;
   margin-bottom: 10px;
