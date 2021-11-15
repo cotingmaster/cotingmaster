@@ -28,7 +28,9 @@ const FreeBoardDetailUI = ({ data }: any) => {
               <UserName>커뮤니티 게시판</UserName>
               <UserName>{data?.fetchUseditem.seller.name}</UserName>
               <ClassNumberDate>
-                <ClassNumber>3기</ClassNumber>
+                <ClassNumber>
+                  {data?.fetchUseditem.seller.name.split(' ')[1]}
+                </ClassNumber>
                 <Date>{data?.fetchUseditem.createdAt.slice(0, 10)}</Date>
               </ClassNumberDate>
             </UserInfo>
