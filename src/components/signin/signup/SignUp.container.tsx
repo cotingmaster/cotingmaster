@@ -17,6 +17,12 @@ export default function SingUp() {
   const [createUser] = useMutation(CREATE_USER);
   const navigation = useNavigation();
 
+  const onChangeClassNumber = e => {
+    if (e) {
+      setClassNumber(e.replace(/[^0-9]/g, ''));
+    }
+  };
+
   const onPressSubmit = async () => {
     if (!email || !password || !name || !classNumber) {
       return Alert.alert('가입정보를 모두 입력해주세요');
@@ -24,9 +30,7 @@ export default function SingUp() {
     if (password !== password2) {
       return Alert.alert('비밀번호가 일치하지 않습니다');
     }
-    if (!/[^-0-9]/.classNumber) {
-      return Alert.alert('기수는 숫자로만 입력하세요');
-    }
+
     const variables = {
       createUserInput: {
         email,
@@ -48,7 +52,7 @@ export default function SingUp() {
 
   return (
     <SignUpUI
-      setClassNumber={setClassNumber}
+      onChangeClassNumber={onChangeClassNumber}
       setEmail={setEmail}
       setName={setName}
       setPassword={setPassword}
