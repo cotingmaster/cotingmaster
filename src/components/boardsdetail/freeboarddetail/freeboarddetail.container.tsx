@@ -1,8 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import FreeBoardDetailUI from './freeboarddetail.present';
-import { FETCH_USEDITEM } from './freeboarddetail.query';
-import { useNavigation } from '@react-navigation/native';
+import { FETCH_USEDITEM } from '../boarddetail.query';
 
 const FreeBoardDetailContainer = ({ route }: any) => {
   const { data } = useQuery(FETCH_USEDITEM, {

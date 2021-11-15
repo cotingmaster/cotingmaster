@@ -1,25 +1,16 @@
-import React, { useEffect } from 'react';
-import MeetingDetailUI from './meetingdetail.present';
-import firestore from '@react-native-firebase/firestore';
+import React from 'react';
 import { useQuery } from '@apollo/client';
-import { FETCH_USER_LOGGEDIN } from '../../signin/SignIn.queries';
+import MeetingDetailUI from './meetingdetail.present';
+import { FETCH_USEDITEM } from '../boarddetail.query';
 
-const MeetingDetailContainer = () => {
-  const { data } = useQuery(FETCH_USER_LOGGEDIN);
-  console.log(data?.fetchUserLoggedIn.name);
-  // const name = data?.fetchUserLoggedIn.name;
+const MeetingDetailContainer = ({ route }: any) => {
+  const { data } = useQuery(FETCH_USEDITEM, {
+    variables: {
+      useditemId: String(route.params.id),
+    },
+  });
 
-  // useEffect(()=>{
-  const userData = firestore()
-    .collection('User')
-    .doc(data?.fetchUserLoggedIn._id)
-    .collection('MeetingBoard')
-    .doc('8VuC69c10AKEdTr70rqs');
-  // .data();
-
-  // },[])
-
-  return <MeetingDetailUI data={data} userData={userData} />;
+  return <MeetingDetailUI data={data} />;
 };
 
 export default MeetingDetailContainer;
