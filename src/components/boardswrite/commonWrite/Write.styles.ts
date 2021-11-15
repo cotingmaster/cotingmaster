@@ -7,6 +7,12 @@ export const Wrapper = styled.View`
   justify-content: space-between;
 `;
 
+export const TextSubmitBox = styled.View`
+  display: flex;
+  /* justify-content: space-between; */
+  margin-top: 20px;
+`;
+
 export const MainTitle = styled.Text`
   font-size: 30px;
   font-weight: bold;
@@ -31,8 +37,3 @@ export const Line = styled.View`
 `;
 
 export const Contents = styled.TextInput``;
-
-export const TextSubmitBox = styled.View`
-  display: flex;
-  justify-content: space-between;
-`;

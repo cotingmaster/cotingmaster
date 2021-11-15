@@ -21,8 +21,13 @@ export const FETCH_USEDITEM_ISOLD = gql`
     fetchUseditemsISold(page: $page) {
       _id
       name
+      remarks
       price
+      contents
       createdAt
+      seller {
+        name
+      }
       buyer {
         name
       }

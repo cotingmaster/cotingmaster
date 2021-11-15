@@ -77,8 +77,7 @@ export const MyBoards = styled.TouchableOpacity`
   elevation: 10;
 `;
 
-export const ButtonImage = styled.View`
-  background-color: black;
+export const ButtonImage = styled.Image`
   width: 40px;
   height: 40px;
   margin-bottom: 10px;
