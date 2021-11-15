@@ -11,38 +11,49 @@ import {
   NickName,
   RegisterView,
   ButtonImage,
+  List,
+  SafeAreaViewStyle,
 } from './freeboard.styles';
 import { useNavigation } from '@react-navigation/native';
 
-const FreeBoardUI = ({ navigate }: any) => {
+const FreeBoardUI = ({ freeData }: any) => {
   const navigation = useNavigation();
+
+  const renderItem = ({ item }: any) => {
+    console.log('bbb', item);
+    return (
+      <Box
+        onPress={() =>
+          navigation.push('커뮤니티게시판디테일', {
+            id: item._id,
+          })
+        }>
+        <Tilte>{item.name}</Tilte>
+        <Place>{item.contents}</Place>
+        <BottomView>
+          {/* <Date>{item.createdAt.slice(0, 10)}</Date> */}
+          <NickName>{item.seller.name}</NickName>
+        </BottomView>
+      </Box>
+    );
+  };
+
   return (
-    <ScrollView>
+    <SafeAreaViewStyle>
       <Wrapper>
         <MainTitle>커뮤니티</MainTitle>
-        <Box>
-          <Tilte>술한잔하자</Tilte>
-          <Place>패스트파이브앞호식이두마리치킨</Place>
-          <BottomView>
-            <Date>2021.11.11</Date>
-            <NickName>코딩싫어</NickName>
-          </BottomView>
-        </Box>
-        <Box>
-          <Tilte>술한잔하자</Tilte>
-          <Place>패스트파이브앞호식이두마리치킨</Place>
-          <BottomView>
-            <Date>2021.11.11</Date>
-            <NickName>코딩싫어</NickName>
-          </BottomView>
-        </Box>
+        <List
+          data={freeData}
+          renderItem={renderItem}
+          keyExtractor={item => item._id}
+        />
       </Wrapper>
       <RegisterView onPress={() => navigation.navigate('커뮤니티게시판등록')}>
         <ButtonImage
           source={require('../../../../public/images/writebutton.png')}
         />
       </RegisterView>
-    </ScrollView>
+    </SafeAreaViewStyle>
   );
 };
 
