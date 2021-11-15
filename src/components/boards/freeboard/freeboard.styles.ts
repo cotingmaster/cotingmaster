@@ -17,6 +17,13 @@ export const MainTitle = styled.Text`
   margin-top: 20px;
 `;
 
+export const SafeAreaViewStyle = styled.SafeAreaView`
+  flex: 1;
+  margin-top: 10px;
+`;
+
+export const List = styled.FlatList``;
+
 export const Box = styled.TouchableOpacity`
   width: 340px;
   height: 137px;

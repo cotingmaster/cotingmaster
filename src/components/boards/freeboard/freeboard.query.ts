@@ -1,15 +1,20 @@
 import { gql } from '@apollo/client';
 
-export const FETCH_USEDITEM = gql`
-  query fetchUseditem($useditemId: ID!) {
-    fetchUseditem(useditemId: $useditemId) {
+export const FETCH_USEDITEMS = gql`
+  query fetchUseditems($isSoldout: Boolean, $search: String, $page: Int) {
+    fetchUseditems(isSoldout: $isSoldout, search: $search, page: $page) {
       _id
       name
-      tags
       remarks
       contents
       price
       images
+      pickedCount
+      seller {
+        _id
+        name
+        picture
+      }
     }
   }
 `;

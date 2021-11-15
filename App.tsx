@@ -17,18 +17,21 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import AuthNavigator from './pages/navigations/loginAuth';
 
 //  const Tab = createBottomTabNavigator();
-export const GlobalContext = React.createContext(null);
+export const GlobalContext = createContext(null);
 
 const App: () => Node = () => {
   const Stack = createNativeStackNavigator();
   const [accessToken, setAccessToken] = useState('');
   const [userInfo, setUserInfo] = useState({});
+  const [id, setId] = useState('');
 
   const value = {
     accessToken,
     setAccessToken,
     userInfo,
     setUserInfo,
+    id,
+    setId,
   };
 
   useEffect(() => {
