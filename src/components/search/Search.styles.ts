@@ -1,6 +1,8 @@
 import styled from '@emotion/native';
 
-export const ScrollView = styled.ScrollView``;
+export const ScrollView = styled.ScrollView`
+  background-color: white;
+`;
 
 export const Wrapper = styled.View``;
 

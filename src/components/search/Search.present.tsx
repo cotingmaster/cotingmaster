@@ -26,47 +26,52 @@ import {
   Line,
 } from './Search.styles';
 
-const SearchUI = () => {
+const SearchUI = (props: any) => {
   return (
     <ScrollView>
       <Wrapper>
         <TopView>
           <SearchImage source={require('../../../public/images/search.png')} />
-          <Input placeholder="검색어를 입력해주세요." />
-          <ButtonView>
+          <Input
+            placeholder="검색어를 입력해주세요."
+            onChangeText={props.onChangeTextSearch}
+          />
+          <ButtonView onPress={props.onPressButton}>
             <ButtonText>검색</ButtonText>
           </ButtonView>
         </TopView>
-        <DataView>
-          <BoardTitle>
-            <BoardText>정보공유</BoardText>
-          </BoardTitle>
-          <ProfileView>
-            <ProfileImage
-              source={require('../../../public/images/defaultprofile2.png')}
-            />
-            <NameView>
-              <Name>이상혁</Name>
-              <Date>2021.11.11</Date>
-            </NameView>
-          </ProfileView>
-          <Contents>
-            내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
-          </Contents>
-          <BottomView>
-            <CommentView>
-              <Comment source={require('../../../public/images/comment.png')} />
-              <CommentCount>3</CommentCount>
-            </CommentView>
-            <LikeView>
-              <Like
-                source={require('../../../public/images/mylikeimage.png')}
+        {props.data?.fetchUseditems.map((el: any) => (
+          <DataView key={el._id}>
+            <BoardTitle>
+              <BoardText>{el.name}</BoardText>
+            </BoardTitle>
+            <ProfileView>
+              <ProfileImage
+                source={require('../../../public/images/defaultprofile2.png')}
               />
-              <LikeCount>3</LikeCount>
-            </LikeView>
-          </BottomView>
-          <Line></Line>
-        </DataView>
+              <NameView>
+                <Name>{el.seller.name}</Name>
+                <Date>{el.createdAt.slice(0, 10)}</Date>
+              </NameView>
+            </ProfileView>
+            <Contents>{el.contents}</Contents>
+            <BottomView>
+              <CommentView>
+                <Comment
+                  source={require('../../../public/images/comment.png')}
+                />
+                <CommentCount>3</CommentCount>
+              </CommentView>
+              <LikeView>
+                <Like
+                  source={require('../../../public/images/mylikeimage.png')}
+                />
+                <LikeCount>{el.pickedCount}</LikeCount>
+              </LikeView>
+            </BottomView>
+            <Line></Line>
+          </DataView>
+        ))}
       </Wrapper>
     </ScrollView>
   );
