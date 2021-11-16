@@ -80,7 +80,7 @@ const App: () => Node = () => {
 
   const client = new ApolloClient({
     link: ApolloLink.from([errorLink, uploadLink as unknown as ApolloLink]),
-    cache: new InMemoryCache(),
+    cache: cache,
   });
 
   return (

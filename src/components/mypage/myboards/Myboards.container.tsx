@@ -55,7 +55,7 @@ const NickName2 = styled.Text`
   color: black;
 `;
 
-const MyBoardsContainer = ({ data2, route }: any) => {
+const MyBoardsContainer = ({ data2 }: any) => {
   const navigation = useNavigation();
   const onPressMoveToDetail = (el: any) => {
     const boardDetail =

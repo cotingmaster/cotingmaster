@@ -43,7 +43,7 @@ const MeetingUI = ({
       </BottomView>
     </Box>
   );
-  console.log('mmm', meetingData);
+
   return (
     <SafeAreaViewStyle>
       <Wrapper>

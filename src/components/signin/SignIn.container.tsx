@@ -36,7 +36,6 @@ const SignInContainer = () => {
       const { data } = await loginUser({ variables });
       AsyncStorage.setItem('user', data.loginUser.accessToken);
       setAccessToken(data.loginUser.accessToken);
-      console.log(data.loginUser.accessToken);
     } catch (error: any) {
       Alert.alert(error.message);
     }

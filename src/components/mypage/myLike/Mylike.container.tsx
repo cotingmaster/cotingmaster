@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { useNavigation } from '@react-navigation/native';
 import styled from '@emotion/native';
 
 const BoardContainer = styled.View`
@@ -55,13 +55,27 @@ const NickName2 = styled.Text`
   color: black;
 `;
 
-const MyLikeContainer = (props: any) => {
+const MyLikeContainer = ({ data3 }: any) => {
+  console.log('data3', data3);
+  const navigation = useNavigation();
+  const onPressMoveToDetail = (el: any) => {
+    const boardDetail =
+      el.remarks === 'Freeboard'
+        ? '커뮤니티게시판디테일'
+        : el.remarks === 'SharingInfo'
+        ? '정보공유게시판디테일'
+        : '만남게시판디테일';
+    navigation.push(boardDetail, {
+      id: el._id,
+    });
+  };
+
   return (
     <>
-      {props.data3?.fetchUseditemsIPicked.map((el: any, index: any) => (
+      {data3?.fetchUseditemsIPicked.map((el: any, index: any) => (
         <BoardContainer key={el._id}>
           <BoardTitle>정보공유</BoardTitle>
-          <Box>
+          <Box onPress={() => onPressMoveToDetail(el)}>
             <Tilte>{el.name}</Tilte>
             <Contents>{el.contents}</Contents>
             <BottomView>
