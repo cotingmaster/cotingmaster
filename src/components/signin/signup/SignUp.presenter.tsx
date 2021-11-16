@@ -42,7 +42,7 @@ export default function SignUpUI(props: any) {
               <ClassView>
                 <ClassInput
                   placeholder="기수를 숫자만 입력해주세요. ex) 3"
-                  onChangeText={props.onChangeClassNumber}
+                  onChangeText={props.setClassNumber}
                   keyboardType="numeric"
                 />
                 {/* <ClassError>기수를 확인해주세요.</ClassError> */}

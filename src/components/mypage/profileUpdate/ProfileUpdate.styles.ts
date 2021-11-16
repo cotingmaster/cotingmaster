@@ -32,10 +32,11 @@ export const NickName = styled.Text`
 `;
 
 export const UpdateNickName = styled.TextInput`
-  border: solid 1px black;
+  border: solid 0.8px gray;
   width: 308px;
   height: 41px;
   font-size: 15px;
+  margin-bottom: 20px;
 `;
 
 export const Submit = styled.TouchableOpacity`

@@ -34,7 +34,7 @@ export default function SingUp() {
     };
     try {
       const { data } = await createUser({ variables });
-      console.log(data?.createUser._id);
+
       Alert.alert(
         `${data?.createUser.name}님 가입성공! 가입하신 정보로 로그인을 해주세요`,
       );
