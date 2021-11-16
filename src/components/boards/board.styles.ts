@@ -46,7 +46,6 @@ export const Tilte = styled.Text`
 export const Place = styled.Text`
   height: 50px;
   color: black;
-  /* border: solid 1px black; */
   margin-bottom: 10px;
 `;
 

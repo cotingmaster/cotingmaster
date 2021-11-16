@@ -66,12 +66,8 @@ const MyPageMainUI = (props: any) => {
             <ProfileUpdateText>프로필수정</ProfileUpdateText>
           </ProfileUpdate>
         </ButtonView>
-        {props.isBoards && (
-          <MyBoardsContainer data2={props.data2}></MyBoardsContainer>
-        )}
-        {!props.isBoards && (
-          <MyLikeContainer data3={props.data3}></MyLikeContainer>
-        )}
+        {props.isBoards && <MyBoardsContainer data2={props.data2} />}
+        {!props.isBoards && <MyLikeContainer data3={props.data3} />}
       </Wrapper>
     </ScrollView>
   );

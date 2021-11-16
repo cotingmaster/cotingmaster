@@ -63,7 +63,7 @@ const MyLikeContainer = (props: any) => {
           <BoardTitle>정보공유</BoardTitle>
           <Box>
             <Tilte>{el.name}</Tilte>
-            <Contents>내용입니다</Contents>
+            <Contents>{el.contents}</Contents>
             <BottomView>
               <Date>{el.createdAt.slice(0, 10)}</Date>
               <NickName2>{el.seller.name}</NickName2>

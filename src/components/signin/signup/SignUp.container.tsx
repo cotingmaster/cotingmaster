@@ -17,12 +17,6 @@ export default function SingUp() {
   const [createUser] = useMutation(CREATE_USER);
   const navigation = useNavigation();
 
-  const onChangeClassNumber = e => {
-    if (e) {
-      setClassNumber(e.replace(/[^0-9]/g, ''));
-    }
-  };
-
   const onPressSubmit = async () => {
     if (!email || !password || !name || !classNumber) {
       return Alert.alert('가입정보를 모두 입력해주세요');
@@ -52,7 +46,7 @@ export default function SingUp() {
 
   return (
     <SignUpUI
-      onChangeClassNumber={onChangeClassNumber}
+      setClassNumber={setClassNumber}
       setEmail={setEmail}
       setName={setName}
       setPassword={setPassword}

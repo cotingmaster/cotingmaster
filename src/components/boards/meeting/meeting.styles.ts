@@ -15,6 +15,13 @@ export const MainTitle = styled.Text`
   margin-top: 20px;
 `;
 
+export const SafeAreaViewStyle = styled.SafeAreaView`
+  flex: 1;
+  margin-top: 10px;
+`;
+
+export const List = styled.FlatList``;
+
 export const Box = styled.TouchableOpacity`
   width: 340px;
   height: 137px;
@@ -36,7 +43,6 @@ export const Tilte = styled.Text`
 export const Place = styled.Text`
   height: 50px;
   color: black;
-  /* border: solid 1px black; */
   margin-bottom: 10px;
 `;
 
@@ -64,5 +70,3 @@ export const RegisterView = styled.TouchableOpacity`
 `;
 
 export const ButtonImage = styled.Image``;
-
-// export const Button1 = styled.Button``;

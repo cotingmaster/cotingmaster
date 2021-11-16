@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/native';
+import { useNavigation } from '@react-navigation/native';
 
 const BoardContainer = styled.View`
   /* width: 340px;
@@ -54,13 +55,26 @@ const NickName2 = styled.Text`
   color: black;
 `;
 
-const MyBoardsContainer = (props: any) => {
+const MyBoardsContainer = ({ data2, route }: any) => {
+  const navigation = useNavigation();
+  const onPressMoveToDetail = (el: any) => {
+    const boardDetail =
+      el.remarks === 'Freeboard'
+        ? '커뮤니티게시판디테일'
+        : el.remarks === 'SharingInfo'
+        ? '정보공유게시판디테일'
+        : '만남게시판디테일';
+    navigation.push(boardDetail, {
+      id: el._id,
+    });
+  };
+
   return (
     <>
-      {props.data2?.fetchUseditemsISold.map((el: any, index: any) => (
+      {data2?.fetchUseditemsISold.map((el: any, index: any) => (
         <BoardContainer key={el._id}>
           <BoardTitle>{el.remarks}</BoardTitle>
-          <Box>
+          <Box onPress={() => onPressMoveToDetail(el)}>
             <Tilte>{el.name}</Tilte>
             <Contents>{el.contents}</Contents>
             <BottomView>
