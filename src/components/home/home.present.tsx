@@ -13,7 +13,7 @@ import {
 } from './home.styles';
 import { useNavigation } from '@react-navigation/native';
 
-const HomeUI = ({ navigate }: any) => {
+const HomeUI = () => {
   const navigation = useNavigation();
   return (
     <Wrapper>

@@ -6,6 +6,8 @@ export const FETCH_USEDITEM = gql`
       _id
       name
       createdAt
+      updatedAt
+      pickedCount
       remarks
       contents
       price

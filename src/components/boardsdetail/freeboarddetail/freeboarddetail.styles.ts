@@ -1,67 +1,75 @@
 import styled from '@emotion/native';
 
-export const ScrollView = styled.ScrollView``;
-
-export const Wrapper = styled.View`
+export const ScrollView = styled.ScrollView`
   height: 100%;
   background-color: white;
 `;
 
-export const MeetingMap = styled.View`
+export const Wrapper = styled.View``;
+
+export const TopImage = styled.View`
   width: 100%;
   height: 250px;
   background-color: pink;
-`;
-
-export const DtailBox = styled.View`
-  /* margin-top: 20px; */
-  margin-left: 15px;
-  margin-right: 15px;
-  /* margin-bottom: 20px; */
-`;
-
-export const UserBox = styled.View`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: 30px;
-`;
-
-export const UserInfo = styled.View``;
-
-export const UserName = styled.Text`
-  font-size: 20px;
-  font-weight: bold;
-  color: black;
-  margin-top: 20px;
   margin-bottom: 10px;
 `;
 
-export const ClassNumberDate = styled.Text``;
-
-export const ClassNumber = styled.Text`
-  font-size: 12px;
+export const MainView = styled.View`
+  padding-right: 10px;
+  padding-left: 10px;
 `;
 
-export const Date = styled.Text`
-  font-size: 12px;
+export const TopView = styled.View`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
 `;
+
+export const TopLeft = styled.View`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const ProfileImage = styled.Image`
+  margin-right: 10px;
+`;
+
+export const NameView = styled.View``;
+
+export const Name = styled.Text`
+  color: black;
+  font-size: 18px;
+`;
+
+export const Date = styled.Text``;
+
+export const TopRight = styled.View``;
+
+export const LikeView = styled.View`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const LikeButton = styled.TouchableOpacity``;
 
 export const Like = styled.Text`
-  font-size: 30px;
-  margin-top: 20px;
-  margin-right: 30px;
+  font-size: 20px;
+`;
+
+export const LikeSu = styled.Text`
+  font-size: 15px;
+  color: black;
 `;
 
 export const Title = styled.Text`
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
   color: black;
   margin-bottom: 10px;
 `;
 
 export const Contents = styled.Text`
-  font-size: 13px;
-  color: black;
-  margin-bottom: 20px;
+  font-size: 15px;
 `;
