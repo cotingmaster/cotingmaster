@@ -24,6 +24,19 @@ const App: () => Node = () => {
   const [accessToken, setAccessToken] = useState('');
   const [userInfo, setUserInfo] = useState({});
   const [id, setId] = useState('');
+  const cache = new InMemoryCache({
+    typePolicies: {
+      Book: {
+        fields: {
+          author: {
+            merge(existing, incoming) {
+              return { ...existing, ...incoming };
+            },
+          },
+        },
+      },
+    },
+  });
 
   const value = {
     accessToken,

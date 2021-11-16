@@ -49,8 +49,6 @@ const WriteContainer = (props: any) => {
       navigation.push(boardDetail, {
         id: result.data?.createUseditem._id,
       });
-      console.log(result.data?.createUseditem._id);
-      console.log(navigation);
     } catch (error: any) {
       Alert.alert(error.message);
     }
