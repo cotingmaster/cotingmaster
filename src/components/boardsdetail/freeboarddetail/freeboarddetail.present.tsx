@@ -2,53 +2,56 @@ import React from 'react';
 import {
   ScrollView,
   Wrapper,
-  MeetingMap,
-  DtailBox,
-  UserBox,
-  UserInfo,
-  UserName,
-  ClassNumberDate,
-  ClassNumber,
+  TopImage,
+  MainView,
+  TopView,
+  TopLeft,
+  ProfileImage,
+  NameView,
+  Name,
   Date,
+  TopRight,
+  LikeView,
+  LikeButton,
   Like,
+  LikeSu,
   Title,
   Contents,
 } from './freeboarddetail.styles';
 import { useNavigation } from '@react-navigation/native';
 
-const FreeBoardDetailUI = ({ data }: any) => {
+const FreeBoardDetailUI = (props: any) => {
   const navigation = useNavigation();
   return (
     <ScrollView>
       <Wrapper>
-        <MeetingMap></MeetingMap>
-        <DtailBox>
-          <UserBox>
-            <UserInfo>
-              <UserName>커뮤니티 게시판</UserName>
-              <UserName>{data?.fetchUseditem.seller.name}</UserName>
-              <ClassNumberDate>
-                <ClassNumber>
-                  {data?.fetchUseditem.seller.name.split(' ')[1]}
-                </ClassNumber>
-                <Date>{data?.fetchUseditem.createdAt.slice(0, 10)}</Date>
-              </ClassNumberDate>
-            </UserInfo>
-            <Like>♥</Like>
-          </UserBox>
-          <Title>{data?.fetchUseditem.name}</Title>
-          <Contents>{data?.fetchUseditem.contents}</Contents>
-        </DtailBox>
+        <TopImage></TopImage>
+        <MainView>
+          <TopView>
+            <TopLeft>
+              <ProfileImage
+                source={require('../../../../public/images/defaultprofile2.png')}
+              />
+              <NameView>
+                <Name>{props.data?.fetchUseditem.seller.name}</Name>
+                <Date>{props.data?.fetchUseditem.createdAt.slice(0, 10)}</Date>
+              </NameView>
+            </TopLeft>
+            <TopRight>
+              <LikeView>
+                <LikeButton onPress={props.onPressLike}>
+                  <Like>♥</Like>
+                </LikeButton>
+                <LikeSu>{props.data?.fetchUseditem.pickedCount}</LikeSu>
+              </LikeView>
+            </TopRight>
+          </TopView>
+          <Title>{props.data?.fetchUseditem.name}</Title>
+          <Contents>{props.data?.fetchUseditem.contents}</Contents>
+        </MainView>
       </Wrapper>
     </ScrollView>
   );
 };
 
 export default FreeBoardDetailUI;
-
-{
-  /* <Button1
-        title="커뮤니티수정페이지가기"
-        onPress={() => navigation.navigate('커뮤니티게시판수정')}
-      /> */
-}
