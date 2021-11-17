@@ -7,23 +7,14 @@ import {
   Input,
   ButtonView,
   ButtonText,
-  DataView,
+  BoardContainer,
   BoardTitle,
-  BoardText,
-  ProfileView,
-  ProfileImage,
-  NameView,
-  Name,
-  Date,
+  Box,
+  Tilte,
   Contents,
   BottomView,
-  CommentView,
-  Comment,
-  CommentCount,
-  LikeView,
-  Like,
-  LikeCount,
-  Line,
+  Date,
+  NickName2,
 } from './Search.styles';
 
 const SearchUI = (props: any) => {
@@ -41,36 +32,17 @@ const SearchUI = (props: any) => {
           </ButtonView>
         </TopView>
         {props.data?.fetchUseditems.map((el: any) => (
-          <DataView key={el._id}>
-            <BoardTitle>
-              <BoardText>{el.name}</BoardText>
-            </BoardTitle>
-            <ProfileView>
-              <ProfileImage
-                source={require('../../../public/images/defaultprofile2.png')}
-              />
-              <NameView>
-                <Name>{el.seller.name}</Name>
+          <BoardContainer key={el._id}>
+            <BoardTitle>{el.remarks}</BoardTitle>
+            <Box>
+              <Tilte>{el.name}</Tilte>
+              <Contents>{el.contents}</Contents>
+              <BottomView>
                 <Date>{el.createdAt.slice(0, 10)}</Date>
-              </NameView>
-            </ProfileView>
-            <Contents>{el.contents}</Contents>
-            <BottomView>
-              <CommentView>
-                <Comment
-                  source={require('../../../public/images/comment.png')}
-                />
-                <CommentCount>3</CommentCount>
-              </CommentView>
-              <LikeView>
-                <Like
-                  source={require('../../../public/images/mylikeimage.png')}
-                />
-                <LikeCount>{el.pickedCount}</LikeCount>
-              </LikeView>
-            </BottomView>
-            <Line></Line>
-          </DataView>
+                <NickName2>{el.seller.name}</NickName2>
+              </BottomView>
+            </Box>
+          </BoardContainer>
         ))}
       </Wrapper>
     </ScrollView>
