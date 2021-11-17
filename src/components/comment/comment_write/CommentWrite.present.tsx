@@ -1,6 +1,6 @@
 import React from 'react';
-import { Text, View } from 'react-native';
 import {
+  Wrapper,
   UserBox,
   UserImage,
   UserInfoBox,
@@ -9,26 +9,36 @@ import {
   UserName,
   Date,
   CommentContents,
+  Submit,
+  SubmitText,
 } from './CommentWrite.styles';
 
-const CommentWriteUI = () => {
+const CommentWriteUI = (props: any) => {
   return (
-    <View>
+    <Wrapper>
       <UserBox>
         <UserImage
           source={require('../../../../public/images/defaultprofile2.png')}
         />
         <UserInfoBox>
           <UserInfo>
-            <ClassNumber>3기</ClassNumber>
-            <UserName>코캠러</UserName>
+            <ClassNumber>
+              {props.data?.fetchUseditem.seller.picture}
+            </ClassNumber>
+            <UserName>{props.data?.fetchUseditem.seller.name}</UserName>
           </UserInfo>
-          <Date>2021.11.03</Date>
+          <Date>{props.data?.fetchUseditem.createdAt.slice(0, 10)}</Date>
         </UserInfoBox>
       </UserBox>
       {/* <CommentText>댓글</CommentText> */}
-      <CommentContents placeholder="댓글을 입력하세요" />
-    </View>
+      <CommentContents
+        onChangeText={text => props.setContents(text)}
+        placeholder="댓글을 입력하세요"
+      />
+      <Submit onPress={props.onCommtentSubmit}>
+        <SubmitText>등록하기</SubmitText>
+      </Submit>
+    </Wrapper>
   );
 };
 export default CommentWriteUI;

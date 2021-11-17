@@ -9,6 +9,7 @@ export const CREATE_USED_ITEM_QUESTION = gql`
       createUseditemQuestionInput: $createUseditemQuestionInput
       useditemId: $useditemId
     ) {
+      contents
       _id
     }
   }

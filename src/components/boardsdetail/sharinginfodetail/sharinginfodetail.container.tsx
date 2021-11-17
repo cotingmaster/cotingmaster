@@ -2,6 +2,9 @@ import React from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import SharingInfodDetailUI from './sharinginfodetail.present';
 import { FETCH_USEDITEM, TOGGLE_USED_ITEM_PICK } from '../boarddetail.query';
+import CommentWrite from '../../comment/comment_write/CommentWrite.container';
+import CommentList from '../../comment/comment_list/CommentList.container';
+import { ScrollView } from 'react-native';
 
 const SharingInfoDetailContainer = ({ route }: any) => {
   const [toggleUseditemPick] = useMutation(TOGGLE_USED_ITEM_PICK);
@@ -24,6 +27,12 @@ const SharingInfoDetailContainer = ({ route }: any) => {
     });
   }
 
-  return <SharingInfodDetailUI data={data} onPressLike={onPressLike} />;
+  return (
+    <ScrollView>
+      <SharingInfodDetailUI data={data} onPressLike={onPressLike} />
+      <CommentWrite data={data} />
+      <CommentList data={data} />
+    </ScrollView>
+  );
 };
 export default SharingInfoDetailContainer;

@@ -1,5 +1,7 @@
 import styled from '@emotion/native';
 
+export const Wrapper = styled.View``;
+
 export const UserBox = styled.View`
   display: flex;
   flex-direction: row;
@@ -34,3 +36,12 @@ export const CommentContents = styled.TextInput`
   margin-bottom: 10px;
   border: 1px solid;
 `;
+
+export const Submit = styled.TouchableOpacity`
+  background-color: #ffd600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const SubmitText = styled.Text``;
