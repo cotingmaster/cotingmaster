@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import FreeBoardDetailUI from './freeboarddetail.present';
 import { FETCH_USEDITEM, TOGGLE_USED_ITEM_PICK } from '../boarddetail.query';
 
 const FreeBoardDetailContainer = ({ route }: any) => {
   const [toggleUseditemPick] = useMutation(TOGGLE_USED_ITEM_PICK);
+
+  const [deleteOpen, setDeleteOpen] = useState(false);
 
   const { data } = useQuery(FETCH_USEDITEM, {
     variables: {
@@ -24,7 +26,19 @@ const FreeBoardDetailContainer = ({ route }: any) => {
     });
   }
 
-  return <FreeBoardDetailUI data={data} onPressLike={onPressLike} />;
+  const onPressDelete = () => {
+    setDeleteOpen((prev: any) => !prev);
+  };
+
+  return (
+    <FreeBoardDetailUI
+      data={data}
+      onPressLike={onPressLike}
+      onPressDelete={onPressDelete}
+      deleteOpen={deleteOpen}
+      setDeleteOpen={setDeleteOpen}
+    />
+  );
 };
 
 export default FreeBoardDetailContainer;

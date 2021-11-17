@@ -5,7 +5,9 @@ export const ScrollView = styled.ScrollView`
   background-color: white;
 `;
 
-export const Wrapper = styled.View``;
+export const Wrapper = styled.View`
+  z-index: 0;
+`;
 
 export const TopImage = styled.View`
   width: 100%;
@@ -50,6 +52,9 @@ export const LikeView = styled.View`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10px;
+
+  margin-left: 30px;
 `;
 
 export const LikeButton = styled.TouchableOpacity``;
@@ -72,4 +77,17 @@ export const Title = styled.Text`
 
 export const Contents = styled.Text`
   font-size: 15px;
+`;
+
+export const IoniconsView = styled.View`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 10px;
+`;
+
+export const UpdateView = styled.TouchableOpacity``;
+
+export const DeleteView = styled.TouchableOpacity`
+  margin-left: 10px;
 `;
