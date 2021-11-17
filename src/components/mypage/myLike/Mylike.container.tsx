@@ -56,7 +56,6 @@ const NickName2 = styled.Text`
 `;
 
 const MyLikeContainer = ({ data3 }: any) => {
-  console.log('data3', data3);
   const navigation = useNavigation();
   const onPressMoveToDetail = (el: any) => {
     const boardDetail =
@@ -74,7 +73,7 @@ const MyLikeContainer = ({ data3 }: any) => {
     <>
       {data3?.fetchUseditemsIPicked.map((el: any, index: any) => (
         <BoardContainer key={el._id}>
-          <BoardTitle>정보공유</BoardTitle>
+          <BoardTitle>{el.remarks}</BoardTitle>
           <Box onPress={() => onPressMoveToDetail(el)}>
             <Tilte>{el.name}</Tilte>
             <Contents>{el.contents}</Contents>
