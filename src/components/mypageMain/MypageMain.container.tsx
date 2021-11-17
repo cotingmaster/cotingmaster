@@ -50,6 +50,8 @@ const MyPageMainContainer = () => {
     }
   };
 
+  console.log('picture', data?.fetchUserLoggedIn.picture);
+
   return (
     <MyPageMainUI
       data={data}
