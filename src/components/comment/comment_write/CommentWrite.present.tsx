@@ -11,7 +11,9 @@ import {
   CommentContents,
   Submit,
   SubmitText,
+  ContentsBox,
 } from './CommentWrite.styles';
+import EvilIcons from 'react-native-vector-icons/Ionicons';
 
 const CommentWriteUI = (props: any) => {
   return (
@@ -19,25 +21,25 @@ const CommentWriteUI = (props: any) => {
       <UserBox>
         <UserImage
           source={require('../../../../public/images/defaultprofile2.png')}
+          // {props.loginUser?.fetchUserLoggedIn.picture}
         />
         <UserInfoBox>
           <UserInfo>
-            <ClassNumber>
-              {props.data?.fetchUseditem.seller.picture}
-            </ClassNumber>
-            <UserName>{props.data?.fetchUseditem.seller.name}</UserName>
+            <ClassNumber></ClassNumber>
+            <UserName>{props.loginUser?.fetchUserLoggedIn.name}</UserName>
           </UserInfo>
-          <Date>{props.data?.fetchUseditem.createdAt.slice(0, 10)}</Date>
         </UserInfoBox>
       </UserBox>
       {/* <CommentText>댓글</CommentText> */}
-      <CommentContents
-        onChangeText={text => props.setContents(text)}
-        placeholder="댓글을 입력하세요"
-      />
-      <Submit onPress={props.onCommtentSubmit}>
-        <SubmitText>등록하기</SubmitText>
-      </Submit>
+      <ContentsBox>
+        <CommentContents
+          onChangeText={props.setContents}
+          placeholder="댓글을 입력하세요"
+        />
+        <Submit onPress={props.onCommtentSubmit}>
+          <EvilIcons name="pencil" color={'black'} size={25} />
+        </Submit>
+      </ContentsBox>
     </Wrapper>
   );
 };

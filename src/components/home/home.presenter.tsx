@@ -17,9 +17,6 @@ const HomeUI = () => {
   const navigation = useNavigation();
   return (
     <Wrapper>
-      {/* <TopView>
-        <MainText>여기는 메인페이지입니다</MainText>
-      </TopView> */}
       <LogoImg>
         <LogoIcon source={require('../../../public/images/coting.png')} />
       </LogoImg>
@@ -48,18 +45,3 @@ const HomeUI = () => {
   );
 };
 export default HomeUI;
-
-{
-  /* <Button1
-        title="정보공유게시판가기"
-        onPress={() => navigation.navigate('정보공유게시판')}
-      />
-      <Button1
-        title="만남게시판가기"
-        onPress={() => navigation.navigate('만남게시판')}
-      />
-      <Button1
-        title="커뮤니티게시판가기"
-        onPress={() => navigation.navigate('커뮤니티게시판')}
-      /> */
-}

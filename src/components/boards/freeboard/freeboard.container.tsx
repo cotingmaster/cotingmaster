@@ -4,10 +4,10 @@ import FreeBoardUI from './freeboard.presenter';
 import { FETCH_USEDITEMS } from '../board.query';
 
 const FreeBoardContainer = () => {
+  const [refreshing, setRefreshing] = useState(false);
   const { data, fetchMore } = useQuery(FETCH_USEDITEMS, {
     variables: { page: 1, isSoldout: false },
   });
-  const [refreshing, setRefreshing] = useState(false);
   const [freeData, setFreeData] = useState({});
 
   function onLoadMore() {
