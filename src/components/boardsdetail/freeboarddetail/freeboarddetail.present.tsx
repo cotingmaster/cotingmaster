@@ -20,6 +20,7 @@ import {
   DeleteView,
   Title,
   Contents,
+  ModalView,
 } from './freeboarddetail.styles';
 import { useNavigation } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -29,12 +30,6 @@ const FreeBoardDetailUI = (props: any) => {
   const navigation = useNavigation();
   return (
     <>
-      {props.deleteOpen && (
-        <DeleteModal
-          deleteOpen={props.deleteOpen}
-          setDeleteOpen={props.setDeleteOpen}
-        />
-      )}
       <ScrollView>
         <Wrapper>
           <TopImage></TopImage>
@@ -51,6 +46,15 @@ const FreeBoardDetailUI = (props: any) => {
                   </Date>
                 </NameView>
               </TopLeft>
+              <ModalView>
+                {props.deleteOpen && (
+                  <DeleteModal
+                    deleteOpen={props.deleteOpen}
+                    setDeleteOpen={props.setDeleteOpen}
+                    data={props.data}
+                  />
+                )}
+              </ModalView>
               <TopRight>
                 <LikeView>
                   <LikeButton onPress={props.onPressLike}>
