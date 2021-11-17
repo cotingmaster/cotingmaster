@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import SharingInfodDetailUI from './sharinginfodetail.present';
 import { FETCH_USEDITEM, TOGGLE_USED_ITEM_PICK } from '../boarddetail.query';
@@ -8,6 +8,8 @@ import { ScrollView } from 'react-native';
 
 const SharingInfoDetailContainer = ({ route }: any) => {
   const [toggleUseditemPick] = useMutation(TOGGLE_USED_ITEM_PICK);
+
+  const [deleteOpen, setDeleteOpen] = useState(false);
 
   const { data } = useQuery(FETCH_USEDITEM, {
     variables: {
@@ -27,9 +29,19 @@ const SharingInfoDetailContainer = ({ route }: any) => {
     });
   }
 
+  const onPressDelete = () => {
+    setDeleteOpen((prev: any) => !prev);
+  };
+
   return (
     <ScrollView>
-      <SharingInfodDetailUI data={data} onPressLike={onPressLike} />
+      <SharingInfodDetailUI
+        data={data}
+        onPressLike={onPressLike}
+        onPressDelete={onPressDelete}
+        deleteOpen={deleteOpen}
+        setDeleteOpen={setDeleteOpen}
+      />
       <CommentWrite data={data} />
       <CommentList data={data} />
     </ScrollView>

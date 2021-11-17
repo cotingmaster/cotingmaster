@@ -91,3 +91,7 @@ export const UpdateView = styled.TouchableOpacity``;
 export const DeleteView = styled.TouchableOpacity`
   margin-left: 10px;
 `;
+
+export const ModalView = styled.View`
+  z-index: 1;
+`;
