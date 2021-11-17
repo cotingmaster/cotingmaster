@@ -11,23 +11,25 @@ import {
   CommentContents,
 } from './CommentList.styles';
 
-const CommentListUI = () => {
+const CommentListUI = (props: any) => {
   return (
     <View>
-      <UserBox>
-        <UserImage
-          source={require('../../../../public/images/defaultprofile2.png')}
-        />
-        <UserInfoBox>
-          <UserInfo>
-            <ClassNumber>3기</ClassNumber>
-            <UserName>코캠러</UserName>
-          </UserInfo>
-          <Date>2021.11.03</Date>
-        </UserInfoBox>
-      </UserBox>
-      {/* <CommentText>댓글</CommentText> */}
-      <CommentContents>댓글댈긋댓글댈긋댓글댈긋댓글댈긋</CommentContents>
+      <Text>이상혁</Text>
+      {props.data?.fetchUseditemQuestions.map((el: any) => {
+        <UserBox key={el._id}>
+          <UserImage
+            source={require('../../../../public/images/defaultprofile2.png')}
+          />
+          <UserInfoBox>
+            <UserInfo>
+              <ClassNumber></ClassNumber>
+              <UserName>{el.user.name}</UserName>
+            </UserInfo>
+            <Date>{el.createdAt.slice(0, 10)}</Date>
+          </UserInfoBox>
+        </UserBox>;
+        <CommentContents>{el.contents}</CommentContents>;
+      })}
     </View>
   );
 };

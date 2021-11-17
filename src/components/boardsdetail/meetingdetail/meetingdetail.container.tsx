@@ -2,6 +2,9 @@ import React from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import MeetingDetailUI from './meetingdetail.present';
 import { FETCH_USEDITEM, TOGGLE_USED_ITEM_PICK } from '../boarddetail.query';
+import CommentWrite from '../../comment/comment_write/CommentWrite.container';
+import CommentList from '../../comment/comment_list/CommentList.container';
+import { ScrollView } from 'react-native';
 
 const MeetingDetailContainer = ({ route }: any) => {
   const [toggleUseditemPick] = useMutation(TOGGLE_USED_ITEM_PICK);
@@ -24,7 +27,13 @@ const MeetingDetailContainer = ({ route }: any) => {
     });
   }
 
-  return <MeetingDetailUI data={data} onPressLike={onPressLike} />;
+  return (
+    <ScrollView>
+      <MeetingDetailUI data={data} onPressLike={onPressLike} />
+      <CommentWrite data={data} />
+      <CommentList data={data} />
+    </ScrollView>
+  );
 };
 
 export default MeetingDetailContainer;
