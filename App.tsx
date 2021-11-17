@@ -23,7 +23,7 @@ const App: () => Node = () => {
   const Stack = createNativeStackNavigator();
   const [accessToken, setAccessToken] = useState('');
   const [userInfo, setUserInfo] = useState({});
-  const [id, setId] = useState('');
+
   const cache = new InMemoryCache({
     typePolicies: {
       Book: {
@@ -43,8 +43,6 @@ const App: () => Node = () => {
     setAccessToken,
     userInfo,
     setUserInfo,
-    id,
-    setId,
   };
 
   useEffect(() => {

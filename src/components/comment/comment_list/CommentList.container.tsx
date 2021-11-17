@@ -1,24 +1,45 @@
 import React from 'react';
 import CommentListUI from './CommentList.present';
-import {
-  FETCH_USED_ITEM_QUESTIONS,
-  FETCH_USED_ITEM_QUESTION_ANSWERS,
-} from './CommentList.query';
+import { FETCH_USEDITEM_QUESTIONS } from './CommentList.query';
 import { useQuery } from '@apollo/client';
 
 const CommentList = (props: any) => {
-  console.log('id', props.data?.fetchUseditem._id);
-  const { data } = useQuery(FETCH_USED_ITEM_QUESTIONS, {
+  console.log('111', props.commentId);
+  const { data, fetchMore } = useQuery(FETCH_USEDITEM_QUESTIONS, {
     variables: {
-      useditemId: props.data?.fetchUseditem._id,
+      page: 1,
+      useditemId: String(props.useditemId),
     },
   });
-  console.log('b', data);
+
+  function onLoadMore() {
+    if (!data) return;
+    fetchMore({
+      variables: {
+        page: Math.ceil(data?.fetchUseditemQuestions.length / 10) + 1,
+      },
+      updateQuery: (prev, { fetchMoreResult }) => {
+        return {
+          fetchUseditemQuestions: [
+            ...prev.fetchUseditemQuestions,
+            ...fetchMoreResult.fetchUseditemQuestions,
+          ],
+        };
+      },
+    });
+  }
+
   // const { data: answersData } = useQuery(FETCH_USED_ITEM_QUESTION_ANSWERS, {
   //   variables: { },
   // });
 
-  return <CommentListUI data={data} />;
+  return (
+    <CommentListUI
+      data={data?.fetchUseditemQuestions}
+      onLoadMore={onLoadMore}
+      contents={props.contents}
+    />
+  );
 };
 
 export default CommentList;

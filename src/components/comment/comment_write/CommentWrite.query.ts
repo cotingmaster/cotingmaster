@@ -40,3 +40,13 @@ export const FETCH_USED_ITEM_QUESTIONS = gql`
     }
   }
 `;
+
+export const FETCH_USER_LOGGEDIN = gql`
+  query fetchUserLoggedIn {
+    fetchUserLoggedIn {
+      _id
+      name
+      picture
+    }
+  }
+`;

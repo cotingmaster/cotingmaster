@@ -12,6 +12,7 @@ export const FETCH_USED_ITEM_QUESTIONS = gql`
       _id
       user {
         name
+        picture
       }
       createdAt
       contents
@@ -19,14 +20,40 @@ export const FETCH_USED_ITEM_QUESTIONS = gql`
   }
 `;
 
-export const FETCH_USED_ITEM_QUESTION_ANSWERS = gql`
-  query fetchUseditemQuestionAnswers($useditemQuestionId: ID!) {
-    fetchUseditemQuestionAnswers(useditemQuestionId: $useditemQuestionId) {
+export const FETCH_USEDITEM_QUESTIONS = gql`
+  query fetchUseditemQuestions($page: Int, $useditemId: ID!) {
+    fetchUseditemQuestions(page: $page, useditemId: $useditemId) {
       _id
+      contents
+      createdAt
       user {
+        picture
         name
       }
-      contents
     }
+  }
+`;
+
+export const FETCH_USEDITEM_QUESTION_ANSWERS = gql`
+  query fetchUseditemQuestionAnswers($page: Int, $useditemQuestionId: ID!) {
+    fetchUseditemQuestionAnswers(
+      page: $page
+      useditemQuestionId: $useditemQuestionId
+    ) {
+      _id
+      contents
+      createdAt
+      user {
+        picture
+      }
+    }
+  }
+`;
+
+export const DELETE_USEDITEM_QUESTION_ANSWER = gql`
+  mutation deleteUseditemQuestionAnswer($useditemQuestionAnswerId: ID!) {
+    deleteUseditemQuestionAnswer(
+      useditemQuestionAnswerId: $useditemQuestionAnswerId
+    )
   }
 `;

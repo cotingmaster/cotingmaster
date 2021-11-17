@@ -1,5 +1,5 @@
 import React from 'react';
-import HomeUI from './home.present';
+import HomeUI from './home.presenter';
 
 const HomeContainer = () => {
   return <HomeUI />;

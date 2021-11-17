@@ -4,10 +4,10 @@ import SharinginfoUI from './sharinginfo.presenter';
 import { FETCH_USEDITEMS } from '../board.query';
 
 const SharinginfoContainer = () => {
+  const [refreshing, setRefreshing] = useState(false);
   const { data, fetchMore } = useQuery(FETCH_USEDITEMS, {
     variables: { page: 1, isSoldout: false, search: '' },
   });
-  const [refreshing, setRefreshing] = useState(false);
   const [sharingData, setSharingData] = useState({});
 
   function onLoadMore() {

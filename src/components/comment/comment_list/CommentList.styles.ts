@@ -37,3 +37,9 @@ export const CommentContents = styled.Text`
   font-weight: bold;
   color: black;
 `;
+
+export const SafeAreaViewStyle = styled.SafeAreaView`
+  margin: 10px;
+`;
+
+export const List = styled.FlatList``;

@@ -28,6 +28,7 @@ const ProfileUpdateContainer = () => {
           },
         },
       });
+      console.log(response);
     } catch (e: any) {
       Alert.alert(e.message);
     }

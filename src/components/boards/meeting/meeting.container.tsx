@@ -4,10 +4,10 @@ import MeetingUI from './meeting.presenter';
 import { FETCH_USEDITEMS } from '../board.query';
 
 const MeetingContainer = () => {
+  const [refreshing, setRefreshing] = useState(false);
   const { data, fetchMore } = useQuery(FETCH_USEDITEMS, {
     variables: { page: 1, isSoldout: false },
   });
-  const [refreshing, setRefreshing] = useState(false);
   const [meetingData, setMeetingData] = useState({});
 
   function onLoadMore() {
