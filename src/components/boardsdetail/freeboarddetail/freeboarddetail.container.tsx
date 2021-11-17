@@ -2,7 +2,6 @@ import React from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import FreeBoardDetailUI from './freeboarddetail.present';
 import { FETCH_USEDITEM, TOGGLE_USED_ITEM_PICK } from '../boarddetail.query';
-import { Alert } from 'react-native';
 
 const FreeBoardDetailContainer = ({ route }: any) => {
   const [toggleUseditemPick] = useMutation(TOGGLE_USED_ITEM_PICK);
@@ -12,20 +11,6 @@ const FreeBoardDetailContainer = ({ route }: any) => {
       useditemId: String(route.params.id),
     },
   });
-
-  // const onPressLike = () => {
-  //   toggleUseditemPick({
-  //     variables: {
-  //       useditemId: String(route.params.id),
-  //     },
-  //     refetchQueries: [
-  //       {
-  //         query: FETCH_USEDITEM,
-  //         variables: { useditemId: String(route.params.id) },
-  //       },
-  //     ],
-  //   });
-  // };
 
   async function onPressLike() {
     await toggleUseditemPick({

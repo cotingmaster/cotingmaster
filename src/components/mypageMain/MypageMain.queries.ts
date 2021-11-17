@@ -40,6 +40,7 @@ export const FETCH_USEDITEM_IPICKED = gql`
     fetchUseditemsIPicked(search: $search) {
       _id
       name
+      remarks
       price
       seller {
         name
