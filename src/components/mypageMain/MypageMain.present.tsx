@@ -35,7 +35,11 @@ const MyPageMainUI = (props: any) => {
     <ScrollView>
       <Wrapper>
         <ProfileDefault
-          source={require('../../../public/images/defaultprofile.png')}
+          source={
+            props.data?.fetchUserLoggedIn.picture
+              ? { uri: props.data?.fetchUserLoggedIn.picture }
+              : require('../../../public/images/defaultprofile.png')
+          }
         />
 
         <NameView>

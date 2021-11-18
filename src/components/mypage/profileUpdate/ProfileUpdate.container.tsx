@@ -17,17 +17,21 @@ const ProfileUpdateContainer = () => {
     data?.fetchUserLoggedIn.name.split(' ')[1],
   );
   const [response, setResponse] = useState(null);
+  const [picture, setPicture] = useState('');
+  const storage = 'https://storage.googleapis.com/';
 
   const onSubmit = async () => {
+    console.log('업로드', response);
     try {
       await updateUser({
         variables: {
           updateUserInput: {
             name: `${nick} ${classNumber}기`,
-            picture: null,
+            picture: storage + response?.assets[0]?.uri,
           },
         },
       });
+      Alert.alert('업로드 성공', data?.fetchUserLoggedIn.picture);
       console.log(response);
     } catch (e: any) {
       Alert.alert(e.message);
@@ -42,6 +46,7 @@ const ProfileUpdateContainer = () => {
       setClassNumber={setClassNumber}
       response={response}
       setResponse={setResponse}
+      setPicture={setPicture}
     />
   );
 };

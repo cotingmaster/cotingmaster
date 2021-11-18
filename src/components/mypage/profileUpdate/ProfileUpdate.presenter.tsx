@@ -22,6 +22,7 @@ const ProfilUpdateUI = (props: any) => {
         <SetupProfile
           setResponse={props.setResponse}
           response={props.response}
+          setPicture={props.setPicture}
         />
         <NickName>{props.data?.fetchUserLoggedIn.name}</NickName>
         <UpdateNickName

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { S } from './profilePhoto.style';
 import { launchImageLibrary } from 'react-native-image-picker';
 import { Platform } from 'react-native';
@@ -16,18 +16,20 @@ export default function SetupProfile(props) {
         if (res.didCancel) {
           return;
         }
-        console.log(res);
         props.setResponse(res);
       },
     );
   };
+
   return (
     <S.Container>
       <S.Pressable onPress={onSelectImage}>
         <S.Image
           source={
             props.response
-              ? { uri: props.response?.assets[0]?.uri }
+              ? {
+                  uri: props.response?.assets[0]?.uri,
+                }
               : require('../../../public/images/defaultprofile.png')
           }
         />
