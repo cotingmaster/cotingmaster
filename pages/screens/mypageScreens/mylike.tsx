@@ -1,7 +1,7 @@
 import React from 'react';
 import MyLikeContainer from '../../../src/components/mypage/myLike/Mylike.container';
 
-const MyLikeScreen = ({ route }) => {
+const MyLikeScreen = ({ route }: any) => {
   return <MyLikeContainer route={route} />;
 };
 

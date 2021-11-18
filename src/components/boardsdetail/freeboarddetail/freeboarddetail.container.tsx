@@ -4,7 +4,7 @@ import FreeBoardDetailUI from './freeboarddetail.present';
 import { FETCH_USEDITEM, TOGGLE_USED_ITEM_PICK } from '../boarddetail.query';
 import CommentWrite from '../../comment/comment_write/CommentWrite.container';
 import CommentList from '../../comment/comment_list/CommentList.container';
-import { ScrollView } from 'react-native';
+import { View } from 'react-native';
 
 const FreeBoardDetailContainer = ({ route }: any) => {
   const [toggleUseditemPick] = useMutation(TOGGLE_USED_ITEM_PICK);
@@ -34,17 +34,13 @@ const FreeBoardDetailContainer = ({ route }: any) => {
   };
 
   return (
-    <ScrollView>
-      <FreeBoardDetailUI
-        data={data}
-        onPressLike={onPressLike}
-        onPressDelete={onPressDelete}
-        deleteOpen={deleteOpen}
-        setDeleteOpen={setDeleteOpen}
-      />
-      <CommentWrite data={data} />
-      <CommentList data={data} />
-    </ScrollView>
+    <FreeBoardDetailUI
+      data={data}
+      onPressLike={onPressLike}
+      onPressDelete={onPressDelete}
+      deleteOpen={deleteOpen}
+      setDeleteOpen={setDeleteOpen}
+    />
   );
 };
 

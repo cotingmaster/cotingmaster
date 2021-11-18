@@ -35,11 +35,11 @@ const CommentWrite = (props: any) => {
 
   return (
     <>
-      <CommentList
+      {/* <CommentList
         commentId={commentId}
         contents={contents}
         useditemId={props.data?.fetchUseditem._id}
-      />
+      /> */}
       <CommentWriteUI
         setContents={setContents}
         onCommtentSubmit={onCommtentSubmit}

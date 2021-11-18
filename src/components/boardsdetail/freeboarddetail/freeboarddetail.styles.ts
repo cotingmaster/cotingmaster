@@ -1,12 +1,12 @@
 import styled from '@emotion/native';
 
 export const ScrollView = styled.ScrollView`
-  height: 100%;
   background-color: white;
 `;
 
 export const Wrapper = styled.View`
-  z-index: 0;
+  height: 100%;
+  background-color: white;
 `;
 
 export const TopImage = styled.View`

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 import {
   ScrollView,
   Wrapper,
@@ -18,6 +19,20 @@ import {
 } from './Search.styles';
 
 const SearchUI = (props: any) => {
+  const navigation = useNavigation();
+  const onPressMoveToDetail = (el: any) => {
+    const boardDetail =
+      el.remarks === 'Freeboard'
+        ? '커뮤니티게시판디테일'
+        : el.remarks === 'SharingInfo'
+        ? '정보공유게시판디테일'
+        : '만남게시판디테일';
+    navigation.push(boardDetail, {
+      id: el._id,
+    });
+    console.log(el._id);
+  };
+
   return (
     <ScrollView>
       <Wrapper>
@@ -34,7 +49,7 @@ const SearchUI = (props: any) => {
         {props.data?.fetchUseditems.map((el: any) => (
           <BoardContainer key={el._id}>
             <BoardTitle>{el.remarks}</BoardTitle>
-            <Box>
+            <Box onPress={() => onPressMoveToDetail(el)}>
               <Tilte>{el.name}</Tilte>
               <Contents>{el.contents}</Contents>
               <BottomView>

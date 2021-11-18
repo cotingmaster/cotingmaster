@@ -38,8 +38,15 @@ export const CommentContents = styled.Text`
   color: black;
 `;
 
-export const SafeAreaViewStyle = styled.SafeAreaView`
+export const Container = styled.View`
   margin: 10px;
 `;
 
 export const List = styled.FlatList``;
+
+export const Wrapper = styled.View`
+  background-color: green;
+  display: flex;
+  align-items: center;
+  height: 50px;
+`;

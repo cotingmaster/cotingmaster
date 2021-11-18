@@ -4,7 +4,6 @@ import { FETCH_USEDITEM_QUESTIONS } from './CommentList.query';
 import { useQuery } from '@apollo/client';
 
 const CommentList = (props: any) => {
-  console.log('111', props.commentId);
   const { data, fetchMore } = useQuery(FETCH_USEDITEM_QUESTIONS, {
     variables: {
       page: 1,

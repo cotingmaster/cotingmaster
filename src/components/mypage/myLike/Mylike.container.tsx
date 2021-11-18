@@ -21,7 +21,7 @@ const Box = styled.TouchableOpacity`
   height: 137px;
   background-color: skyblue;
   border-radius: 10px;
-  elevation: 10;
+  /* elevation: 10; */
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 10px;
