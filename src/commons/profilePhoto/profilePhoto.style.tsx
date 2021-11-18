@@ -9,7 +9,10 @@ export const S = {
     align-items: center;
   `,
   Pressable: styled.Pressable``,
+
   Image: styled.Image`
-    border-radius: 25px;
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
   `,
 };

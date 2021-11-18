@@ -29,7 +29,7 @@ export default function SingUp() {
       createUserInput: {
         email,
         password,
-        name: `${name} ${classNumber}기`,
+        name: `${name} ${classNumber}`,
       },
     };
     try {
