@@ -27,7 +27,9 @@ const ProfileUpdateContainer = () => {
         variables: {
           updateUserInput: {
             name: `${nick} ${classNumber}기`,
-            picture: storage + response?.assets[0]?.uri,
+            // picture: storage + response?.assets[0]?.uri,
+            picture:
+              'https://photo.jtbc.joins.com/news/2021/03/26/202103261532034842.jpg',
           },
         },
       });

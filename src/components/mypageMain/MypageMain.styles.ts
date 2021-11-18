@@ -16,9 +16,10 @@ export const Wrapper = styled.View`
 
 export const ProfileDefault = styled.Image`
   width: 71px;
-  height: 66px;
+  height: 71px;
   margin-bottom: 15px;
   margin-top: 30px;
+  border-radius: 35px;
 `;
 
 export const NameView = styled.View`

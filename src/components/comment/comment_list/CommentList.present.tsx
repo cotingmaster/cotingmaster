@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, ScrollView } from 'react-native';
+import { Text } from 'react-native';
 import {
   UserBox,
   UserImage,
@@ -9,40 +9,41 @@ import {
   UserName,
   Date,
   CommentContents,
-  SafeAreaViewStyle,
+  Container,
   List,
+  Wrapper,
 } from './CommentList.styles';
 
 const CommentListUI = (props: any) => {
-  console.log('abc', props.data);
-
-  const renderItem = ({ item }: any) => (
-    <UserBox>
-      <UserImage
-        source={require('../../../../public/images/defaultprofile2.png')}
-        // {el.user.picture}
-      />
-      <UserName>{item.user.name}</UserName>
-      <CommentContents>{item.contents}</CommentContents>;
-      <Date>
-        {item.updatedAt
-          ? item.updatedAt.slice(0, 10)
-          : item.createdAt.slice(0, 10)}
-      </Date>
-    </UserBox>
-  );
+  // const renderItem = ({ item }: any) => (
+  //   <Wrapper>
+  //     <UserBox>
+  //       <UserImage
+  //         source={require('../../../../public/images/defaultprofile2.png')}
+  //         // {el.user.picture}
+  //       />
+  //       <UserName>{item.user.name}</UserName>
+  //     </UserBox>
+  //     <CommentContents>{item.contents}</CommentContents>
+  //     <Date>
+  //       {item.updatedAt
+  //         ? item.updatedAt.slice(0, 10)
+  //         : item.createdAt.slice(0, 10)}
+  //     </Date>
+  //   </Wrapper>
+  // );
 
   return (
-    <SafeAreaViewStyle>
-      <Text>{props.contents}</Text>
+    <Wrapper>
+      {/* <Text>{props.contents}</Text>
       <List
         data={props.data}
         renderItem={renderItem}
         keyExtractor={item => item.remarks + item._id}
         onEndReached={props.onLoadMore}
         onEndReachedThreshold={0.8}
-      />
-    </SafeAreaViewStyle>
+      /> */}
+    </Wrapper>
   );
 };
 export default CommentListUI;

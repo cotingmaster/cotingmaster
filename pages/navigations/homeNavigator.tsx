@@ -13,6 +13,8 @@ import MeetingUpdateScreen from '../screens/boardupdate/meeting';
 import SharingInfoWriteScreen from '../screens/boardwrite/sharinginfo';
 import MeetingWriteScreen from '../screens/boardwrite/meeting';
 import FreeBoardWriteScreen from '../screens/boardwrite/freeboard';
+import CommentWrite from '../../src/components/comment/comment_write/CommentWrite.container';
+import CommentList from '../../src/components/comment/comment_list/CommentList.container';
 
 const HomeNavigator = () => {
   const Stack = createNativeStackNavigator();

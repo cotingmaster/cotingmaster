@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SearchUI from './Search.present';
+import SearchUI from './Search.presenter';
 import { gql, useQuery } from '@apollo/client';
 
 const FETCH_USED_ITEMS = gql`
@@ -13,6 +13,7 @@ const FETCH_USED_ITEMS = gql`
       createdAt
       seller {
         name
+        picture
       }
     }
   }
