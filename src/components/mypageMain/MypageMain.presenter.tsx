@@ -44,7 +44,7 @@ const MyPageMainUI = (props: any) => {
 
         <NameView>
           <NickNameView>
-            <NickName>{props.data?.fetchUserLoggedIn.name}</NickName>
+            <NickName>{props.data?.fetchUserLoggedIn.name}기</NickName>
           </NickNameView>
           <LogOutView onPress={props.onPressLogout}>
             <LogOutText>로그아웃</LogOutText>

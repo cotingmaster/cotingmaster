@@ -15,24 +15,36 @@ export const TopView = styled.View`
 `;
 
 export const MainTitle = styled.Text`
+  margin-top: 30px;
   font-size: 25px;
   font-weight: bold;
+  color: black;
   margin-bottom: 30px;
 `;
 
 export const Profile = styled.Image`
-  width: 71px;
-  height: 66px;
+  width: 70px;
+  height: 70px;
+  border-radius: 35px;
   margin-bottom: 10px;
+  background-color: pink;
 `;
 
 export const NickName = styled.Text`
-  font-size: 15px;
+  font-size: 17px;
   margin-bottom: 30px;
+  color: black;
+`;
+
+export const Message = styled.Text`
+  width: 308px;
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: gray;
 `;
 
 export const UpdateNickName = styled.TextInput`
-  border: solid 0.8px gray;
+  border: solid 0.8px black;
   width: 308px;
   height: 41px;
   font-size: 15px;
@@ -40,9 +52,10 @@ export const UpdateNickName = styled.TextInput`
 `;
 
 export const Submit = styled.TouchableOpacity`
-  width: 375px;
-  height: 68px;
-  background-color: #ffd600;
+  margin-top: 100px;
+  width: 100%;
+  height: 60px;
+  background-color: black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,6 +63,14 @@ export const Submit = styled.TouchableOpacity`
 
 export const SubmitText = styled.Text`
   font-size: 20px;
-  color: black;
+  color: #ffd600;
   font-weight: bold;
+`;
+
+export const ScrollViewStyle = styled.ScrollView`
+  /* margin-bottom: 20px; */
+`;
+
+export const KeyboardAvoidingViewStyle = styled.KeyboardAvoidingView`
+  flex: 1;
 `;

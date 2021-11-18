@@ -2,7 +2,7 @@ import { useMutation, useQuery } from '@apollo/client';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useContext, useState } from 'react';
 import { Alert } from 'react-native';
-import MyPageMainUI from './MypageMain.present';
+import MyPageMainUI from './MypageMain.presenter';
 import {
   FETCH_USER_LOGGEDIN,
   FETCH_USEDITEM_ISOLD,
