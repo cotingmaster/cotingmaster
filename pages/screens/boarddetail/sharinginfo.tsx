@@ -9,7 +9,7 @@ const SharingInfoDetailScreen = ({ route }: any) => {
     <>
       <SharingInfoDetailContainer route={route} />
       <CommentWrite />
-      <CommentList />
+      {/* <CommentList /> */}
     </>
   );
 };

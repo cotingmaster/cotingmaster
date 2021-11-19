@@ -18,8 +18,8 @@ import {
 } from './CommentList.styles';
 import AnswerIcon from 'react-native-vector-icons/FontAwesome';
 import DeleteIcon from 'react-native-vector-icons/MaterialIcons';
-import AnswerWrite from '../answer_write/AnswerWrite.container';
-import AnswerList from '../answer_list/AnswerList.container';
+// import AnswerWrite from '../answer_write/AnswerWrite.container';
+// import AnswerList from '../answer_list/AnswerList.container';
 
 const CommentListUI = (props: any) => {
   return (
@@ -47,13 +47,6 @@ const CommentListUI = (props: any) => {
             <AnswerIcon name="comments-o" color={'black'} size={20} />
           </AnswerSubmit>
         </Icon>
-        {props.answersData?.fetchUseditemQuestionAnswers.map((el: any) => (
-          <AnswerWrite el={el} />
-        ))}
-
-        {props.isAnswer && (
-          <AnswerList el={props.el} setIsAnswer={props.setIsAnswer} />
-        )}
       </Wrapper>
       <Line />
     </>

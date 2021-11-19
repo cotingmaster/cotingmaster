@@ -12,18 +12,18 @@ const CommentList = (props: any) => {
   console.log('qqqqqqq', props.QId);
   // console.log('zzzzzz', props.usedItemdata.fetchUseditem._id);
 
-  const [isAnswer, setIsAnswer] = useState(false);
+  // const [isAnswer, setIsAnswer] = useState(false);
 
   const [deleteUseditemQuestion] = useMutation(DELETE_USED_ITEM_QUESTION);
 
-  const { data: answersData } = useQuery(FETCH_USEDITEM_QUESTION_ANSWERS, {
-    variables: { useditemQuestionId: props.el._id },
-  });
+  // const { data: answersData } = useQuery(FETCH_USEDITEM_QUESTION_ANSWERS, {
+  //   variables: { useditemQuestionId: props.el._id },
+  // });
 
   const { data, fetchMore } = useQuery(FETCH_USEDITEM_QUESTIONS, {
     variables: {
       page: 1,
-      useditemId: props.usedItemdata.fetchUseditem._id,
+      useditemId: props.usedItemdata?.fetchUseditem._id,
     },
   });
   // console.log('b', data);
@@ -56,7 +56,7 @@ const CommentList = (props: any) => {
         refetchQueries: [
           {
             query: DELETE_USED_ITEM_QUESTION,
-            variables: { useditemId: props.usedItemdata.fetchUseditem._id },
+            variables: { useditemId: props.usedItemdata?.fetchUseditem._id },
           },
         ],
       });
@@ -66,9 +66,9 @@ const CommentList = (props: any) => {
     }
   };
 
-  const onPressAnswer = () => {
-    setIsAnswer(true);
-  };
+  // const onPressAnswer = () => {
+  //   setIsAnswer(true);
+  // };
 
   return (
     <CommentListUI
@@ -76,8 +76,8 @@ const CommentList = (props: any) => {
       onLoadMore={onLoadMore}
       contents={props.contents}
       onPressDelete={onPressDelete}
-      answersData={answersData}
-      onPressAnswer={onPressAnswer}
+      // answersData={answersData}
+      // onPressAnswer={onPressAnswer}
     />
   );
 };

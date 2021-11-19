@@ -9,7 +9,7 @@ const FreeBoardDetailScreen = ({ route }: any) => {
     <ScrollView>
       <FreeBoardDetailContainer route={route} />
       <CommentWrite />
-      <CommentList />
+      {/* <CommentList /> */}
     </ScrollView>
   );
 };
