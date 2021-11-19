@@ -3,27 +3,20 @@ import {
   ScrollView,
   Wrapper,
   ProfileDefault,
-  NameView,
   LogOutView,
-  LogOutText,
   NickNameView,
   NickName,
   ButtonView,
   MyBoards,
-  MyBoardsText,
-  MyLike,
-  MyLikeText,
   ProfileUpdate,
-  ProfileUpdateText,
-  ButtonImage,
-  // BoardContainer,
-  // BoardTitle,
-  // Box,
-  // Tilte,
-  // Contents,
-  // BottomView,
-  // Date,
-  // NickName2,
+  ProfileWrapper,
+  LogoutIcon,
+  EditIcon,
+  CurvedLine,
+  MyText,
+  MyIcon,
+  HeartIcon,
+  BoardWrapper,
 } from './MypageMain.styles';
 import { useNavigation } from '@react-navigation/native';
 import MyBoardsContainer from '../mypage/myboards/Myboards.container';
@@ -34,44 +27,44 @@ const MyPageMainUI = (props: any) => {
   return (
     <ScrollView>
       <Wrapper>
-        <ProfileDefault
-          source={
-            props.data?.fetchUserLoggedIn.picture
-              ? { uri: props.data?.fetchUserLoggedIn.picture }
-              : require('../../../public/images/defaultprofile.png')
-          }
-        />
+        <ProfileWrapper>
+          <ProfileUpdate onPress={() => navigation.navigate('프로필수정')}>
+            <ProfileDefault
+              source={
+                props.data?.fetchUserLoggedIn.picture
+                  ? { uri: props.data?.fetchUserLoggedIn.picture }
+                  : require('../../../public/images/defaultprofile.png')
+              }
+            />
+            <EditIcon name="edit" size={30} />
+          </ProfileUpdate>
 
-        <NameView>
           <NickNameView>
             <NickName>{props.data?.fetchUserLoggedIn.name}기</NickName>
+            <LogOutView onPress={props.onPressLogout}>
+              <LogoutIcon name="logout" size={24} />
+            </LogOutView>
           </NickNameView>
-          <LogOutView onPress={props.onPressLogout}>
-            <LogOutText>로그아웃</LogOutText>
-          </LogOutView>
-        </NameView>
-        <ButtonView>
-          <MyBoards onPress={props.onPressMyBoards}>
-            <ButtonImage
-              source={require('../../../public/images/myboardsimage.png')}
-            />
-            <MyBoardsText>내가쓴글</MyBoardsText>
-          </MyBoards>
-          <MyLike onPress={props.onPressMyLike}>
-            <ButtonImage
-              source={require('../../../public/images/mylikeimage.png')}
-            />
-            <MyLikeText>좋아요!</MyLikeText>
-          </MyLike>
-          <ProfileUpdate onPress={() => navigation.navigate('프로필수정')}>
-            <ButtonImage
-              source={require('../../../public/images/defaultprofile2.png')}
-            />
-            <ProfileUpdateText>프로필수정</ProfileUpdateText>
-          </ProfileUpdate>
-        </ButtonView>
-        {props.isBoards && <MyBoardsContainer data2={props.data2} />}
-        {!props.isBoards && <MyLikeContainer data3={props.data3} />}
+        </ProfileWrapper>
+
+        <CurvedLine>
+          <ButtonView>
+            <MyBoards onPress={props.onPressMyBoards}>
+              <MyIcon name="pencil" size={38} />
+              <MyText>내가 쓴 글</MyText>
+            </MyBoards>
+            <MyText>|</MyText>
+            <MyBoards onPress={props.onPressMyLike}>
+              <HeartIcon name="heart-outline" size={24} />
+              <MyText>나의 좋아요</MyText>
+            </MyBoards>
+          </ButtonView>
+        </CurvedLine>
+
+        <BoardWrapper>
+          {props.isBoards && <MyBoardsContainer data2={props.data2} />}
+          {!props.isBoards && <MyLikeContainer data3={props.data3} />}
+        </BoardWrapper>
       </Wrapper>
     </ScrollView>
   );
