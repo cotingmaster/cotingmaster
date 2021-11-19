@@ -9,6 +9,7 @@ export const UserBox = styled.View`
   flex-direction: row;
   align-items: center;
 `;
+
 export const UserImage = styled.Image``;
 
 export const UserInfoBox = styled.View`
@@ -33,6 +34,7 @@ export const UserName = styled.Text`
 export const Date = styled.Text``;
 
 // const CommentText = styled.Text``;
+
 export const ContentsBox = styled.View`
   position: relative;
 `;

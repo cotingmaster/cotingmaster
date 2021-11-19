@@ -4,49 +4,43 @@ import { useMutation, useQuery } from '@apollo/client';
 import { Alert } from 'react-native';
 import {
   CREATE_USED_ITEM_QUESTION,
-  FETCH_USER_LOGGEDIN,
+  FETCH_USED_ITEM_QUESTIONS,
 } from './CommentWrite.query';
-import CommentList from '../comment_list/CommentList.container';
 
 const CommentWrite = (props: any) => {
   const [contents, setContents] = useState('');
-  const [images, setImage] = useState([]);
-  const { data: loginUser } = useQuery(FETCH_USER_LOGGEDIN);
-  const [commentId, setCommentId] = useState('');
 
   const [createUseditemQuestion] = useMutation(CREATE_USED_ITEM_QUESTION);
 
-  const onCommtentSubmit = async () => {
-    try {
-      const result = await createUseditemQuestion({
-        variables: {
-          createUseditemQuestionInput: {
-            contents,
-          },
-          useditemId: props.data?.fetchUseditem._id,
+  const onCommtentSubmit = async (route: any) => {
+    const result = await createUseditemQuestion({
+      variables: {
+        createUseditemQuestionInput: {
+          contents,
         },
-      });
-      Alert.alert('등록되었습니다.');
-      setCommentId(result.data?.createUseditemQuestion._id);
-    } catch (e: any) {
-      Alert.alert(e.message);
-    }
+
+        useditemId: props.usedItemdata.fetchUseditem._id,
+      },
+      refetchQueries: [
+        {
+          query: FETCH_USED_ITEM_QUESTIONS,
+          variables: { useditemId: props.usedItemdata.fetchUseditem._id },
+        },
+      ],
+    });
+    console.log('q id:', result.data.createUseditemQuestion._id);
+    // Alert.alert('등록되었습니다.');
+    setContents('');
+    props.setQId(result.data.createUseditemQuestion._id);
   };
 
   return (
-    <>
-      {/* <CommentList
-        commentId={commentId}
-        contents={contents}
-        useditemId={props.data?.fetchUseditem._id}
-      /> */}
-      <CommentWriteUI
-        setContents={setContents}
-        onCommtentSubmit={onCommtentSubmit}
-        data={props.data}
-        loginUser={loginUser}
-      />
-    </>
+    <CommentWriteUI
+      setContents={setContents}
+      onCommtentSubmit={onCommtentSubmit}
+      usedItemdata={props.usedItemdata}
+      contents={contents}
+    />
   );
 };
 
