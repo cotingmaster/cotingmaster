@@ -30,9 +30,16 @@ const WriteUI = (props: any) => {
           multiline={true}
         />
       </TextSubmitBox>
-      <Submit onPress={props.onSubmit}>
-        <SubmitText>등록하기</SubmitText>
-      </Submit>
+      {!props.isEdit && (
+        <Submit onPress={props.onSubmit}>
+          <SubmitText>등록하기</SubmitText>
+        </Submit>
+      )}
+      {props.isEdit && (
+        <Submit onPress={props.onUpdateSubmit}>
+          <SubmitText>수정하기</SubmitText>
+        </Submit>
+      )}
     </Wrapper>
   );
 };

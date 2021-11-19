@@ -15,6 +15,7 @@ export const FETCH_USEDITEM = gql`
       seller {
         name
         picture
+        email
       }
     }
   }
@@ -23,5 +24,15 @@ export const FETCH_USEDITEM = gql`
 export const TOGGLE_USED_ITEM_PICK = gql`
   mutation toggleUseditemPick($useditemId: ID!) {
     toggleUseditemPick(useditemId: $useditemId)
+  }
+`;
+
+export const FETCH_USER_LOGGED_IN = gql`
+  query fetchUserLoggedIn {
+    fetchUserLoggedIn {
+      _id
+      email
+      name
+    }
   }
 `;

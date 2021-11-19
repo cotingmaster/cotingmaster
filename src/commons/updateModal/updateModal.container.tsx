@@ -1,31 +1,17 @@
 import { useMutation } from '@apollo/client';
 import React, { useState } from 'react';
 import { Alert, Modal, StyleSheet, Text, Pressable, View } from 'react-native';
-import { DELETE_USED_ITEM } from './deleteModal.query';
 import { useNavigation } from '@react-navigation/native';
 
-const DeleteModalPage = (props: any) => {
+const UpdateModalPage = (props: any) => {
   const navigation = useNavigation();
   const [modalVisible, setModalVisible] = useState(false);
 
-  const [deleteUseditem] = useMutation(DELETE_USED_ITEM);
-
-  async function onPressButton() {
-    const boardDetail =
-      props.data?.fetchUseditem.remarks === 'Freeboard'
-        ? '커뮤니티게시판'
-        : props.data?.fetchUseditem.remarks === 'SharingInfo'
-        ? '정보공유게시판'
-        : '만남게시판';
-    try {
-      await deleteUseditem({
-        variables: { useditemId: props.data?.fetchUseditem._id },
-      });
-      Alert.alert('게시물이삭제되었습니다');
-      navigation.navigate(boardDetail);
-    } catch (error: any) {
-      Alert.alert(error.message);
-    }
+  function onPressButton() {
+    navigation.push('정보공유게시판수정', {
+      id: props.data?.fetchUseditem._id,
+    });
+    console.log('모달' + props.data?.fetchUseditem._id);
   }
 
   return (
@@ -37,12 +23,12 @@ const DeleteModalPage = (props: any) => {
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={onPressButton}>
-              <Text style={styles.textStyle}>삭제확인</Text>
+              <Text style={styles.textStyle}>수정하기</Text>
             </Pressable>
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}>
-              <Text style={styles.textStyle}>삭제취소</Text>
+              <Text style={styles.textStyle}>수정취소</Text>
             </Pressable>
           </View>
         </View>
@@ -50,7 +36,7 @@ const DeleteModalPage = (props: any) => {
       <Pressable
         style={[styles.button, styles.buttonOpen]}
         onPress={() => setModalVisible(true)}>
-        <Text style={styles.textStyle}>삭제하시겠습니까?</Text>
+        <Text style={styles.textStyle}>수정하시겠습니까?</Text>
       </Pressable>
     </View>
   );
@@ -102,4 +88,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default DeleteModalPage;
+export default UpdateModalPage;

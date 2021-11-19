@@ -25,6 +25,7 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import DeleteModal from '../../../commons/deleteModal/deleteModal.container';
+import UpdateModalPage from '../../../commons/updateModal/updateModal.container';
 
 const SharingInfodDetailUI = (props: any) => {
   const navigation = useNavigation();
@@ -55,6 +56,9 @@ const SharingInfodDetailUI = (props: any) => {
                   />
                 )}
               </ModalView>
+              <ModalView>
+                {props.updateOpen && <UpdateModalPage data={props.data} />}
+              </ModalView>
               <TopRight>
                 <LikeView>
                   <LikeButton onPress={props.onPressLike}>
@@ -62,14 +66,17 @@ const SharingInfodDetailUI = (props: any) => {
                   </LikeButton>
                   <LikeSu>{props.data?.fetchUseditem.pickedCount}</LikeSu>
                 </LikeView>
-                <IoniconsView>
-                  <UpdateView>
-                    <Ionicons name="create" color={'pink'} size={30} />
-                  </UpdateView>
-                  <DeleteView onPress={props.onPressDelete}>
-                    <Ionicons name="trash" color={'pink'} size={28} />
-                  </DeleteView>
-                </IoniconsView>
+                {props.data?.fetchUseditem.seller.email ===
+                  props.data1?.fetchUserLoggedIn.email && (
+                  <IoniconsView>
+                    <UpdateView onPress={props.onPressUpdate}>
+                      <Ionicons name="create" color={'pink'} size={30} />
+                    </UpdateView>
+                    <DeleteView onPress={props.onPressDelete}>
+                      <Ionicons name="trash" color={'pink'} size={28} />
+                    </DeleteView>
+                  </IoniconsView>
+                )}
               </TopRight>
             </TopView>
             <Title>{props.data?.fetchUseditem.name}</Title>

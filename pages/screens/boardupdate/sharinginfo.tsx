@@ -1,8 +1,8 @@
 import React from 'react';
-import SharingInfoUpdateContainer from '../../../src/components/boardsupdate/SharinginfoUpdate/SharinginfoUpdate.container';
+import SharingInfoWriteContainer from '../../../src/components/boardswrite/SharinginfoWrite/SharinginfoWrite.container';
 
-const SharingInfoUpdateScreen = () => {
-  return <SharingInfoUpdateContainer />;
+const SharingInfoUpdateScreen = ({ route }: any) => {
+  return <SharingInfoWriteContainer route={route} isEdit={true} />;
 };
 
 export default SharingInfoUpdateScreen;
