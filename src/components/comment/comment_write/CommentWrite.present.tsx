@@ -21,13 +21,17 @@ const CommentWriteUI = (props: any) => {
       <UserBox>
         <UserImage
           source={require('../../../../public/images/defaultprofile2.png')}
-          // {props.loginUser?.fetchUserLoggedIn.picture}
         />
         <UserInfoBox>
           <UserInfo>
-            <ClassNumber></ClassNumber>
-            <UserName>{props.loginUser?.fetchUserLoggedIn.name}</UserName>
+            <ClassNumber>
+              {props.usedItemdata?.fetchUseditem.seller.picture}
+            </ClassNumber>
+            <UserName>{props.usedItemdata?.fetchUseditem.seller.name}</UserName>
           </UserInfo>
+          <Date>
+            {props.usedItemdata?.fetchUseditem.createdAt.slice(0, 10)}
+          </Date>
         </UserInfoBox>
       </UserBox>
       {/* <CommentText>댓글</CommentText> */}
@@ -35,6 +39,7 @@ const CommentWriteUI = (props: any) => {
         <CommentContents
           onChangeText={props.setContents}
           placeholder="댓글을 입력하세요"
+          value={props.contents}
         />
         <Submit onPress={props.onCommtentSubmit}>
           <EvilIcons name="pencil" color={'black'} size={25} />

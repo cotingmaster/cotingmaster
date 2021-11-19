@@ -10,40 +10,53 @@ import {
   Date,
   CommentContents,
   Container,
-  List,
+  Icon,
+  Line,
   Wrapper,
+  DeleteSubmit,
+  AnswerSubmit,
 } from './CommentList.styles';
+import AnswerIcon from 'react-native-vector-icons/FontAwesome';
+import DeleteIcon from 'react-native-vector-icons/MaterialIcons';
+import AnswerWrite from '../answer_write/AnswerWrite.container';
+import AnswerList from '../answer_list/AnswerList.container';
 
 const CommentListUI = (props: any) => {
-  // const renderItem = ({ item }: any) => (
-  //   <Wrapper>
-  //     <UserBox>
-  //       <UserImage
-  //         source={require('../../../../public/images/defaultprofile2.png')}
-  //         // {el.user.picture}
-  //       />
-  //       <UserName>{item.user.name}</UserName>
-  //     </UserBox>
-  //     <CommentContents>{item.contents}</CommentContents>
-  //     <Date>
-  //       {item.updatedAt
-  //         ? item.updatedAt.slice(0, 10)
-  //         : item.createdAt.slice(0, 10)}
-  //     </Date>
-  //   </Wrapper>
-  // );
-
   return (
-    <Wrapper>
-      {/* <Text>{props.contents}</Text>
-      <List
-        data={props.data}
-        renderItem={renderItem}
-        keyExtractor={item => item.remarks + item._id}
-        onEndReached={props.onLoadMore}
-        onEndReachedThreshold={0.8}
-      /> */}
-    </Wrapper>
+    <>
+      <Wrapper>
+        {/* <View> */}
+        <UserBox>
+          <UserImage
+            source={require('../../../../public/images/defaultprofile2.png')}
+          />
+          <UserInfoBox>
+            <UserInfo>
+              <ClassNumber></ClassNumber>
+              <UserName>{props.el?.user.name}</UserName>
+            </UserInfo>
+            <Date>{props.el.createdAt.slice(0, 10)}</Date>
+          </UserInfoBox>
+        </UserBox>
+        <CommentContents>{props.el?.contents}</CommentContents>
+        <Icon>
+          <DeleteSubmit onPress={props.onPressDelete}>
+            <DeleteIcon name="delete-outline" color={'black'} size={20} />
+          </DeleteSubmit>
+          <AnswerSubmit onPress={props.onPressAnswer}>
+            <AnswerIcon name="comments-o" color={'black'} size={20} />
+          </AnswerSubmit>
+        </Icon>
+        {props.answersData?.fetchUseditemQuestionAnswers.map((el: any) => (
+          <AnswerWrite el={el} />
+        ))}
+
+        {props.isAnswer && (
+          <AnswerList el={props.el} setIsAnswer={props.setIsAnswer} />
+        )}
+      </Wrapper>
+      <Line />
+    </>
   );
 };
 export default CommentListUI;
