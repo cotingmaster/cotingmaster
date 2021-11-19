@@ -13,7 +13,6 @@ const ProfileUpdateContainer = () => {
   const navigation = useNavigation();
   const [nick, setNick] = useState('');
   const [updateUser] = useMutation(UPDATE_USER);
-  const [uploadFile] = useMutation(UPLOAD_FILE);
   const { data } = useQuery(FETCH_USER_LOGGEDIN);
   const [classNumber, setClassNumber] = useState(
     data?.fetchUserLoggedIn.name.split(' ')[1],
@@ -30,10 +29,7 @@ const ProfileUpdateContainer = () => {
               classNumber || data?.fetchUserLoggedIn.name.split(' ')[1]
             }`,
             // picture: storage + response?.assets[0]?.uri,
-            picture:
-              pictureUrl ||
-              data?.fetchUserLoggedIn.picture ||
-              'https://photo.jtbc.joins.com/news/2021/03/26/202103261532034842.jpg',
+            picture: pictureUrl || data?.fetchUserLoggedIn.picture,
           },
         },
       });

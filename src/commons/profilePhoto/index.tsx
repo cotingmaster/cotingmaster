@@ -23,6 +23,7 @@ export default function SetupProfile(props) {
       },
     );
   };
+  console.log('default', props.data?.fetchUserLoggedIn.picture);
 
   return (
     <S.Container>
@@ -30,12 +31,13 @@ export default function SetupProfile(props) {
         <S.Image
           source={
             response
-              ? {
-                  uri: response?.assets[0]?.uri,
-                }
+              ? { uri: response?.assets[0]?.uri }
+              : props.data?.fetchUserLoggedIn.picture
+              ? { uri: props.data?.fetchUserLoggedIn.picture }
               : require('../../../public/images/defaultprofile.png')
           }
         />
+        <S.Ionicons name="ios-camera" size={30} />
       </S.Pressable>
     </S.Container>
   );
