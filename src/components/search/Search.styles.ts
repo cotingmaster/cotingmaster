@@ -48,14 +48,21 @@ export const BoardTitle = styled.Text`
   color: black;
   font-size: 20px;
   margin-bottom: 10px;
+  border: solid 1px gray;
+  border-radius: 5px;
+  width: 110px;
+  text-align: center;
 `;
 
 export const Box = styled.TouchableOpacity`
   width: 320px;
   height: 137px;
-  background-color: skyblue;
+  /* background-color: #ffd1ff; */
+  background-color: #ffd6aa;
+  /* background-color: #c2e9fb; */
+  /* background-color: #fda085; */
   border-radius: 10px;
-  /* elevation: 10; */
+  elevation: 10;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 10px;
@@ -87,6 +94,7 @@ export const Date = styled.Text`
 
 export const NickName2 = styled.Text`
   color: black;
+  font-weight: bold;
 `;
 
 // export const DataView = styled.View``;
