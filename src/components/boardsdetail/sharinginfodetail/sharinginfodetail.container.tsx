@@ -1,21 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import SharingInfodDetailUI from './sharinginfodetail.present';
-import { FETCH_USEDITEM, TOGGLE_USED_ITEM_PICK } from '../boarddetail.query';
-import CommentWrite from '../../comment/comment_write/CommentWrite.container';
-import CommentList from '../../comment/comment_list/CommentList.container';
-import { View } from 'react-native';
+import {
+  FETCH_USEDITEM,
+  TOGGLE_USED_ITEM_PICK,
+  FETCH_USER_LOGGED_IN,
+} from '../boarddetail.query';
 
 const SharingInfoDetailContainer = ({ route }: any) => {
   const [toggleUseditemPick] = useMutation(TOGGLE_USED_ITEM_PICK);
 
   const [deleteOpen, setDeleteOpen] = useState(false);
+  const [updateOpen, setUpdateOpen] = useState(false);
 
-  const { data } = useQuery(FETCH_USEDITEM, {
+  const { data, refetch } = useQuery(FETCH_USEDITEM, {
     variables: {
       useditemId: String(route.params.id),
     },
   });
+
+  useEffect(() => {
+    refetch({ useditemId: route.params.id });
+  }, []);
+
+  const { data: data1 } = useQuery(FETCH_USER_LOGGED_IN);
 
   async function onPressLike() {
     await toggleUseditemPick({
@@ -33,13 +41,21 @@ const SharingInfoDetailContainer = ({ route }: any) => {
     setDeleteOpen((prev: any) => !prev);
   };
 
+  const onPressUpdate = () => {
+    setUpdateOpen((prev: any) => !prev);
+  };
+
   return (
     <SharingInfodDetailUI
       data={data}
+      data1={data1}
       onPressLike={onPressLike}
       onPressDelete={onPressDelete}
+      onPressUpdate={onPressUpdate}
       deleteOpen={deleteOpen}
       setDeleteOpen={setDeleteOpen}
+      updateOpen={updateOpen}
+      setUpdateOpen={setUpdateOpen}
     />
   );
 };

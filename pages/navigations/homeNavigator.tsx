@@ -15,6 +15,7 @@ import MeetingWriteScreen from '../screens/boardwrite/meeting';
 import FreeBoardWriteScreen from '../screens/boardwrite/freeboard';
 import CommentWrite from '../../src/components/comment/comment_write/CommentWrite.container';
 import CommentList from '../../src/components/comment/comment_list/CommentList.container';
+import ModalUpdateScreen from '../screens/modal/updatemodal';
 
 const HomeNavigator = () => {
   const Stack = createNativeStackNavigator();
@@ -52,6 +53,7 @@ const HomeNavigator = () => {
         name="커뮤니티게시판수정"
         component={FreeBoardUpdateScreen}
       />
+      <Stack.Screen name="업데이트모달" component={ModalUpdateScreen} />
     </Stack.Navigator>
   );
 };
