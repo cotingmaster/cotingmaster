@@ -11,6 +11,7 @@ import {
 import { GlobalContext } from '../../../App';
 
 const MyPageMainContainer = () => {
+  const [isBoards, setIsBoards] = useState(true);
   const { data } = useQuery(FETCH_USER_LOGGEDIN);
 
   const { data: data2 } = useQuery(FETCH_USEDITEM_ISOLD, {
@@ -22,14 +23,13 @@ const MyPageMainContainer = () => {
   });
 
   const { setUserInfo, setAccessToken } = useContext(GlobalContext);
-  const [isBoards, setIsBoards] = useState(true);
 
   function onPressMyBoards() {
     setIsBoards(true);
   }
 
   function onPressMyLike() {
-    setIsBoards(false);
+    setIsBoards(prev => !prev);
   }
 
   // const [logoutUser] = useMutation(LOGOUT_USER);
@@ -49,8 +49,6 @@ const MyPageMainContainer = () => {
       Alert.alert('error.message');
     }
   };
-
-  console.log('picture', data?.fetchUserLoggedIn.picture);
 
   return (
     <MyPageMainUI
