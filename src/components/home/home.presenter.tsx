@@ -4,9 +4,8 @@ import {
   LogoIcon,
   Wrapper,
   MainText,
-  SharingInfo,
-  Meeting,
-  FreeBoard,
+  TouchBox,
+  BoardTitle,
   SubText,
   MainBox,
   MainIcon,
@@ -20,27 +19,30 @@ const HomeUI = () => {
       <LogoImg>
         <LogoIcon source={require('../../../public/images/coting.png')} />
       </LogoImg>
-      <SharingInfo onPress={() => navigation.navigate('정보공유게시판')}>
+      <TouchBox onPress={() => navigation.navigate('정보공유게시판')}>
+        <BoardTitle name="information-circle" size={27} />
         <MainBox>
-          <MainText>정보공유</MainText>
-          <SubText>취업정보, IT관련 ...</SubText>
+          <MainText>정보</MainText>
+          <SubText>취업정보, IT지식 공유해~</SubText>
         </MainBox>
-        <MainIcon source={require('../../../public/images/arrow.png')} />
-      </SharingInfo>
-      <Meeting onPress={() => navigation.navigate('만남게시판')}>
+        <MainIcon name="md-chevron-forward" size={40} />
+      </TouchBox>
+      <TouchBox onPress={() => navigation.navigate('만남게시판')}>
+        <BoardTitle name="beer" size={27} />
         <MainBox>
           <MainText>만남</MainText>
-          <SubText>만날사람모여라~</SubText>
+          <SubText>만날사람 모여라~</SubText>
         </MainBox>
-        <MainIcon source={require('../../../public/images/arrow.png')} />
-      </Meeting>
-      <FreeBoard onPress={() => navigation.navigate('커뮤니티게시판')}>
+        <MainIcon name="md-chevron-forward" size={40} />
+      </TouchBox>
+      <TouchBox onPress={() => navigation.navigate('커뮤니티게시판')}>
+        <BoardTitle name="chatbubbles" size={27} />
         <MainBox>
-          <MainText>커뮤니티</MainText>
-          <SubText>자유게시물, 일상 ...</SubText>
+          <MainText>잡담</MainText>
+          <SubText>자유롭게 일상을 말해줘~</SubText>
         </MainBox>
-        <MainIcon source={require('../../../public/images/arrow.png')} />
-      </FreeBoard>
+        <MainIcon name="md-chevron-forward" size={40} />
+      </TouchBox>
     </Wrapper>
   );
 };

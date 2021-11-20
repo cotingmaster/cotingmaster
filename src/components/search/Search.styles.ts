@@ -69,14 +69,14 @@ export const S = {
   BoardTitle: styled(IIcon)`
     position: absolute;
     top: -4px;
-    right: 10px;
+    left: 10px;
     width: 25px;
     height: 50px;
     z-index: 4;
     text-align: center;
     color: #ffd600;
     padding: 2px;
-    background-color: black;
+    /* background-color: black; */
     text-align-vertical: center;
   `,
 
