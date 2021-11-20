@@ -8,7 +8,13 @@ const UpdateModalPage = (props: any) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   function onPressButton() {
-    navigation.push('정보공유게시판수정', {
+    const boardDetail =
+      props.data?.fetchUseditem.remarks === 'Freeboard'
+        ? '커뮤니티게시판수정'
+        : props.data?.fetchUseditem.remarks === 'SharingInfo'
+        ? '정보공유게시판수정'
+        : '만남게시판수정';
+    navigation.push(boardDetail, {
       id: props.data?.fetchUseditem._id,
     });
     console.log('모달' + props.data?.fetchUseditem._id);
