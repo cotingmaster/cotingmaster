@@ -93,6 +93,7 @@ export const MyBoards = styled.TouchableOpacity`
 export const MyIcon = styled(EIcon)`
   color: #ffd600;
 `;
+
 export const HeartIcon = styled(IIcon)`
   color: #ffd600;
 `;

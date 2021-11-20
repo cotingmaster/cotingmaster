@@ -27,6 +27,7 @@ const MyBoardsContainer = ({ data2 }: any) => {
                 uri: 'https://blog.kakaocdn.net/dn/XlVZH/btqIH50as13/LwCnDkeRzRz9kETtUMaHyk/img.jpg',
               }}
             />
+            <S.MySticker name="pencil" size={32} />
             <S.BoardTitle
               name={
                 el.remarks === 'Freeboard'

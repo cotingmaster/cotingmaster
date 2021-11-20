@@ -9,16 +9,48 @@ export const S = {
     position: relative;
     display: flex;
     flex-direction: row;
-    width: 370px;
+    width: 360px;
     height: 140px;
     background-color: white;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     elevation: 4;
     padding: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     justify-content: flex-start;
     align-items: center;
+  `,
+
+  MySticker: styled(EIcon)`
+    position: absolute;
+    top: 11px;
+    right: 50px;
+    z-index: 4;
+    width: 30px;
+    height: 34px;
+    text-align: center;
+    color: #9ae9ff;
+    padding: 2px;
+    background-color: white;
+    border: 1px solid #9ae9ff;
+    border-radius: 7px;
+    border-bottom-color: #9ae9ff;
+    border-bottom-width: 3px;
+  `,
+
+  HeartSticker: styled(IIcon)`
+    position: absolute;
+    top: 11px;
+    right: 50px;
+    z-index: 4;
+    text-align: center;
+    color: #febcff;
+    padding: 2px;
+    background-color: white;
+    border: 1px solid #ffd8f3;
+    border-radius: 7px;
+    border-bottom-color: #ca8bcc;
+    border-bottom-width: 2px;
   `,
 
   BoardTitle: styled(IIcon)`
@@ -29,9 +61,11 @@ export const S = {
     text-align: center;
     color: #ffd600;
     padding: 2px;
-    /* background-color: #ffd600;
+    background-color: white;
+    border: 1px solid #ffd600;
+    border-radius: 7px;
     border-bottom-color: #c7a500;
-    border-bottom-width: 2px; */
+    border-bottom-width: 2px;
   `,
 
   BoardPhoto: styled.Image`

@@ -62,8 +62,12 @@ const MyPageMainUI = (props: any) => {
         </CurvedLine>
 
         <BoardWrapper>
-          {props.isBoards && <MyBoardsContainer data2={props.data2} />}
-          {!props.isBoards && <MyLikeContainer data3={props.data3} />}
+          {props.isBoards && (
+            <MyBoardsContainer data2={props.data2} isBoard={props.isBoard} />
+          )}
+          {!props.isBoards && (
+            <MyLikeContainer data3={props.data3} isBoard={props.isBoard} />
+          )}
         </BoardWrapper>
       </Wrapper>
     </ScrollView>
