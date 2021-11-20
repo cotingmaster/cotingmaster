@@ -5,6 +5,14 @@ import IIcon from 'react-native-vector-icons/Ionicons';
 export const S = {
   BoardContainer: styled.View``,
 
+  PinkLine: styled.View`
+    border: 2px solid pink;
+  `,
+
+  YellowLine: styled.View`
+    border: 2px solid #ffd600;
+  `,
+
   Box: styled.TouchableOpacity`
     position: relative;
     display: flex;
@@ -21,51 +29,18 @@ export const S = {
     align-items: center;
   `,
 
-  MySticker: styled(EIcon)`
-    position: absolute;
-    top: 11px;
-    right: 50px;
-    z-index: 4;
-    width: 30px;
-    height: 34px;
-    text-align: center;
-    color: #9ae9ff;
-    padding: 2px;
-    background-color: white;
-    border: 1px solid #9ae9ff;
-    border-radius: 7px;
-    border-bottom-color: #9ae9ff;
-    border-bottom-width: 3px;
-  `,
-
-  HeartSticker: styled(IIcon)`
-    position: absolute;
-    top: 11px;
-    right: 50px;
-    z-index: 4;
-    text-align: center;
-    color: #febcff;
-    padding: 2px;
-    background-color: white;
-    border: 1px solid #ffd8f3;
-    border-radius: 7px;
-    border-bottom-color: #ca8bcc;
-    border-bottom-width: 2px;
-  `,
-
   BoardTitle: styled(IIcon)`
     position: absolute;
-    top: 10px;
+    top: -4px;
     right: 10px;
+    width: 25px;
+    height: 50px;
     z-index: 4;
     text-align: center;
     color: #ffd600;
     padding: 2px;
-    background-color: white;
-    border: 1px solid #ffd600;
-    border-radius: 7px;
-    border-bottom-color: #c7a500;
-    border-bottom-width: 2px;
+    background-color: black;
+    text-align-vertical: center;
   `,
 
   BoardPhoto: styled.Image`

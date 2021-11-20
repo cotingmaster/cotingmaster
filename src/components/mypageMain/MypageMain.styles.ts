@@ -95,11 +95,17 @@ export const MyIcon = styled(EIcon)`
 `;
 
 export const HeartIcon = styled(IIcon)`
-  color: #ffd600;
+  color: pink;
 `;
 
 export const MyText = styled.Text`
   color: #ffd600;
+  font-size: 17px;
+  margin-left: 3px;
+`;
+
+export const MyText2 = styled.Text`
+  color: pink;
   font-size: 17px;
   margin-left: 3px;
 `;

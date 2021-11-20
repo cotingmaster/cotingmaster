@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { S } from './Myboards.styles';
 
-const MyBoardsContainer = ({ data2 }: any) => {
+const MyBoardsContainer = ({ data2, isboard }: any) => {
   const navigation = useNavigation();
   const onPressMoveToDetail = (el: any) => {
     const boardDetail =
@@ -20,14 +20,14 @@ const MyBoardsContainer = ({ data2 }: any) => {
     <>
       {data2?.fetchUseditemsISold.map((el: any, index: any) => (
         <S.BoardContainer key={el._id}>
-          <S.Box onPress={() => onPressMoveToDetail(el)}>
+          <S.YellowLine></S.YellowLine>
+          <S.Box onPress={() => onPressMoveToDetail(el)} isboard={isboard}>
             {/* {el.images ? ( */}
             <S.BoardPhoto
               source={{
                 uri: 'https://blog.kakaocdn.net/dn/XlVZH/btqIH50as13/LwCnDkeRzRz9kETtUMaHyk/img.jpg',
               }}
             />
-            <S.MySticker name="pencil" size={32} />
             <S.BoardTitle
               name={
                 el.remarks === 'Freeboard'

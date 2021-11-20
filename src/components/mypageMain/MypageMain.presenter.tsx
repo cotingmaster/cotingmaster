@@ -17,6 +17,7 @@ import {
   MyIcon,
   HeartIcon,
   BoardWrapper,
+  MyText2,
 } from './MypageMain.styles';
 import { useNavigation } from '@react-navigation/native';
 import MyBoardsContainer from '../mypage/myboards/Myboards.container';
@@ -56,7 +57,7 @@ const MyPageMainUI = (props: any) => {
             <MyText>|</MyText>
             <MyBoards onPress={props.onPressMyLike}>
               <HeartIcon name="heart-outline" size={24} />
-              <MyText>나의 좋아요</MyText>
+              <MyText2>나의 좋아요</MyText2>
             </MyBoards>
           </ButtonView>
         </CurvedLine>

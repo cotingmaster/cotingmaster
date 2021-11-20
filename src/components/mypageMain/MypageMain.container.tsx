@@ -29,7 +29,7 @@ const MyPageMainContainer = () => {
   }
 
   function onPressMyLike() {
-    setIsBoards(prev => !prev);
+    setIsBoards(false);
   }
 
   // const [logoutUser] = useMutation(LOGOUT_USER);

@@ -20,14 +20,14 @@ const MyLikeContainer = ({ data3, isBoard }: any) => {
     <>
       {data3?.fetchUseditemsIPicked.map((el: any, index: any) => (
         <S.BoardContainer key={el._id}>
-          <S.Box onPress={() => onPressMoveToDetail(el)}>
+          <S.PinkLine></S.PinkLine>
+          <S.Box onPress={() => onPressMoveToDetail(el)} isBoard={isBoard}>
             {/* {el.images ? ( */}
             <S.BoardPhoto
               source={{
                 uri: 'https://blog.kakaocdn.net/dn/XlVZH/btqIH50as13/LwCnDkeRzRz9kETtUMaHyk/img.jpg',
               }}
             />
-            {!isBoard && <S.HeartSticker name="heart-outline" size={24} />}
             <S.BoardTitle
               name={
                 el.remarks === 'Freeboard'
@@ -36,7 +36,7 @@ const MyLikeContainer = ({ data3, isBoard }: any) => {
                   ? 'information-circle'
                   : 'beer'
               }
-              size={25}
+              size={24}
             />
             {/* // ) : (
           //   <DefaultImage name="image" size={70} />
