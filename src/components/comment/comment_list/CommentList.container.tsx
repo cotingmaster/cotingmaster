@@ -20,7 +20,7 @@ const CommentList = (props: any) => {
   //   variables: { useditemQuestionId: props.el._id },
   // });
 
-  const { data, fetchMore } = useQuery(FETCH_USEDITEM_QUESTIONS, {
+  const { data, fetchMore, refetch } = useQuery(FETCH_USEDITEM_QUESTIONS, {
     variables: {
       page: 1,
       useditemId: props.usedItemdata?.fetchUseditem._id,
@@ -53,13 +53,8 @@ const CommentList = (props: any) => {
         variables: {
           useditemQuestionId: props.el._id,
         },
-        refetchQueries: [
-          {
-            query: DELETE_USED_ITEM_QUESTION,
-            variables: { useditemId: props.usedItemdata?.fetchUseditem._id },
-          },
-        ],
       });
+      refetch({ page: 1, useditemId: props.usedItemdata?.fetchUseditem._id });
       Alert.alert('성공했습니다');
     } catch (error) {
       Alert.alert(error.message);

@@ -7,8 +7,8 @@ export const DELETE_USED_ITEM_QUESTION = gql`
 `;
 
 export const FETCH_USED_ITEM_QUESTIONS = gql`
-  query fetchUseditemQuestions($useditemId: ID!) {
-    fetchUseditemQuestions(useditemId: $useditemId) {
+  query fetchUseditemQuestions($page: Int, $useditemId: ID!) {
+    fetchUseditemQuestions(page: $page, useditemId: $useditemId) {
       _id
       user {
         name

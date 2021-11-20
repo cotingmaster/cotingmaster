@@ -25,7 +25,7 @@ const CommentWriteUI = (props: any) => {
         <UserInfoBox>
           <UserInfo>
             <ClassNumber>
-              {props.usedItemdata?.fetchUseditem.seller.picture}
+              {/* {props.usedItemdata?.fetchUseditem.seller.picture} */}
             </ClassNumber>
             <UserName>{props.usedItemdata?.fetchUseditem.seller.name}</UserName>
           </UserInfo>
