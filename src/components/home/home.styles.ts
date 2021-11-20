@@ -11,7 +11,8 @@ export const MainText = styled.Text`
   font-size: 25px;
   margin-left: 20px;
   color: black;
-  font-weight: bold;
+  /* font-weight: bold; */
+  font-family: 'Gaegu-Bold';
 `;
 
 export const SubText = styled.Text`
