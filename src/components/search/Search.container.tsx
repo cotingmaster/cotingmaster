@@ -24,19 +24,15 @@ const SearchContainer = () => {
 
   const [mySearch, setMySearch] = useState('');
 
-  function onChangeTextSearch(value: any) {
-    setMySearch(value);
-  }
-
-  function onPressButton() {
+  function onPressSearch() {
     refetch({ search: mySearch });
   }
-
+  console.log('mysearch:' + mySearch);
   return (
     <SearchUI
       data={data}
-      onChangeTextSearch={onChangeTextSearch}
-      onPressButton={onPressButton}
+      setMySearch={setMySearch}
+      onPressSearch={onPressSearch}
     />
   );
 };

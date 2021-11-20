@@ -1,22 +1,6 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-import {
-  ScrollView,
-  Wrapper,
-  TopView,
-  SearchImage,
-  Input,
-  ButtonView,
-  ButtonText,
-  BoardContainer,
-  BoardTitle,
-  Box,
-  Tilte,
-  Contents,
-  BottomView,
-  Date,
-  NickName2,
-} from './Search.styles';
+import { S } from './Search.styles';
 
 const SearchUI = (props: any) => {
   const navigation = useNavigation();
@@ -30,37 +14,57 @@ const SearchUI = (props: any) => {
     navigation.push(boardDetail, {
       id: el._id,
     });
-    console.log(el._id);
   };
 
   return (
-    <ScrollView>
-      <Wrapper>
-        <TopView>
-          <SearchImage source={require('../../../public/images/search.png')} />
-          <Input
-            placeholder="검색어를 입력해주세요."
-            onChangeText={props.onChangeTextSearch}
+    <S.ScrollView>
+      <S.Wrapper>
+        <S.TopView>
+          <S.Input
+            placeholder="검색어를 입력해주세요"
+            onChangeText={props.setMySearch}
           />
-          <ButtonView onPress={props.onPressButton}>
-            <ButtonText>검색</ButtonText>
-          </ButtonView>
-        </TopView>
+          <S.ButtonView onPress={props.onPressSearch}>
+            <S.SearchIcon name="md-search-circle" />
+          </S.ButtonView>
+        </S.TopView>
+
         {props.data?.fetchUseditems.map((el: any) => (
-          <BoardContainer key={el._id}>
-            <BoardTitle>{el.remarks}</BoardTitle>
-            <Box onPress={() => onPressMoveToDetail(el)}>
-              <Tilte>{el.name}</Tilte>
-              <Contents>{el.contents}</Contents>
-              <BottomView>
-                <Date>{el.createdAt.slice(0, 10)}</Date>
-                <NickName2>{el.seller.name}</NickName2>
-              </BottomView>
-            </Box>
-          </BoardContainer>
+          <S.BoardContainer key={el._id}>
+            <S.BlueLine></S.BlueLine>
+            <S.Box onPress={() => onPressMoveToDetail(el)}>
+              {/* {el.images ? ( */}
+              <S.BoardPhoto
+                source={{
+                  uri: 'https://blog.kakaocdn.net/dn/XlVZH/btqIH50as13/LwCnDkeRzRz9kETtUMaHyk/img.jpg',
+                }}
+              />
+              <S.BoardTitle
+                name={
+                  el.remarks === 'Freeboard'
+                    ? 'chatbubbles'
+                    : el.remarks === 'SharingInfo'
+                    ? 'information-circle'
+                    : 'beer'
+                }
+                size={24}
+              />
+              {/* // ) : (
+          //   <DefaultImage name="image" size={70} />
+          // )} */}
+              <S.ContentsWrapper>
+                <S.Tilte>{el.name}</S.Tilte>
+                <S.Contents>{el.contents}</S.Contents>
+                <S.BottomView>
+                  <S.Date>{el.createdAt.slice(0, 10)}</S.Date>
+                  <S.NickName2>{el.seller.name}</S.NickName2>
+                </S.BottomView>
+              </S.ContentsWrapper>
+            </S.Box>
+          </S.BoardContainer>
         ))}
-      </Wrapper>
-    </ScrollView>
+      </S.Wrapper>
+    </S.ScrollView>
   );
 };
 
