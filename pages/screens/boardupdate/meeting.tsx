@@ -1,8 +1,8 @@
 import React from 'react';
-import MeetingUpdateContainer from '../../../src/components/boardsupdate/MeetingUpdate/MeetingUpdate.container';
+import MeetingWriteContainer from '../../../src/components/boardswrite/MeetingWrite/MeetingWrite.container';
 
-const MeetingUpdateScreen = () => {
-  return <MeetingUpdateContainer />;
+const MeetingUpdateScreen = ({ route }: any) => {
+  return <MeetingWriteContainer route={route} isEdit={true} />;
 };
 
 export default MeetingUpdateScreen;
