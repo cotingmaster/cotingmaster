@@ -13,16 +13,8 @@ const WriteContainer = (props: any) => {
   const [name, setName] = useState(''); //글제목
   const [remarks, setRemarks] = useState(props.board); //게시판
   const [contents, setContents] = useState('');
-  const [images, setImage] = useState([]);
-  const pickerRef = useRef();
-
-  // function open() {
-  //   pickerRef.current.focus();
-  // }
-
-  // function close() {
-  //   pickerRef.current.blur();
-  // }
+  const [images, setImages] = useState([]);
+  const [visible, setVisible] = useState(false);
 
   const onSubmit = async () => {
     if (!name || !remarks || !contents) {
@@ -34,7 +26,7 @@ const WriteContainer = (props: any) => {
       remarks,
       price: Number(11),
       contents,
-      images: null,
+      images,
     };
 
     try {
@@ -43,7 +35,7 @@ const WriteContainer = (props: any) => {
       });
       const boardDetail =
         remarks === 'Freeboard'
-          ? '커뮤니티게시판디테일'
+          ? '잡담게시판디테일'
           : remarks === 'SharingInfo'
           ? '정보공유게시판디테일'
           : '만남게시판디테일';
@@ -74,7 +66,7 @@ const WriteContainer = (props: any) => {
       Alert.alert('수정완료');
       const boardDetail =
         remarks === 'Freeboard'
-          ? '커뮤니티게시판디테일'
+          ? '잡담게시판디테일'
           : remarks === 'SharingInfo'
           ? '정보공유게시판디테일'
           : '만남게시판디테일';
@@ -95,6 +87,9 @@ const WriteContainer = (props: any) => {
       boards={remarks}
       setBoards={setRemarks}
       isEdit={props.isEdit}
+      visible={visible}
+      setVisible={setVisible}
+      setImages={setImages}
     />
   );
 };

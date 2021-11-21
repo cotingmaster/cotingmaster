@@ -37,6 +37,10 @@ export const ProfileDefault = styled.Image`
   border-radius: 50px;
 `;
 
+export const PersonIcon = styled(IIcon)`
+  color: gray;
+`;
+
 export const NickNameView = styled.View`
   display: flex;
   flex-direction: row;

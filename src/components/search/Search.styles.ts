@@ -38,7 +38,7 @@ export const S = {
     width: 300px;
     padding-left: 10px;
     font-size: 20px;
-    font-family: 'PoorStory-Regular';
+    font-family: 'GamjaFlower-Regular';
     color: black;
     margin-right: 10px;
   `,
@@ -47,7 +47,6 @@ export const S = {
 
   BlueLine: styled.View`
     border: 2px solid #d0ecff;
-    width: 350px;
   `,
 
   Box: styled.TouchableOpacity`

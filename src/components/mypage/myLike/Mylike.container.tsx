@@ -7,7 +7,7 @@ const MyLikeContainer = ({ data3, isBoard }: any) => {
   const onPressMoveToDetail = (el: any) => {
     const boardDetail =
       el.remarks === 'Freeboard'
-        ? '커뮤니티게시판디테일'
+        ? '잡담게시판디테일'
         : el.remarks === 'SharingInfo'
         ? '정보공유게시판디테일'
         : '만남게시판디테일';

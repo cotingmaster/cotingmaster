@@ -4,7 +4,7 @@ import { Wrapper, MainText } from './freeboardupdate.styles';
 const FreeBoardUpdateUI = () => {
   return (
     <Wrapper>
-      <MainText>여기는 커뮤니티수정페이지입니다</MainText>
+      <MainText>여기는 잡담수정페이지입니다</MainText>
     </Wrapper>
   );
 };

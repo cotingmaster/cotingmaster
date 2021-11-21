@@ -3,6 +3,7 @@ import {
   ScrollView,
   Wrapper,
   ProfileDefault,
+  PersonIcon,
   LogOutView,
   NickNameView,
   NickName,
@@ -30,13 +31,13 @@ const MyPageMainUI = (props: any) => {
       <Wrapper>
         <ProfileWrapper>
           <ProfileUpdate onPress={() => navigation.navigate('프로필수정')}>
-            <ProfileDefault
-              source={
-                props.data?.fetchUserLoggedIn.picture
-                  ? { uri: props.data?.fetchUserLoggedIn.picture }
-                  : require('../../../public/images/defaultprofile.png')
-              }
-            />
+            {props.data?.fetchUserLoggedIn.picture ? (
+              <ProfileDefault
+                source={{ uri: props.data?.fetchUserLoggedIn.picture }}
+              />
+            ) : (
+              <PersonIcon name="person-circle-outline" size={100} />
+            )}
             <EditIcon name="edit" size={30} />
           </ProfileUpdate>
 

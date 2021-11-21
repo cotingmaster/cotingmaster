@@ -10,7 +10,7 @@ const UpdateModalPage = (props: any) => {
   function onPressButton() {
     const boardDetail =
       props.data?.fetchUseditem.remarks === 'Freeboard'
-        ? '커뮤니티게시판수정'
+        ? '잡담게시판수정'
         : props.data?.fetchUseditem.remarks === 'SharingInfo'
         ? '정보공유게시판수정'
         : '만남게시판수정';

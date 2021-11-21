@@ -16,10 +16,7 @@ const SearchNavigator = () => {
         component={SharingInfoDetailScreen}
       />
       <Stack.Screen name="만남게시판디테일" component={MeetingDetailScreen} />
-      <Stack.Screen
-        name="커뮤니티게시판디테일"
-        component={FreeBoardDetailScreen}
-      />
+      <Stack.Screen name="잡담게시판디테일" component={FreeBoardDetailScreen} />
     </Stack.Navigator>
   );
 };

@@ -27,7 +27,7 @@ const FreeBoardUI = ({
   const renderItem = ({ item }: any) => (
     <Box
       onPress={() =>
-        navigation.push('커뮤니티게시판디테일', {
+        navigation.push('잡담게시판디테일', {
           id: item._id,
         })
       }>
@@ -47,7 +47,7 @@ const FreeBoardUI = ({
   return (
     <SafeAreaViewStyle>
       <Wrapper>
-        <MainTitle>커뮤니티</MainTitle>
+        <MainTitle>잡담</MainTitle>
         <List
           data={freeData}
           renderItem={renderItem}
@@ -60,7 +60,7 @@ const FreeBoardUI = ({
           }}
         />
       </Wrapper>
-      <RegisterView onPress={() => navigation.navigate('커뮤니티게시판등록')}>
+      <RegisterView onPress={() => navigation.navigate('잡담게시판등록')}>
         <ButtonImage
           source={require('../../../../public/images/writebutton.png')}
         />

@@ -35,7 +35,7 @@ const HomeUI = () => {
         </MainBox>
         <MainIcon name="md-chevron-forward" size={40} />
       </TouchBox>
-      <TouchBox onPress={() => navigation.navigate('커뮤니티게시판')}>
+      <TouchBox onPress={() => navigation.navigate('잡담게시판')}>
         <BoardTitle name="chatbubbles" size={27} />
         <MainBox>
           <MainText>잡담</MainText>

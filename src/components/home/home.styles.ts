@@ -38,20 +38,6 @@ export const TouchBox = styled.TouchableOpacity`
   align-items: center;
 `;
 
-// export const BoardTitle = styled(IIcon)`
-//   position: absolute;
-//   top: 0px;
-//   left: 20px;
-//   width: 25px;
-//   height: 50px;
-//   z-index: 4;
-//   text-align: center;
-//   color: #ffd600;
-//   padding: 2px;
-//   background-color: black;
-//   text-align-vertical: center;
-// `;
-
 export const BoardTitle = styled(IIcon)`
   position: absolute;
   font-size: 30px;
