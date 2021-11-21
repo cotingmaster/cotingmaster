@@ -46,7 +46,7 @@ export const S = {
   BoardContainer: styled.View``,
 
   BlueLine: styled.View`
-    border: 2px solid #d0ecff;
+    border: 1px solid #9dbaff;
   `,
 
   Box: styled.TouchableOpacity`
@@ -63,6 +63,7 @@ export const S = {
     margin-bottom: 10px;
     justify-content: flex-start;
     align-items: center;
+    overflow: hidden;
   `,
 
   BoardTitle: styled(IIcon)`
@@ -94,23 +95,25 @@ export const S = {
     display: flex;
   `,
 
-  Tilte: styled.Text`
-    font-size: 20px;
-    font-weight: bold;
+  Title: styled.Text`
+    font-size: 30px;
     color: black;
     margin-bottom: 5px;
+    font-family: 'CuteFont-Regular';
   `,
 
   Contents: styled.Text`
     width: 270px;
     color: black;
-    /* border: solid 1px black; */
     margin-bottom: 10px;
+    font-family: 'CuteFont-Regular';
+    font-size: 20px;
   `,
 
   BottomView: styled.View`
     display: flex;
     flex-direction: row;
+    align-items: center;
   `,
 
   Date: styled.Text`
@@ -120,5 +123,17 @@ export const S = {
 
   NickName2: styled.Text`
     color: black;
+    margin-right: 10px;
+  `,
+
+  Profile: styled.Image`
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    margin-right: 10px;
+  `,
+
+  PersonIcon: styled(IIcon)`
+    color: gray;
   `,
 };

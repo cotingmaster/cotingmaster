@@ -14,7 +14,6 @@ const AnswerWrite = (props: any) => {
   const { data } = useQuery(FETCH_USED_ITEM_QUESTION_ANSWERS);
 
   const onPressAnswer = async () => {
-    console.log(props.el._id);
     const result = await createUseditemQuestionAnswers({
       variables: {
         createUseditemQuestionAnswerInput: {

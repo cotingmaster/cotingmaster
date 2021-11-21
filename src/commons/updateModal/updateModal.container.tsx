@@ -17,7 +17,6 @@ const UpdateModalPage = (props: any) => {
     navigation.push(boardDetail, {
       id: props.data?.fetchUseditem._id,
     });
-    console.log('모달' + props.data?.fetchUseditem._id);
   }
 
   return (

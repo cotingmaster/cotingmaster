@@ -33,12 +33,6 @@ const SearchUI = (props: any) => {
           <S.BoardContainer key={el._id}>
             <S.BlueLine></S.BlueLine>
             <S.Box onPress={() => onPressMoveToDetail(el)}>
-              {/* {el.images ? ( */}
-              <S.BoardPhoto
-                source={{
-                  uri: 'https://blog.kakaocdn.net/dn/XlVZH/btqIH50as13/LwCnDkeRzRz9kETtUMaHyk/img.jpg',
-                }}
-              />
               <S.BoardTitle
                 name={
                   el.remarks === 'Freeboard'
@@ -49,15 +43,26 @@ const SearchUI = (props: any) => {
                 }
                 size={24}
               />
-              {/* // ) : (
-          //   <DefaultImage name="image" size={70} />
-          // )} */}
+              {el.images ? (
+                <S.BoardPhoto
+                  source={{
+                    uri: el?.images[0],
+                  }}
+                />
+              ) : (
+                <S.DefaultImage name="image" size={70} />
+              )}
               <S.ContentsWrapper>
-                <S.Tilte>{el.name}</S.Tilte>
+                <S.Title>{el.name}</S.Title>
                 <S.Contents>{el.contents}</S.Contents>
                 <S.BottomView>
+                  {el.seller.picture ? (
+                    <S.Profile source={{ uri: el.seller.picture }} />
+                  ) : (
+                    <S.PersonIcon name="person-circle-outline" size={20} />
+                  )}
+                  <S.NickName2>{el.seller.name}기</S.NickName2>
                   <S.Date>{el.createdAt.slice(0, 10)}</S.Date>
-                  <S.NickName2>{el.seller.name}</S.NickName2>
                 </S.BottomView>
               </S.ContentsWrapper>
             </S.Box>

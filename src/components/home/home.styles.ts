@@ -64,6 +64,8 @@ export const LogoImg = styled.View`
   display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom-color: gray;
+  border-bottom-width: 3px;
 `;
 
 export const LogoIcon = styled.Image``;

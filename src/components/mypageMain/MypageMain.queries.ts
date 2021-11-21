@@ -24,9 +24,11 @@ export const FETCH_USEDITEM_ISOLD = gql`
       remarks
       price
       contents
+      images
       createdAt
       seller {
         name
+        picture
       }
       buyer {
         name

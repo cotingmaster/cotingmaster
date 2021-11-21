@@ -28,7 +28,6 @@ const CommentWrite = (props: any) => {
         },
       ],
     });
-    console.log('q id:', result.data.createUseditemQuestion._id);
     // Alert.alert('등록되었습니다.');
     setContents('');
     props.setQId(result.data.createUseditemQuestion._id);
