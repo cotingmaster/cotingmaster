@@ -13,7 +13,7 @@ const DeleteModalPage = (props: any) => {
   async function onPressButton() {
     const boardDetail =
       props.data?.fetchUseditem.remarks === 'Freeboard'
-        ? '커뮤니티게시판'
+        ? '잡담게시판'
         : props.data?.fetchUseditem.remarks === 'SharingInfo'
         ? '정보공유게시판'
         : '만남게시판';

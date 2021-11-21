@@ -2,41 +2,26 @@ import React, { useState } from 'react';
 import styled from '@emotion/native';
 import { Picker } from '@react-native-picker/picker';
 import { Text, View } from 'react-native';
-const Container = styled(View)`
-  width: 180px;
-  /* width: 45%; */
-  /* elevation: 2; */
-  /* border-width: 1px; */
-  /* justify-content: center; */
-  /* border-radius: 10px; */
-  /* border: 1px solid black; */
-`;
-const Wrapper = styled(View)`
-  elevation: 2;
-  /* width: 200px; */
-  margin-right: 33px;
-  padding-top: 5px;
-  /* border-right-width: 0.2; */
-`;
+import { S } from './picker.styles';
+
 export default function BoardPicker({ selectedValue, onValueChange }: any) {
   return (
-    <Wrapper>
+    <S.Wrapper>
       {/* <View style={{ alignItems: 'center' }}>
         <Text style={{ color: 'black' }}> 장소 </Text>
       </View> */}
-      <Container>
-        <Picker
-          selectedValue={selectedValue}
-          onValueChange={itemValue => onValueChange(itemValue)}
-          // dropdownIconColor='blue'
-          mode="dialog"
-          style={{ borderStyle: 'dashed' }}>
-          <Picker.Item label="자유게시판" value="Freeboard" />
-          <Picker.Item label="정보공유" value="SharingInfo" />
-          <Picker.Item label="만남" value="Meeting" />
-        </Picker>
-      </Container>
-    </Wrapper>
+      <S.PickerContainer
+        selectedValue={selectedValue}
+        onValueChange={itemValue => onValueChange(itemValue)}
+        dropdownIconColor="#FFD600"
+        mode="dropdown"
+        style={{ borderStyle: 'dashed' }}
+        itemStyle={{ fontFamily: 'GamjaFlower-Regular' }}>
+        <S.PickerItem label="잡담" value="Freeboard" />
+        <S.PickerItem label="정보" value="SharingInfo" />
+        <S.PickerItem label="만남" value="Meeting" />
+      </S.PickerContainer>
+    </S.Wrapper>
   );
 }
 // multiline={true}
