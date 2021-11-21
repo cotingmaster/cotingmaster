@@ -9,6 +9,7 @@ const FETCH_USED_ITEMS = gql`
       name
       remarks
       contents
+      images
       pickedCount
       createdAt
       seller {
@@ -27,7 +28,7 @@ const SearchContainer = () => {
   function onPressSearch() {
     refetch({ search: mySearch });
   }
-  console.log('mysearch:' + mySearch);
+
   return (
     <SearchUI
       data={data}

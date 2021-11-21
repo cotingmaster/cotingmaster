@@ -50,8 +50,7 @@ export const Title = styled.TextInput`
 `;
 
 export const PickerText = styled.Text`
-  font-size: 17px;
-  margin-left: -10px;
+  font-size: 20px;
   color: #ffd600;
   font-family: 'CuteFont-Regular';
   text-align-vertical: center;
@@ -83,5 +82,5 @@ export const PressWrapper = styled.TouchableOpacity``;
 
 export const PhotoAddButton = styled(MIcon)`
   color: #ffd600;
-  margin-left: 15px;
+  margin-left: 20px;
 `;

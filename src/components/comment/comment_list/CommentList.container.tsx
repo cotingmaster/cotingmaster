@@ -9,7 +9,6 @@ import { useQuery, useMutation } from '@apollo/client';
 import { Alert } from 'react-native';
 
 const CommentList = (props: any) => {
-  console.log('qqqqqqq', props.QId);
   // console.log('zzzzzz', props.usedItemdata.fetchUseditem._id);
 
   // const [isAnswer, setIsAnswer] = useState(false);

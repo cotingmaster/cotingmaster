@@ -55,7 +55,7 @@ const WriteUI = (props: any) => {
         />
       </TextSubmitBox>
       <PressWrapper onPress={() => props.setVisible(true)}>
-        <PhotoAddButton name="add-a-photo" size={30} />
+        <PhotoAddButton name="add-a-photo" size={35} />
         <UploadPhotos
           visible={props.visible}
           setVisible={props.setVisible}

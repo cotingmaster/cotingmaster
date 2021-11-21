@@ -23,7 +23,6 @@ export default function SetupProfile(props) {
       },
     );
   };
-  console.log('default', props.data?.fetchUserLoggedIn.picture);
 
   return (
     <S.Container>
