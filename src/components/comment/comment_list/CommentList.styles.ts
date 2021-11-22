@@ -50,7 +50,8 @@ export const Wrapper = styled.View`
   display: flex;
   /* align-items: center; */
   flex-direction: row;
-  margin: 5px;
+  margin: 10px;
+  background-color: white;
 `;
 
 export const Line = styled.View`
