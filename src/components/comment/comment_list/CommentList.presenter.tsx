@@ -1,5 +1,4 @@
 import React from 'react';
-import { Text } from 'react-native';
 import {
   UserBox,
   UserImage,
@@ -15,6 +14,7 @@ import {
   Wrapper,
   DeleteSubmit,
   AnswerSubmit,
+  PersonIcon,
 } from './CommentList.styles';
 import AnswerIcon from 'react-native-vector-icons/FontAwesome';
 import DeleteIcon from 'react-native-vector-icons/MaterialIcons';
@@ -27,12 +27,13 @@ const CommentListUI = (props: any) => {
       <Wrapper>
         {/* <View> */}
         <UserBox>
-          <UserImage
-            source={require('../../../../public/images/defaultprofile2.png')}
-          />
+          {props.el?.user.picture ? (
+            <UserImage source={{ uri: props.el?.user.picture }} />
+          ) : (
+            <PersonIcon name="person-circle-outline" size={35} />
+          )}
           <UserInfoBox>
             <UserInfo>
-              <ClassNumber></ClassNumber>
               <UserName>{props.el?.user.name}</UserName>
             </UserInfo>
             <Date>{props.el.createdAt.slice(0, 10)}</Date>
@@ -41,11 +42,11 @@ const CommentListUI = (props: any) => {
         <CommentContents>{props.el?.contents}</CommentContents>
         <Icon>
           <DeleteSubmit onPress={props.onPressDelete}>
-            <DeleteIcon name="delete-outline" color={'black'} size={20} />
+            <DeleteIcon name="delete-outline" color="pink" size={20} />
           </DeleteSubmit>
-          <AnswerSubmit onPress={props.onPressAnswer}>
+          {/* <AnswerSubmit onPress={props.onPressAnswer}>
             <AnswerIcon name="comments-o" color={'black'} size={20} />
-          </AnswerSubmit>
+          </AnswerSubmit> */}
         </Icon>
       </Wrapper>
       <Line />

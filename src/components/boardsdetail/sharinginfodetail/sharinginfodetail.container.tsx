@@ -8,7 +8,11 @@ import BoardDetailContainer from '../boarddetail.container';
 //   FETCH_USER_LOGGED_IN,
 // } from '../boarddetail.query';
 
-const SharingInfoDetailContainer = ({ route }: any) => {
+const SharingInfoDetailContainer = ({
+  route,
+  setOpenReply,
+  openReply,
+}: any) => {
   // const [toggleUseditemPick] = useMutation(TOGGLE_USED_ITEM_PICK);
 
   // const [deleteOpen, setDeleteOpen] = useState(false);
@@ -47,7 +51,11 @@ const SharingInfoDetailContainer = ({ route }: any) => {
   // };
 
   return (
-    <BoardDetailContainer route={route} />
+    <BoardDetailContainer
+      route={route}
+      setOpenReply={setOpenReply}
+      openReply={openReply}
+    />
     // <SharingInfodDetailUI
     //   data={data}
     //   data1={data1}

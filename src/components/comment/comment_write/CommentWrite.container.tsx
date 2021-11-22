@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
-import CommentWriteUI from './CommentWrite.present';
+import CommentWriteUI from './CommentWrite.presenter';
 import { useMutation, useQuery } from '@apollo/client';
 import { Alert } from 'react-native';
 import {
   CREATE_USED_ITEM_QUESTION,
   FETCH_USED_ITEM_QUESTIONS,
+  FETCH_USER_LOGGEDIN,
 } from './CommentWrite.query';
 
 const CommentWrite = (props: any) => {
+  const { data: loginData } = useQuery(FETCH_USER_LOGGEDIN);
   const [contents, setContents] = useState('');
 
   const [createUseditemQuestion] = useMutation(CREATE_USED_ITEM_QUESTION);
 
-  const onCommtentSubmit = async (route: any) => {
+  const onCommentSubmit = async ({ route }: any) => {
     const result = await createUseditemQuestion({
       variables: {
         createUseditemQuestionInput: {
@@ -36,9 +38,10 @@ const CommentWrite = (props: any) => {
   return (
     <CommentWriteUI
       setContents={setContents}
-      onCommtentSubmit={onCommtentSubmit}
+      onCommentSubmit={onCommentSubmit}
       usedItemdata={props.usedItemdata}
       contents={contents}
+      loginData={loginData}
     />
   );
 };

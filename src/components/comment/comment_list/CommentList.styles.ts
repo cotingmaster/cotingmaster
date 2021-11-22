@@ -1,4 +1,5 @@
 import styled from '@emotion/native';
+import IIcon from 'react-native-vector-icons/Ionicons';
 
 export const UserBox = styled.View`
   display: flex;
@@ -36,7 +37,10 @@ export const CommentContents = styled.Text`
   margin-left: 10px;
   font-weight: bold;
   color: black;
-  width: 220px;
+  width: 270px;
+  text-align-vertical: center;
+  padding-top: 2px;
+  padding-bottom: 2px;
 `;
 
 export const Container = styled.View`
@@ -50,22 +54,24 @@ export const Wrapper = styled.View`
   display: flex;
   /* align-items: center; */
   flex-direction: row;
-  margin: 10px;
   background-color: white;
 `;
 
 export const Line = styled.View`
   width: 375px;
   border-bottom-width: 0.5px;
-  border-bottom-color: gray;
+  border-bottom-color: pink;
 `;
 
 export const Icon = styled.View`
-  display: flex;
-  flex-direction: column;
-  margin-left: 5px;
+  /* display: flex;
+  flex-direction: column; */
 `;
 
 export const DeleteSubmit = styled.TouchableOpacity``;
 
 export const AnswerSubmit = styled.TouchableOpacity``;
+
+export const PersonIcon = styled(IIcon)`
+  color: gray;
+`;

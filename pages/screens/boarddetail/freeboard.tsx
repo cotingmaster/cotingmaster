@@ -12,6 +12,7 @@ const FETCH_USED_ITEM_QUESTIONS = gql`
       _id
       user {
         name
+        picture
       }
       contents
       createdAt
@@ -40,6 +41,7 @@ const FETCH_USEDITEM = gql`
 `;
 const FreeBoardDetailScreen = ({ route }: any) => {
   const [QId, setQId] = useState('');
+  const [openReply, setOpenReply] = useState(false);
 
   const { data } = useQuery(FETCH_USED_ITEM_QUESTIONS, {
     variables: { useditemId: String(route.params.id) },
@@ -53,8 +55,14 @@ const FreeBoardDetailScreen = ({ route }: any) => {
 
   return (
     <ScrollView>
-      <FreeBoardDetailContainer route={route} />
-      <CommentWrite usedItemdata={usedItemdata} setQId={setQId} />
+      <FreeBoardDetailContainer
+        route={route}
+        openReply={openReply}
+        setOpenReply={setOpenReply}
+      />
+      {openReply && (
+        <CommentWrite usedItemdata={usedItemdata} setQId={setQId} />
+      )}
       {data?.fetchUseditemQuestions.map(el => (
         <CommentList
           QId={QId}

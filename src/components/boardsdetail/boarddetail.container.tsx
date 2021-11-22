@@ -7,7 +7,7 @@ import {
   FETCH_USER_LOGGED_IN,
 } from './boarddetail.query';
 
-const BoardDetailContainer = ({ route }: any) => {
+const BoardDetailContainer = ({ route, setOpenReply, openReply }: any) => {
   const [toggleUseditemPick] = useMutation(TOGGLE_USED_ITEM_PICK);
   const [deleteOpen, setDeleteOpen] = useState(false);
   const [updateOpen, setUpdateOpen] = useState(false);
@@ -39,21 +39,18 @@ const BoardDetailContainer = ({ route }: any) => {
     setDeleteOpen((prev: any) => !prev);
   };
 
-  const onPressUpdate = () => {
-    setUpdateOpen((prev: any) => !prev);
-  };
-
   return (
     <BoardDetailUI
       data={data}
       data1={data1}
       onPressLike={onPressLike}
       onPressDelete={onPressDelete}
-      onPressUpdate={onPressUpdate}
       deleteOpen={deleteOpen}
       setDeleteOpen={setDeleteOpen}
       updateOpen={updateOpen}
       setUpdateOpen={setUpdateOpen}
+      setOpenReply={setOpenReply}
+      openReply={openReply}
     />
   );
 };
