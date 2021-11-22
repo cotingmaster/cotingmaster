@@ -59,7 +59,7 @@ const SearchUI = (props: any) => {
                   {el.seller.picture ? (
                     <S.Profile source={{ uri: el.seller.picture }} />
                   ) : (
-                    <S.PersonIcon name="person-circle-outline" size={20} />
+                    <S.PersonIcon name="person-circle-outline" size={30} />
                   )}
                   <S.NickName2>{el.seller.name}기</S.NickName2>
                   <S.Date>{el.createdAt.slice(0, 10)}</S.Date>

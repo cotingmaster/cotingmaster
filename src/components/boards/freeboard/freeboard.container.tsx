@@ -30,12 +30,7 @@ export const FreeBoardContainer = () => {
   };
 
   const onPressWrite = () => {
-    try {
-      navigation.navigate('잡담게시판등록');
-      Alert.alert('이동성공');
-    } catch (e: any) {
-      Alert.alert(e.message);
-    }
+    navigation.navigate('잡담게시판등록');
   };
 
   return (
