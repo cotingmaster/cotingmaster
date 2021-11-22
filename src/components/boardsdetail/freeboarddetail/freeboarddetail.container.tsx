@@ -8,7 +8,7 @@ import BoardDetailContainer from '../boarddetail.container';
 //   FETCH_USER_LOGGED_IN,
 // } from '../boarddetail.query';
 
-const FreeBoardDetailContainer = ({ route }: any) => {
+const FreeBoardDetailContainer = ({ route, setOpenReply, openReply }: any) => {
   // const [toggleUseditemPick] = useMutation(TOGGLE_USED_ITEM_PICK);
 
   // const [deleteOpen, setDeleteOpen] = useState(false);
@@ -47,7 +47,11 @@ const FreeBoardDetailContainer = ({ route }: any) => {
   // };
 
   return (
-    <BoardDetailContainer route={route} />
+    <BoardDetailContainer
+      route={route}
+      setOpenReply={setOpenReply}
+      openReply={openReply}
+    />
 
     // <FreeBoardDetailUI
     //   data={data}

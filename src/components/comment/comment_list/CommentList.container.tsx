@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import CommentListUI from './CommentList.present';
+import CommentListUI from './CommentList.presenter';
 import {
   FETCH_USEDITEM_QUESTIONS,
   DELETE_USED_ITEM_QUESTION,
@@ -9,8 +9,6 @@ import { useQuery, useMutation } from '@apollo/client';
 import { Alert } from 'react-native';
 
 const CommentList = (props: any) => {
-  // console.log('zzzzzz', props.usedItemdata.fetchUseditem._id);
-
   // const [isAnswer, setIsAnswer] = useState(false);
 
   const [deleteUseditemQuestion] = useMutation(DELETE_USED_ITEM_QUESTION);
@@ -25,7 +23,6 @@ const CommentList = (props: any) => {
       useditemId: props.usedItemdata?.fetchUseditem._id,
     },
   });
-  // console.log('b', data);
 
   const onLoadMore = () => {
     if (!data) return;
@@ -54,7 +51,7 @@ const CommentList = (props: any) => {
         },
       });
       refetch({ page: 1, useditemId: props.usedItemdata?.fetchUseditem._id });
-      Alert.alert('성공했습니다');
+      Alert.alert('댓글이 삭제되었습니다');
     } catch (error) {
       Alert.alert(error.message);
     }
@@ -70,6 +67,7 @@ const CommentList = (props: any) => {
       onLoadMore={onLoadMore}
       contents={props.contents}
       onPressDelete={onPressDelete}
+      data={props.el.user}
       // answersData={answersData}
       // onPressAnswer={onPressAnswer}
     />

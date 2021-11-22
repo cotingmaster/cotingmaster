@@ -1,3 +1,4 @@
+import MIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import styled from '@emotion/native';
 import IIcon from 'react-native-vector-icons/Ionicons';
 
@@ -8,6 +9,7 @@ export const S = {
   Wrapper: styled.View`
     height: 100%;
     background-color: white;
+    margin-bottom: 10px;
   `,
   TopImage: styled.Image`
     width: 100%;
@@ -28,10 +30,12 @@ export const S = {
     display: flex;
     flex-direction: row;
   `,
-  TopRight: styled.View`
+  TitleLine: styled.View`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 10px;
   `,
   ProfileImage: styled.Image`
     width: 50px;
@@ -70,18 +74,23 @@ export const S = {
   Title: styled.Text`
     font-size: 30px;
     color: black;
-    margin-bottom: 10px;
     font-family: 'CuteFont-Regular';
   `,
   Contents: styled.Text`
     font-size: 20px;
     font-family: 'CuteFont-Regular';
+    padding-top: 10px;
+    padding-bottom: 10px;
+  `,
+  IconWrapper: styled.View`
+    position: absolute;
+    right: 10px;
   `,
   IoniconsView: styled.View`
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-right: 10px;
+    position: relative;
   `,
   Ionicons: styled(IIcon)``,
   UpdateView: styled.TouchableOpacity``,
@@ -90,8 +99,24 @@ export const S = {
   `,
   ModalView: styled.View`
     z-index: 1;
+    position: absolute;
+    bottom: 0px;
+    right: 80px;
+    align-items: center;
   `,
+
   PersonIcon: styled(IIcon)`
     color: gray;
+  `,
+
+  ReplyOpen: styled.TouchableOpacity`
+    margin-top: 5px;
+    position: absolute;
+    right: 10px;
+    bottom: 0px;
+  `,
+  ReplyIcon: styled(MIcon)`
+    color: pink;
+    align-items: flex-end;
   `,
 };

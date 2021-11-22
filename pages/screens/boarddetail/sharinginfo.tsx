@@ -13,6 +13,7 @@ const FETCH_USED_ITEM_QUESTIONS = gql`
       _id
       user {
         name
+        picture
       }
       contents
       createdAt
@@ -41,7 +42,7 @@ const FETCH_USEDITEM = gql`
 `;
 const SharingInfoDetailScreen = ({ route }: any) => {
   const [QId, setQId] = useState('');
-
+  const [openReply, setOpenReply] = useState(false);
   const { data } = useQuery(FETCH_USED_ITEM_QUESTIONS, {
     variables: { useditemId: String(route.params.id) },
   });
@@ -54,8 +55,14 @@ const SharingInfoDetailScreen = ({ route }: any) => {
 
   return (
     <ScrollView>
-      <SharingInfoDetailContainer route={route} />
-      <CommentWrite usedItemdata={usedItemdata} setQId={setQId} />
+      <SharingInfoDetailContainer
+        route={route}
+        openReply={openReply}
+        setOpenReply={setOpenReply}
+      />
+      {openReply && (
+        <CommentWrite usedItemdata={usedItemdata} setQId={setQId} />
+      )}
       {data?.fetchUseditemQuestions.map(el => (
         <CommentList
           QId={QId}
