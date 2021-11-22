@@ -1,7 +1,9 @@
 import styled from '@emotion/native';
 
 export const Wrapper = styled.View`
+  margin-top: 10px;
   padding: 5px;
+  background-color: white;
 `;
 
 export const UserBox = styled.View`
