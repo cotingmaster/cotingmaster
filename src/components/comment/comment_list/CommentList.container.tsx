@@ -9,8 +9,6 @@ import { useQuery, useMutation } from '@apollo/client';
 import { Alert } from 'react-native';
 
 const CommentList = (props: any) => {
-  console.log('zzz', props);
-
   // const [isAnswer, setIsAnswer] = useState(false);
 
   const [deleteUseditemQuestion] = useMutation(DELETE_USED_ITEM_QUESTION);
@@ -25,7 +23,6 @@ const CommentList = (props: any) => {
       useditemId: props.usedItemdata?.fetchUseditem._id,
     },
   });
-  // console.log('b', data);
 
   const onLoadMore = () => {
     if (!data) return;
