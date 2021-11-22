@@ -1,148 +1,122 @@
 import styled from '@emotion/native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import EIcon from 'react-native-vector-icons/EvilIcons';
+import IIcon from 'react-native-vector-icons/Ionicons';
+import FIcon from 'react-native-vector-icons/FontAwesome';
+
+export const ScrollView = styled.ScrollView``;
 
 export const Wrapper = styled.View`
   display: flex;
-  /* justify-content: center; */
   align-items: center;
-  width: 100%;
-  height: 100%;
-  background-color: white;
+  background-color: #e4e4e4;
 `;
 
-// export const Button1 = styled.Button``;
+export const ProfileWrapper = styled.View`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  align-items: center;
+  /* background-color: #242424; */
+  background-color: black;
+  z-index: 1;
+`;
+
+export const ProfileUpdate = styled.TouchableOpacity`
+  margin-left: 30px;
+  position: relative;
+  /* background-color: #242424; */
+  background-color: black;
+`;
 
 export const ProfileDefault = styled.Image`
-  width: 71px;
-  height: 66px;
-  margin-bottom: 15px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+`;
+
+export const PersonIcon = styled(IIcon)`
+  color: gray;
 `;
 
 export const NickNameView = styled.View`
   display: flex;
   flex-direction: row;
-  margin-bottom: 20px;
-  /* border: solid 1px black; */
-  margin-left: 80px;
+  align-items: center;
+  margin-left: 30px;
+`;
+
+export const LogoutIcon = styled(Icon)`
+  color: #ffd600;
+`;
+
+export const EditIcon = styled(FIcon)`
+  position: absolute;
+  color: #ffd600;
+  bottom: 10px;
+  right: -8px;
 `;
 
 export const NickName = styled.Text`
-  text-align: center;
-  font-size: 15px;
-  font-weight: bold;
-  /* border: solid 1px black; */
-  color: black;
-  width: 140px;
+  font-size: 20px;
+  color: #ffd600;
 `;
 
-export const Logout = styled.TouchableOpacity`
-  width: 74px;
-  height: 22px;
-  background-color: #ffd600;
+export const LogOutView = styled.TouchableOpacity`
+  margin-left: 20px;
+`;
+
+export const CurvedLine = styled.View`
+  height: 40px;
+  width: 100%;
+  /* background-color: #242424; */
+  background-color: black;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  position: relative;
+  margin-bottom: 15px;
+`;
+
+export const ButtonView = styled.View`
   display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+`;
+
+export const MyBoards = styled.TouchableOpacity`
+  display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  border-radius: 5px;
+  margin-right: 10px;
 `;
 
-export const LogoutText = styled.Text`
-  font-size: 12px;
-  color: black;
+export const MyIcon = styled(EIcon)`
+  color: #ffd600;
 `;
 
-export const ProfileUpdateView = styled.TouchableOpacity`
-  width: 308px;
-  height: 31px;
-  background-color: #ffd600;
-  /* border: solid 1px gray; */
-  border-radius: 5px;
+export const HeartIcon = styled(IIcon)`
+  color: pink;
+`;
+
+export const MyText = styled.Text`
+  color: #ffd600;
+  font-size: 17px;
+  margin-left: 3px;
+`;
+
+export const MyText2 = styled.Text`
+  color: pink;
+  font-size: 17px;
+  margin-left: 3px;
+`;
+
+export const BoardWrapper = styled.View`
+  width: 100%;
+  padding: 10px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin-bottom: 25px;
-`;
-
-export const ProfileUpdateText = styled.Text`
-  font-size: 13px;
-  /* font-weight: bold; */
-  color: black;
-`;
-
-export const Line = styled.View`
-  width: 350px;
-  border-bottom-width: 1px;
-  border-bottom-color: gray;
-  margin-bottom: 30px;
-`;
-
-export const MyLikeView = styled.View`
-  width: 350px;
-  height: 30px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  border-bottom-width: 1px;
-  border-bottom-color: gray;
-  margin-bottom: 20px;
-
-  /* border: solid 1px black; */
-`;
-
-export const MyLikeImage = styled.Image`
-  width: 23px;
-  height: 23px;
-  margin-right: 15px;
-  margin-left: 7px;
-`;
-
-export const MyLikeTitle = styled.Text`
-  font-size: 15px;
-  color: black;
-  font-weight: bold;
-`;
-
-export const MyBoardsView = styled.View`
-  width: 350px;
-  height: 40px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  border-bottom-width: 1px;
-  border-bottom-color: gray;
-  /* border: solid 1px black; */
-  margin-bottom: 20px;
-`;
-
-export const MyBoardsImage = styled.Image`
-  width: 38px;
-  height: 34px;
-  margin-right: 15px;
-`;
-
-export const MyBoardsTitle = styled.Text`
-  font-size: 15px;
-  color: black;
-  font-weight: bold;
-`;
-
-export const MyMoneyView = styled.View`
-  width: 350px;
-  height: 40px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  border-bottom-width: 1px;
-  border-bottom-color: gray;
-  /* border: solid 1px black; */
-`;
-
-export const MyMoneyImage = styled.Image`
-  width: 45px;
-  height: 45px;
-  margin-right: 15px;
-`;
-
-export const MyMoneyTitle = styled.Text`
-  font-size: 15px;
-  color: black;
-  font-weight: bold;
 `;

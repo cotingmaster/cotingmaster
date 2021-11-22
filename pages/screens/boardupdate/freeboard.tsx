@@ -1,8 +1,8 @@
 import React from 'react';
-import FreeBoardUpdateContainer from '../../../src/components/boardsupdate/freeboardupdate/freeboardupdate.container';
+import FreeBoardWriteContainer from '../../../src/components/boardswrite/FreeboardWrite/FreeboardWrite.container';
 
-const FreeBoardUpdateScreen = () => {
-  return <FreeBoardUpdateContainer />;
+const FreeBoardUpdateScreen = ({ route }: any) => {
+  return <FreeBoardWriteContainer route={route} isEdit={true} />;
 };
 
 export default FreeBoardUpdateScreen;

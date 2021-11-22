@@ -1,8 +1,14 @@
 import React from 'react';
-import MeetingWriteUI from './MeetingWrite.present';
+import WriteContainer from '../commonWrite/Write.container';
 
-const MeetingWriteContainer = () => {
-  return <MeetingWriteUI />;
+const MeetingWriteContainer = (props: any) => {
+  return (
+    <WriteContainer
+      board={'Meeting'}
+      isEdit={props.isEdit}
+      route={props.route}
+    />
+  );
 };
 
 export default MeetingWriteContainer;

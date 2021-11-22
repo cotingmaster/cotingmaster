@@ -1,47 +1,91 @@
 import React from 'react';
 import {
+  ScrollView,
   Wrapper,
-  Button1,
-  UserInfoBox,
-  UserInfo,
-  UserImage,
-  UserNickname,
-  ClassNumberDate,
-  UserClassNumber,
-  RegistrationDate,
+  TopImage,
+  MainView,
+  TopView,
+  TopLeft,
+  ProfileImage,
+  NameView,
+  Name,
+  Date,
+  TopRight,
+  LikeView,
+  LikeButton,
+  Like,
+  LikeSu,
+  IoniconsView,
+  UpdateView,
+  DeleteView,
+  Title,
   Contents,
-  Line,
-  ContentsImage,
+  ModalView,
 } from './freeboarddetail.styles';
 import { useNavigation } from '@react-navigation/native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import DeleteModal from '../../../commons/deleteModal/deleteModal.container';
+import UpdateModalPage from '../../../commons/updateModal/updateModal.container';
 
-const FreeBoardDetailUI = () => {
+const FreeBoardDetailUI = (props: any) => {
   const navigation = useNavigation();
   return (
-    <Wrapper>
-      {/* <MainText>여기는 커뮤니티디테일페이지입니다</MainText> */}
-      <UserInfoBox>
-        <UserImage></UserImage>
-        <UserInfo>
-          <UserNickname>닉네임</UserNickname>
-          <ClassNumberDate>
-            <UserClassNumber>3기</UserClassNumber>
-            <RegistrationDate>2021.11.11</RegistrationDate>
-          </ClassNumberDate>
-        </UserInfo>
-      </UserInfoBox>
-      <Line />
-      <Contents></Contents>
-      <ContentsImage></ContentsImage>
-    </Wrapper>
+    <>
+      <ScrollView>
+        <Wrapper>
+          <TopImage></TopImage>
+          <MainView>
+            <TopView>
+              <TopLeft>
+                <ProfileImage
+                  source={require('../../../../public/images/defaultprofile2.png')}
+                />
+                <NameView>
+                  <Name>{props.data?.fetchUseditem.seller.name}</Name>
+                  <Date>
+                    {props.data?.fetchUseditem.createdAt.slice(0, 10)}
+                  </Date>
+                </NameView>
+              </TopLeft>
+              <ModalView>
+                {props.deleteOpen && (
+                  <DeleteModal
+                    deleteOpen={props.deleteOpen}
+                    setDeleteOpen={props.setDeleteOpen}
+                    data={props.data}
+                  />
+                )}
+              </ModalView>
+              <ModalView>
+                {props.updateOpen && <UpdateModalPage data={props.data} />}
+              </ModalView>
+              <TopRight>
+                <LikeView>
+                  <LikeButton onPress={props.onPressLike}>
+                    <Like>♥</Like>
+                  </LikeButton>
+                  <LikeSu>{props.data?.fetchUseditem.pickedCount}</LikeSu>
+                </LikeView>
+                {props.data?.fetchUseditem.seller.email ===
+                  props.data1?.fetchUserLoggedIn.email && (
+                  <IoniconsView>
+                    <UpdateView onPress={props.onPressUpdate}>
+                      <Ionicons name="create" color={'pink'} size={30} />
+                    </UpdateView>
+                    <DeleteView onPress={props.onPressDelete}>
+                      <Ionicons name="trash" color={'pink'} size={28} />
+                    </DeleteView>
+                  </IoniconsView>
+                )}
+              </TopRight>
+            </TopView>
+            <Title>{props.data?.fetchUseditem.name}</Title>
+            <Contents>{props.data?.fetchUseditem.contents}</Contents>
+          </MainView>
+        </Wrapper>
+      </ScrollView>
+    </>
   );
 };
 
 export default FreeBoardDetailUI;
-
-{
-  /* <Button1
-        title="커뮤니티수정페이지가기"
-        onPress={() => navigation.navigate('커뮤니티게시판수정')}
-      /> */
-}

@@ -1,97 +1,102 @@
 import styled from '@emotion/native';
+import EIcon from 'react-native-vector-icons/EvilIcons';
+import IIcon from 'react-native-vector-icons/Ionicons';
 
-export const Wrapper = styled.View`
-  height: 100%;
-  background-color: white;
-`;
+export const S = {
+  BoardContainer: styled.View``,
 
-export const MainView = styled.View`
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-`;
+  PinkLine: styled.View`
+    border: 1px solid pink;
+  `,
 
-export const MainTitle = styled.Text`
-  font-size: 25px;
-  font-weight: bold;
-`;
+  YellowLine: styled.View`
+    border: 1px solid #ffd600;
+  `,
 
-export const BoardTitleView = styled.View`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100px;
-  height: 29px;
-  border: solid 1px black;
-  border-radius: 5px;
-  margin-left: 10px;
-  margin-bottom: 10px;
-`;
+  Box: styled.TouchableOpacity`
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 360px;
+    height: 140px;
+    background-color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    elevation: 4;
+    padding: 10px;
+    margin-bottom: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+  `,
 
-export const BoardTitle = styled.Text`
-  font-size: 20px;
-  color: black;
-  font-weight: bold;
-`;
+  BoardTitle: styled(IIcon)`
+    position: absolute;
+    top: -4px;
+    left: 10px;
+    width: 25px;
+    height: 50px;
+    z-index: 4;
+    text-align: center;
+    color: #ffd600;
+    padding: 2px;
+    /* background-color: black; */
+    text-align-vertical: center;
+  `,
 
-export const Contents = styled.Text`
-  font-size: 15px;
-  margin-left: 13px;
-  color: black;
-  margin-bottom: 10px;
-`;
+  BoardPhoto: styled.Image`
+    width: 60px;
+    height: 60px;
+    margin-left: 5px;
+    margin-right: 10px;
+  `,
 
-export const BottomView = styled.View`
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 5px;
-`;
+  DefaultImage: styled(EIcon)`
+    color: #e4e4e4;
+  `,
 
-export const CommentView = styled.View`
-  margin-left: 13px;
-  margin-right: 15px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-`;
+  ContentsWrapper: styled.View`
+    display: flex;
+  `,
 
-export const CommentImage = styled.Image`
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
-`;
+  Title: styled.Text`
+    font-size: 30px;
+    color: black;
+    margin-bottom: 5px;
+    font-family: 'CuteFont-Regular';
+  `,
 
-export const CommentCount = styled.Text`
-  font-size: 18px;
-  color: black;
-`;
+  Contents: styled.Text`
+    width: 270px;
+    color: black;
+    margin-bottom: 10px;
+    font-family: 'CuteFont-Regular';
+    font-size: 20px;
+  `,
 
-export const LikeView = styled.View`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-`;
+  BottomView: styled.View`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  `,
 
-export const LikeImage = styled.Image`
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
-`;
+  Date: styled.Text`
+    color: black;
+    margin-right: 10px;
+  `,
 
-export const LikeCount = styled.Text`
-  font-size: 18px;
-  color: black;
-`;
+  NickName2: styled.Text`
+    color: black;
+    margin-right: 10px;
+  `,
+  Profile: styled.Image`
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    margin-right: 10px;
+  `,
 
-export const Line = styled.View`
-  width: 100%;
-  height: 12px;
-  background-color: #e5e5e5;
-  margin-bottom: 15px;
-`;
-
-export const Text1 = styled.Text`
-  font-size: 25px;
-  font-weight: bold;
-  border: solid 1px black;
-`;
+  PersonIcon: styled(IIcon)`
+    color: gray;
+  `,
+};

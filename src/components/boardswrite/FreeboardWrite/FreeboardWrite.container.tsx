@@ -1,22 +1,12 @@
 import React from 'react';
-import { useState } from 'react';
-import FreeBoardWriteUI from './FreeboardWrite.present';
-import firestore from '@react-native-firebase/firestore';
+import WriteContainer from '../commonWrite/Write.container';
 
-const FreeBoardWriteContainer = () => {
-  const [contents, setCountents] = useState('');
-
-  const onClickFreeBoardSubmit = () => {
-    firestore().collection('FreeBoard').add({
-      contents,
-      createdAt: Date.now(),
-    });
-  };
-
+const FreeBoardWriteContainer = (props: any) => {
   return (
-    <FreeBoardWriteUI
-      onClickFreeBoardSubmit={onClickFreeBoardSubmit}
-      setCountents={setCountents}
+    <WriteContainer
+      board={'Freeboard'}
+      isEdit={props.isEdit}
+      route={props.route}
     />
   );
 };
