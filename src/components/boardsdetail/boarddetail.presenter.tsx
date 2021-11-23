@@ -2,6 +2,7 @@ import React from 'react';
 import { S } from './boarddetail.styles';
 import { useNavigation } from '@react-navigation/native';
 import DeleteModalPage from '../../commons/deleteModal/deleteModal.container';
+import ImagesCarousel from '../../commons/carousel';
 
 const BoardDetailUI = (props: any) => {
   const navigation = useNavigation();
@@ -46,7 +47,9 @@ const BoardDetailUI = (props: any) => {
             </S.LikeView>
           </S.TopView>
 
-          <S.TopImage source={{ uri: props.data?.fetchUseditem.images[0] }} />
+          {/* <S.TopImage source={{ uri: props.data?.fetchUseditem.images[0] }} /> */}
+          <ImagesCarousel data={props.data?.fetchUseditem.images} />
+
           <S.MainView>
             <S.TitleLine>
               <S.Title>{props.data?.fetchUseditem.name}</S.Title>
