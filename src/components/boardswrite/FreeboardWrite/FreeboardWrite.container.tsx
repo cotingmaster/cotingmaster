@@ -7,6 +7,7 @@ const FreeBoardWriteContainer = (props: any) => {
       board={'Freeboard'}
       isEdit={props.isEdit}
       route={props.route}
+      data={props.data}
     />
   );
 };
