@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import WriteUI from './Write.present';
 import { useMutation } from '@apollo/client';
 import { CREATE_USEDITEM, UPDATE_USEDITEM } from './Write.query';
@@ -47,20 +47,32 @@ const WriteContainer = (props: any) => {
     }
   };
 
+  useEffect(() => {
+    if (props?.isEdit && props?.data?.fetchUseditem) {
+      setName(props?.data?.fetchUseditem?.name);
+      setRemarks(props?.data?.fetchUseditem?.remarks);
+      setContents(props?.data?.fetchUseditem?.contents);
+      setImages(props?.data?.fetchUseditem?.images);
+    }
+  }, [props?.isEdit, props?.data?.fetchUseditem]);
+
   const onUpdateSubmit = async () => {
     if (!name || !remarks || !contents) {
       return Alert.alert('제목, 게시판, 내용을 입력해주세요');
     }
-    console.log('수정' + props.route);
+
+    const myUpdateInput = {};
+    if (name) myUpdateInput.name = name;
+    if (contents) myUpdateInput.contents = contents;
+    if (images) myUpdateInput.images = images;
+    myUpdateInput.remarks = props.data?.fetchUseditem.remarks;
+    myUpdateInput.price = Number(11);
+
     try {
       const result = await updateUseditem({
         variables: {
           useditemId: props.route.params.id,
-          updateUseditemInput: {
-            name: name,
-            remarks: remarks,
-            contents: contents,
-          },
+          updateUseditemInput: myUpdateInput,
         },
       });
       Alert.alert('수정완료');
@@ -90,6 +102,7 @@ const WriteContainer = (props: any) => {
       visible={visible}
       setVisible={setVisible}
       setImages={setImages}
+      data={props.data}
     />
   );
 };

@@ -7,6 +7,7 @@ const MeetingWriteContainer = (props: any) => {
       board={'Meeting'}
       isEdit={props.isEdit}
       route={props.route}
+      data={props.data}
     />
   );
 };

@@ -47,9 +47,14 @@ const WriteUI = (props: any) => {
           />
           <PickerText>게시판을 선택할 수 있습니다</PickerText>
         </Line>
-        <Title placeholder="제목을 입력하세요" onChangeText={props.setTitle} />
+        <Title
+          placeholder="제목을 입력하세요"
+          onChangeText={props.setTitle}
+          defaultValue={props.data?.fetchUseditem.name}
+        />
         <Contents
           placeholder="내용을 입력하세요"
+          defaultValue={props.data?.fetchUseditem.contents}
           onChangeText={props.setContents}
           multiline={true}
         />
@@ -60,6 +65,7 @@ const WriteUI = (props: any) => {
           visible={props.visible}
           setVisible={props.setVisible}
           setImages={props.setImages}
+          imgages={props.data?.fetchUseditem.images}
         />
       </PressWrapper>
       {!props.isEdit && (
