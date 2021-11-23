@@ -14,11 +14,11 @@ const MyPageMainContainer = () => {
   const [isBoards, setIsBoards] = useState(true);
   const { data } = useQuery(FETCH_USER_LOGGEDIN);
 
-  const { data: data2 } = useQuery(FETCH_USEDITEM_ISOLD, {
+  const { data: data2, refetch: refetch2 } = useQuery(FETCH_USEDITEM_ISOLD, {
     variables: { page: 1 },
   });
 
-  const { data: data3 } = useQuery(FETCH_USEDITEM_IPICKED, {
+  const { data: data3, refetch: refetch3 } = useQuery(FETCH_USEDITEM_IPICKED, {
     variables: { search: '' },
   });
 
@@ -55,6 +55,8 @@ const MyPageMainContainer = () => {
       data={data}
       data2={data2}
       data3={data3}
+      refetch2={refetch2}
+      refetch3={refetch3}
       onPressLogout={onPressLogout}
       isBoards={isBoards}
       onPressMyBoards={onPressMyBoards}

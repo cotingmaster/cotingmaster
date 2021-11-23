@@ -34,7 +34,7 @@ const CommentListUI = (props: any) => {
           )}
           <UserInfoBox>
             <UserInfo>
-              <UserName>{props.el?.user.name}</UserName>
+              <UserName>{props.el?.user.name}기</UserName>
             </UserInfo>
             <Date>{props.el.createdAt.slice(0, 10)}</Date>
           </UserInfoBox>

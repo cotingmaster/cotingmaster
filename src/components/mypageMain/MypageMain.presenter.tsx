@@ -65,10 +65,18 @@ const MyPageMainUI = (props: any) => {
 
         <BoardWrapper>
           {props.isBoards && (
-            <MyBoardsContainer data2={props.data2} isBoard={props.isBoard} />
+            <MyBoardsContainer
+              data2={props.data2}
+              refetch2={props.refetch2}
+              isBoard={props.isBoard}
+            />
           )}
           {!props.isBoards && (
-            <MyLikeContainer data3={props.data3} isBoard={props.isBoard} />
+            <MyLikeContainer
+              data3={props.data3}
+              refetch3={props.refetch3}
+              isBoard={props.isBoard}
+            />
           )}
         </BoardWrapper>
       </Wrapper>
