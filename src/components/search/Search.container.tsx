@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SearchUI from './Search.presenter';
 import { gql, useQuery } from '@apollo/client';
 
@@ -28,6 +28,10 @@ const SearchContainer = () => {
   function onPressSearch() {
     refetch({ search: mySearch });
   }
+
+  useEffect(() => {
+    refetch({ page: 1 });
+  }, []);
 
   return (
     <SearchUI
