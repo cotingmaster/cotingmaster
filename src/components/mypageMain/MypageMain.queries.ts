@@ -45,11 +45,10 @@ export const FETCH_USEDITEM_IPICKED = gql`
       contents
       remarks
       price
+      images
       seller {
         name
-      }
-      buyer {
-        name
+        picture
       }
       createdAt
     }

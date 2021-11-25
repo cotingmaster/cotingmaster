@@ -7,6 +7,7 @@ const SharingInfoWriteContainer = (props: any) => {
       board={'SharingInfo'}
       isEdit={props.isEdit}
       route={props.route}
+      data={props.data}
     />
   );
 };

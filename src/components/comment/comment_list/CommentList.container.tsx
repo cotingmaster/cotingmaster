@@ -9,8 +9,6 @@ import { useQuery, useMutation } from '@apollo/client';
 import { Alert } from 'react-native';
 
 const CommentList = (props: any) => {
-  console.log('zzz', props);
-
   // const [isAnswer, setIsAnswer] = useState(false);
 
   const [deleteUseditemQuestion] = useMutation(DELETE_USED_ITEM_QUESTION);
@@ -18,14 +16,13 @@ const CommentList = (props: any) => {
   // const { data: answersData } = useQuery(FETCH_USEDITEM_QUESTION_ANSWERS, {
   //   variables: { useditemQuestionId: props.el._id },
   // });
-
-  const { data, fetchMore, refetch } = useQuery(FETCH_USEDITEM_QUESTIONS, {
+  console.log('aaa', props.usedItemdata);
+  const { data, fetchMore } = useQuery(FETCH_USEDITEM_QUESTIONS, {
     variables: {
       page: 1,
       useditemId: props.usedItemdata?.fetchUseditem._id,
     },
   });
-  // console.log('b', data);
 
   const onLoadMore = () => {
     if (!data) return;
@@ -52,8 +49,14 @@ const CommentList = (props: any) => {
         variables: {
           useditemQuestionId: props.el._id,
         },
+
+        refetchQueries: [
+          {
+            query: FETCH_USEDITEM_QUESTIONS,
+            variables: { useditemId: props.usedItemdata?.fetchUseditem._id },
+          },
+        ],
       });
-      refetch({ page: 1, useditemId: props.usedItemdata?.fetchUseditem._id });
       Alert.alert('댓글이 삭제되었습니다');
     } catch (error) {
       Alert.alert(error.message);

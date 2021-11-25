@@ -24,7 +24,10 @@ export default function UploadPhotos(props) {
   });
 
   const onPickImage = res => {
-    if (res.didCancel || !res) return;
+    if (res.didCancel) return;
+    if (!res && props.images) {
+      props.setImages(props.images);
+    }
     setResponse(res);
     const urls = res?.assets.map(el => el.uri);
     props.setImages(urls);
@@ -50,9 +53,15 @@ export default function UploadPhotos(props) {
 
         <S.Pressable onPress={onPickImage}>
           <S.ImageWrapper>
-            {response?.assets.map(el => (
-              <S.Image key={el.fileName} source={{ uri: el.uri }} />
-            ))}
+            {response &&
+              response?.assets.map(el => (
+                <S.Image key={el.fileName} source={{ uri: el.uri }} />
+              ))}
+            {!response &&
+              props.images &&
+              props.images?.map(el => (
+                <S.Image key={el.fileName} source={{ uri: el.uri }} />
+              ))}
           </S.ImageWrapper>
         </S.Pressable>
       </S.Container>

@@ -6,7 +6,7 @@ import Carousel from 'react-native-snap-carousel'; // Version can be specified i
 import { scrollInterpolator, animatedStyles } from './animations';
 
 const SLIDER_WIDTH = Dimensions.get('window').width;
-const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.8);
+const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.93);
 const ITEM_HEIGHT = Math.round((ITEM_WIDTH * 3) / 4);
 
 const DATA = [];
@@ -28,7 +28,7 @@ export default class ImagesCarousel extends Component {
     return (
       <View style={styles.itemContainer}>
         <Image style={styles.imageStyle} source={{ uri: item }} />
-        <Text style={styles.itemLabel}>{`Item ${item}`}</Text>
+        {/* <Text style={styles.itemLabel}>{`Item ${item}`}</Text> */}
       </View>
     );
   }
@@ -49,7 +49,7 @@ export default class ImagesCarousel extends Component {
           slideInterpolatedStyle={animatedStyles}
           useScrollView={true}
         />
-        <Text style={styles.counter}>{this.state.index}</Text>
+        {/* <Text style={styles.counter}>{this.state.index}</Text> */}
       </View>
     );
   }
@@ -57,25 +57,26 @@ export default class ImagesCarousel extends Component {
 
 const styles = StyleSheet.create({
   carouselContainer: {
-    marginTop: 50,
+    marginTop: 5,
+    // padding: 10,
   },
   itemContainer: {
     width: ITEM_WIDTH,
     height: ITEM_HEIGHT,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'dodgerblue',
+    backgroundColor: 'pink',
   },
   itemLabel: {
     color: 'white',
     fontSize: 24,
   },
-  counter: {
-    marginTop: 25,
-    fontSize: 30,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
+  // counter: {
+  //   marginTop: 25,
+  //   fontSize: 30,
+  //   fontWeight: 'bold',
+  //   textAlign: 'center',
+  // },
   imageStyle: {
     width: ITEM_WIDTH,
     height: ITEM_HEIGHT,

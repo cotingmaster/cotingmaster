@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { S } from './Myboards.styles';
 
-const MyBoardsContainer = ({ data2, isboard }: any) => {
+const MyBoardsContainer = ({ data2, refetch2, isboard }: any) => {
   const navigation = useNavigation();
   const onPressMoveToDetail = (el: any) => {
     const boardDetail =
@@ -15,6 +15,10 @@ const MyBoardsContainer = ({ data2, isboard }: any) => {
       id: el._id,
     });
   };
+
+  useEffect(() => {
+    refetch2({ page: 1 });
+  }, []);
 
   return (
     <>
