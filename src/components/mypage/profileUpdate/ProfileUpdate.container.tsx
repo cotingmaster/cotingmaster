@@ -1,11 +1,7 @@
 import { useMutation, useQuery } from '@apollo/client';
 import React, { useState } from 'react';
 import { Alert } from 'react-native';
-import {
-  FETCH_USER_LOGGEDIN,
-  UPDATE_USER,
-  UPLOAD_FILE,
-} from './ProfileUpdate.queries';
+import { FETCH_USER_LOGGEDIN, UPDATE_USER } from './ProfileUpdate.queries';
 import ProfilUpdateUI from './ProfileUpdate.presenter';
 import { useNavigation } from '@react-navigation/native';
 
@@ -33,7 +29,7 @@ const ProfileUpdateContainer = () => {
           },
         },
       });
-      Alert.alert('업로드 성공', data?.fetchUserLoggedIn.picture);
+      Alert.alert('업로드 성공');
       navigation.navigate('메인');
     } catch (e: any) {
       Alert.alert(e.message);
