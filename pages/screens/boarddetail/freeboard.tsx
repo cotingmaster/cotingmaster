@@ -47,7 +47,7 @@ const FreeBoardDetailScreen = ({ route }: any) => {
     variables: { useditemId: String(route.params.id) },
   });
 
-  const { data: usedItemdata } = useQuery(FETCH_USEDITEM, {
+  const { data: usedItemdata, refetch } = useQuery(FETCH_USEDITEM, {
     variables: {
       useditemId: String(route.params.id),
     },
@@ -67,6 +67,7 @@ const FreeBoardDetailScreen = ({ route }: any) => {
         <CommentList
           QId={QId}
           usedItemdata={usedItemdata}
+          refetch={refetch}
           key={el._id}
           el={el}
           id={el._id}

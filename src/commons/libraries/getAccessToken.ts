@@ -2,6 +2,7 @@ import { gql } from '@apollo/client';
 import { GraphQLClient } from 'graphql-request';
 import { Dispatch, SetStateAction } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Alert } from 'react-native';
 
 // 토큰 재발급
 const RESTORE_ACCESS_TOKEN = gql`
@@ -16,9 +17,12 @@ export async function getAccessToken(
   setAccessToken: Dispatch<SetStateAction<string>>,
 ) {
   try {
-    const graphQLClient = new GraphQLClient('http://34.64.161.16/team02', {
-      credentials: 'include',
-    });
+    const graphQLClient = new GraphQLClient(
+      'https://backend03-team.codebootcamp.co.kr/team02',
+      {
+        credentials: 'include',
+      },
+    );
 
     const result = await graphQLClient.request(RESTORE_ACCESS_TOKEN);
     const newAccessToken = result.restoreAccessToken.accessToken;
@@ -26,6 +30,6 @@ export async function getAccessToken(
     setAccessToken(newAccessToken);
     return newAccessToken;
   } catch (error) {
-    console.log('refreshToken', error);
+    Alert.alert(error.message);
   }
 }

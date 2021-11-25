@@ -27,15 +27,13 @@ export default function SetupProfile(props) {
   return (
     <S.Container>
       <S.Pressable onPress={onSelectImage}>
-        <S.Image
-          source={
-            response
-              ? { uri: response?.assets[0]?.uri }
-              : props.data?.fetchUserLoggedIn.picture
-              ? { uri: props.data?.fetchUserLoggedIn.picture }
-              : require('../../../public/images/defaultprofile.png')
-          }
-        />
+        {response ? (
+          <S.Image source={{ uri: response?.assets[0]?.uri }} />
+        ) : props.data?.fetchUserLoggedIn.picture ? (
+          <S.Image source={{ uri: props.data?.fetchUserLoggedIn.picture }} />
+        ) : (
+          <S.PersonIcon name="person-circle-outline" size={100} />
+        )}
         <S.Ionicons name="ios-camera" size={30} />
       </S.Pressable>
     </S.Container>

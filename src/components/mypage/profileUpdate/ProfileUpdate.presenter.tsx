@@ -1,4 +1,5 @@
 import React from 'react';
+import { Platform } from 'react-native';
 import SetupProfile from '../../../commons/profilePhoto';
 import {
   Wrapper,
@@ -25,7 +26,7 @@ const ProfilUpdateUI = (props: any) => {
           source={require('../../../../public/images/defaultprofile.png')}
         /> */}
           <SetupProfile setPictureUrl={props.setPictureUrl} data={props.data} />
-          <NickName>{props.data?.fetchUserLoggedIn.name}</NickName>
+          <NickName>{props.data?.fetchUserLoggedIn.name}기</NickName>
           <Message>변경할 닉네임을 입력하세요</Message>
           <UpdateNickName
             onChangeText={props.setNick}

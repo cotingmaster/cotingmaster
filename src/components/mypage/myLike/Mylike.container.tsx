@@ -20,8 +20,6 @@ const MyLikeContainer = ({ data3, refetch3, isBoard }: any) => {
     refetch3({ page: 1 });
   }, []);
 
-  console.log('myLike', data3);
-
   return (
     <>
       {data3?.fetchUseditemsIPicked.map((el: any, index: any) => (

@@ -1,5 +1,5 @@
 import styled from '@emotion/native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import IIcon from 'react-native-vector-icons/Ionicons';
 
 export const S = {
   Container: styled.View`
@@ -21,10 +21,14 @@ export const S = {
     height: 70px;
     border-radius: 35px;
   `,
-  Ionicons: styled(Ionicons)`
+  Ionicons: styled(IIcon)`
     position: absolute;
     right: 12px;
     bottom: 30px;
     color: #777777;
+  `,
+
+  PersonIcon: styled(IIcon)`
+    color: gray;
   `,
 };
